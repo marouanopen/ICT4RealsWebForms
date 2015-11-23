@@ -261,7 +261,6 @@
       <SubType>
       </SubType>
     </Compile>
-
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -283,21 +282,17 @@
     <Compile Include="Database\Service_database\CLdatabase.cs" />
     <Compile Include="Database\Service_database\REdatabase.cs" />
     <Compile Include="Database\Service_database\SEdatabase.cs" />
-    <Compile Include="Default.aspx.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
     <Compile Include="InUitRij.aspx.cs">
       <DependentUpon>InUitRij.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="InUitRij.aspx.designer.cs">
       <DependentUpon>InUitRij.aspx</DependentUpon>
-	</Compile>
-    
+    </Compile>
     <Compile Include="Database\Example_database.cs">
       <SubType>
       </SubType>
     </Compile>
-
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Remise\Parkingsystem.cs" />

@@ -7,8 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ICT4RealsWebForms", "ICT4Re
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ICT4RealsWebForms.Tests", "ICT4RealsWebForms.Tests\ICT4RealsWebForms.Tests.csproj", "{7EF7214E-6055-4020-86C6-4C4EBE842E72}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ICT4Reals", "..\..\ICT4Reals\UserInterface_Mockup_ICT4Reals\ICT4Reals.csproj", "{424D96DE-8FEB-4204-B5B2-5C7E64299078}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,10 +21,6 @@ Global
 		{7EF7214E-6055-4020-86C6-4C4EBE842E72}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7EF7214E-6055-4020-86C6-4C4EBE842E72}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7EF7214E-6055-4020-86C6-4C4EBE842E72}.Release|Any CPU.Build.0 = Release|Any CPU
-		{424D96DE-8FEB-4204-B5B2-5C7E64299078}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{424D96DE-8FEB-4204-B5B2-5C7E64299078}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{424D96DE-8FEB-4204-B5B2-5C7E64299078}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{424D96DE-8FEB-4204-B5B2-5C7E64299078}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
