@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 using UserInterface_Mockup_ICT4Reals.DataBase;
 
 namespace UserInterface_Mockup_ICT4Reals.Remise
@@ -55,12 +54,12 @@ namespace UserInterface_Mockup_ICT4Reals.Remise
             bool blockRail = false;
             if (railDatabase.BlockRail(railNumber, block))
             {
-                MessageBox.Show("Gelukt!");
+                // MessageBox.Show("Gelukt!");
                 blockRail = true;
             }
             else
             {
-                MessageBox.Show("Error!");
+               // MessageBox.Show("Error!");
             }
             return blockRail;
         }

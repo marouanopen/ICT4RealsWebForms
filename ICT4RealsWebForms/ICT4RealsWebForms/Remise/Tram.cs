@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 using UserInterface_Mockup_ICT4Reals.AdminSystem;
 using UserInterface_Mockup_ICT4Reals.DataBase;
 
@@ -51,12 +50,12 @@ namespace UserInterface_Mockup_ICT4Reals.Remise
             {
                 if (tramDatabase.MoveTram(tramId, railId, statusID))
                 {
-                    MessageBox.Show("Succeed!");
+                    // MessageBox.Show("Succeed!");
                     tramMoved = true;
                 }
                 else
                 {
-                    MessageBox.Show("Error!");
+                    // MessageBox.Show("Error!");
                 }
             }
             return tramMoved;
@@ -74,12 +73,12 @@ namespace UserInterface_Mockup_ICT4Reals.Remise
             bool tramAdded = false;
             if (tramDatabase.AddTram(tramId, spoorId, typeId, aanwezigOpSpoor))
             {
-                MessageBox.Show("Succeed!");
+                // MessageBox.Show("Succeed!");
                 tramAdded = true;
             }
             else
             {
-                MessageBox.Show("Error!");
+                // MessageBox.Show("Error!");
             }
             return tramAdded;
         }
@@ -95,12 +94,12 @@ namespace UserInterface_Mockup_ICT4Reals.Remise
             bool tramDeleted = false;
             if (tramDatabase.DeleteTram(tramId))
             {
-                MessageBox.Show("Succeed!");
+                // MessageBox.Show("Succeed!");
                 tramDeleted = true;
             }
             else
             {
-                MessageBox.Show("Error!");
+                // MessageBox.Show("Error!");
             }
             return tramDeleted;
         }
@@ -116,12 +115,12 @@ namespace UserInterface_Mockup_ICT4Reals.Remise
             bool statusUpdated = false;
             if (tramDatabase.UpdateTramStatus(tramID, statusID))
             {
-                MessageBox.Show("Succeed!");
+                // MessageBox.Show("Succeed!");
                 statusUpdated = true;
             }
             else
             {
-                MessageBox.Show("Error!");
+                // MessageBox.Show("Error!");
             }
             return statusUpdated;
         }

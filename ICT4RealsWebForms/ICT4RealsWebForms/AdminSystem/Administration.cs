@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 using UserInterface_Mockup_ICT4Reals.DataBase;
 using UserInterface_Mockup_ICT4Reals.Service;
 using UserInterface_Mockup_ICT4Reals.Remise;
-using System.Windows.Forms;
 
 namespace UserInterface_Mockup_ICT4Reals.AdminSystem
 {
@@ -152,10 +151,10 @@ namespace UserInterface_Mockup_ICT4Reals.AdminSystem
         /// </summary>
         /// <param name="page"></param>
         /// <param name="boolean"></param>
-        public void EnableTab(TabPage page, bool boolean)
-        {
-            foreach (Control ctl in page.Controls) ctl.Enabled = boolean;
-        }
+        // public void EnableTab(TabPage page, bool boolean)
+        //{
+        //    foreach (Control ctl in page.Controls) ctl.Enabled = boolean;
+        //}
         public void UpdateTramList()
         {
             foreach (Dictionary<string, object> T in addatabase.GetAllTrams())
