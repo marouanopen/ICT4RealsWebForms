@@ -11,7 +11,7 @@ namespace ICT4RealsWebForms
 {
 
 
-    public partial class _Default
+    public partial class Reparatie
     {
     }
 }
