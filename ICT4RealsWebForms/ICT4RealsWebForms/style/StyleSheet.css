@@ -10,20 +10,23 @@ p{}
 h1,h2,h3,h4{
     color: #2D3339;
 }
+h1{
+    font-size: 24px;
+}
 h2{
-
+    font-size: 21px;
 }
 h3{
-
+    font-size: 18px;
 }
 h4{
-
+    font-size: 15px;
 }
 a{
-
+    color: #6FBDDC;
 }
 a:visited{
-
+    color: #A4CBDB;
 }
 /*Einde basic opmaak*/
 /*Structuur opmaak*/
@@ -50,21 +53,33 @@ nav{
     display: block;
     background-color: #ffffff;
     width: 100%;
-    height: 100px;
+    min-height: 40px;
+    border-bottom: solid 1px #bbb;
 }
 nav ul{
     list-style: none;
+    margin-left: 15px;
 }
 nav ul li{
     display: inline-block;
     height: 40px;
     width: auto;
-    padding: 0 10px;
     line-height: 40px;
 }
 nav ul li a{
-    width: 100%;
-    height: 100%;
+    line-height: 30px;
+    display:block;
+    height: 30px;
+    padding: 0 10px;
+    margin-top: 5px;
+    font-size: 20px;
+    border-right: solid 1px #bbb;
+}
+nav ul li:last-child > a{
+    border-right: none;
+}
+nav ul li a:hover{
+    background-color: gray;
 }
 nav ul li a:visited{
 
@@ -185,8 +200,17 @@ input[type=submit] {
 
 /*  Larger then 760px*/
 @media only screen and (min-width: 760px){
+    .placeholder, header,nav{
+        border-top-left-radius: 6px;
+        border-top-right-radius: 6px;
+    }
+    .placeholder, footer{
+        border-bottom-left-radius: 6px;
+        border-bottom-right-radius: 6px;
+    }
     .placeholder {
         width: 760px;
+        margin-top: 20px;
     }
     section{
         padding: 0 20px;
