@@ -162,6 +162,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Account\Web.config" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Resources\ICT4RealsLogo2.ico" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -244,6 +245,9 @@
     <Compile Include="Account\RegisterExternalLogin.aspx.designer.cs">
       <DependentUpon>RegisterExternalLogin.aspx</DependentUpon>
     </Compile>
+    <Compile Include="AdminSystem\Administration.cs" />
+    <Compile Include="AdminSystem\RoleType.cs" />
+    <Compile Include="AdminSystem\User.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="About.aspx.cs">
       <DependentUpon>About.aspx</DependentUpon>
@@ -254,7 +258,13 @@
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
-    <Compile Include="Database\Connection.cs" />
+    <Compile Include="Database\Administration_database\ADdatabase.cs" />
+    <Compile Include="Database\Administration_database\ROdatabase.cs" />
+    <Compile Include="Database\Administration_database\USdatabase.cs" />
+    <Compile Include="Database\Connection.cs">
+      <SubType>
+      </SubType>
+    </Compile>
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -262,11 +272,17 @@
     <Compile Include="Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Database\Database.cs" />
-    <Compile Include="Database\NewFolder1\PAdatabase.cs" />
-    <Compile Include="Database\NewFolder1\RAdatabase.cs" />
-    <Compile Include="Database\NewFolder1\SIdatabase.cs" />
-    <Compile Include="Database\NewFolder1\TRdatabase.cs" />
+    <Compile Include="Database\Database.cs">
+      <SubType>
+      </SubType>
+    </Compile>
+    <Compile Include="Database\Remise_database\PAdatabase.cs" />
+    <Compile Include="Database\Remise_database\RAdatabase.cs" />
+    <Compile Include="Database\Remise_database\SIdatabase.cs" />
+    <Compile Include="Database\Remise_database\TRdatabase.cs" />
+    <Compile Include="Database\Service_database\CLdatabase.cs" />
+    <Compile Include="Database\Service_database\REdatabase.cs" />
+    <Compile Include="Database\Service_database\SEdatabase.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -274,12 +290,23 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Database\Example_database.cs" />
+    <Compile Include="Database\Example_database.cs">
+      <SubType>
+      </SubType>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Remise\Parkingsystem.cs" />
+    <Compile Include="Remise\Rail.cs" />
+    <Compile Include="Remise\Simulation.cs" />
+    <Compile Include="Remise\Status.cs" />
+    <Compile Include="Remise\Tram.cs" />
+    <Compile Include="Service_system\Cleaningservice.cs" />
+    <Compile Include="Service_system\Repairservice.cs" />
+    <Compile Include="Service_system\Service.cs" />
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -305,7 +332,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Database\NewFolder2\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
