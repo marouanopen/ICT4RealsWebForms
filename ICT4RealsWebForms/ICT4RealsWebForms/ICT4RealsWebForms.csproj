@@ -152,6 +152,7 @@
     <Content Include="Account\Register.aspx" />
     <Content Include="Account\RegisterExternalLogin.aspx" />
     <Content Include="InUitRij.aspx" />
+    <Content Include="Login.aspx" />
     <Content Include="Reparatie.aspx" />
     <Content Include="Schoonmaak.aspx" />
     <Content Include="style\bootstrap.css" />
@@ -192,6 +193,7 @@
     <Content Include="Scripts\_references.js" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="style\StyleSheet.css" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
@@ -266,6 +268,13 @@
     </Compile>
     <Compile Include="InUitRij.aspx.designer.cs">
       <DependentUpon>InUitRij.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

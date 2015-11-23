@@ -1,0 +1,215 @@
+﻿*{
+    margin: 0;
+    padding: 0;
+}
+body {
+    background-color: #2D3339;
+}
+/*Basic opmaak*/
+p{}
+h1,h2,h3,h4{
+    color: #2D3339;
+}
+h2{
+
+}
+h3{
+
+}
+h4{
+
+}
+a{
+
+}
+a:visited{
+
+}
+/*Einde basic opmaak*/
+/*Structuur opmaak*/
+.placeholder{
+    background-color: #ECF2F6;
+    margin: 0 auto;
+    height: auto;
+}
+section{
+    padding: 10px;
+}
+footer{
+
+}
+.mainContent{
+
+}
+aside{
+
+}
+/*Einde structuur opmaak*/
+/*Navigatie opmaak*/
+nav{
+    display: block;
+    background-color: #ffffff;
+    width: 100%;
+    height: 100px;
+}
+nav ul{
+    list-style: none;
+}
+nav ul li{
+    display: inline-block;
+    height: 40px;
+    width: auto;
+    padding: 0 10px;
+    line-height: 40px;
+}
+nav ul li a{
+    width: 100%;
+    height: 100%;
+}
+nav ul li a:visited{
+
+}
+/*Einde navigatie opmaak*/
+/*Form Opmaak*/
+fieldset{
+    padding: 5px;
+    border: solid #bbb 1px;
+    margin-bottom: 15px;
+}
+legend{
+    color: #525D69;
+}
+.formitem{
+    margin-bottom: 10px;
+}
+label{
+    font-size: 17px;
+    font-weight: bold;
+    color: #525D69;
+}
+label:after{
+    content: ":";
+}
+input[type=text], input[type=url], input[type=email], input[type=password], input[type=tel], textarea, select{
+    background-color:#ffffff;
+    color:#353942;
+    border: 1px solid #bbb;
+    border-radius:4px;
+    text-indent: 10px;
+    max-width: 100%;
+    display: block;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 40px;
+    font-size: 21px;
+}
+input[type=radio], input[type=checkbox]{
+    width: 34px; height: 34px;
+    border: 1px solid #bbb;
+    vertical-align: top;
+    margin: 3px 5px;
+}
+input[type=checkbox]{
+    border-radius: 4px;
+}
+input[type=radio]{
+    border-radius: 22px;
+}
+textarea{
+    min-height: 100px;
+}
+input[type=submit] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    display: block;
+    margin: 10px 0;
+    font-size: 1em;
+    line-height: 2.5em;
+    color: #525D69;
+    font-weight: bold;
+    height: 2.5em;
+    width: 100%;
+    background: #fdfdfd;
+    background: -moz-linear-gradient(top, #fdfdfd 0%, #bebebe 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fdfdfd), color-stop(100%,#bebebe));
+    background: -webkit-linear-gradient(top, #fdfdfd 0%,#bebebe 100%);
+    background: -o-linear-gradient(top, #fdfdfd 0%,#bebebe 100%);
+    background: -ms-linear-gradient(top, #fdfdfd 0%,#bebebe 100%);
+    background: linear-gradient(to bottom, #fdfdfd 0%,#bebebe 100%);
+    border: 1px solid #bbb;
+    border-radius: 4px;
+}
+/*Checkbox && Ratio*/
+.checkbox{
+    width: 100%;
+    height:40px;
+    line-height: 40px;
+    background-color:gray;
+    display: block;
+    background-color:#ffffff;
+    border-left: 1px solid #bbb;
+    border-right: 1px solid #bbb;
+    border-top: 1px solid #bbb;
+    color:#353942;
+    font-weight: normal;
+    font-size: 21px;
+    vertical-align: text-top;
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#fff), to(#f1f1f1));
+    background-image: -webkit-linear-gradient(#fff, #f1f1f1);
+    background-image: -moz-linear-gradient(#fff, #f1f1f1);
+    background-image: -o-linear-gradient(#fff, #f1f1f1);
+    background-image: linear-gradient(#fff, #f1f1f1);
+}
+.checkbox:after{
+    content: "";
+}
+.checkbox:hover{
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#fff), to(#dfdfdf));
+    background-image: -webkit-linear-gradient(#fff, #dfdfdf);
+    background-image: -moz-linear-gradient(#fff, #dfdfdf);
+    background-image: -o-linear-gradient(#fff, #dfdfdf);
+    background-image: linear-gradient(#fff, #dfdfdf);
+}
+.checkbox:first-child{
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+}
+.checkbox:last-child{
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    border-bottom: 1px solid #bbb;
+}
+/*End Checkbox && Ratio*/
+/*Einde form opmaak*/
+
+/*  Larger then 760px*/
+@media only screen and (min-width: 760px){
+    .placeholder {
+        width: 760px;
+    }
+    section{
+        padding: 0 20px;
+    }
+    aside{
+
+    }
+}
+/*Larger then 1224px*/
+@media only screen and (min-width: 1224px){
+    .placeholder{
+        width: 1024px;
+    }
+    aside{
+        width: 230px;
+    }
+}
+/*Larger then 1650px*/
+@media only screen and (min-width: 1650px){
+    .placeholder{
+        width: 1600px;
+    }
+    aside{
+        width: 320px;
+    }
+}
