@@ -213,16 +213,16 @@ input[type=submit] {
     section{
         padding: 0 20px;
     }
-    contentBox1, contentBox2, contentBox3{
+    .contentbox1, .contentbox2, .contentbox3{
 
     }
-    .contentBox1{
+    .contentbox1{
 
     }
-    .contentBox2{
+    .contentbox2{
 
     }
-    .contentBox3{
+    .contentbox3{
 
     }
 }
@@ -231,17 +231,18 @@ input[type=submit] {
     .placeholder{
         width: 1024px;
     }
-    contentBox1, contentBox2, contentBox3{
-
+    .contentbox1, .contentbox2, .contentbox3{
+        display: inline-block;
+        vertical-align: top;
     }
-    .contentBox1{
-        width: 230px;
+    .contentbox1{
+        width: 325px;
     }
-    .contentBox2{
-
+    .contentbox2{
+        width: 650px;
     }
-    .contentBox3{
-
+    .contentbox3{
+        width: 1024px;
     }
 }
 /*Larger then 1650px*/
@@ -249,19 +250,42 @@ input[type=submit] {
     .placeholder{
         width: 1600px;
     }
-    contentbox1, contentbox2, contentbox3{
+    .contentbox1, .contentbox2, .contentbox3{
         height: 100%;
         display: inline-block;
+        vertical-align: top;
     }
     .contentbox1{
-        width: 530px;
+        width: 517px;
     }
     .contentbox2{
-        width: 1060px;
+        width: 1039px;
     }
     .contentbox3{
         width: 1600px;
     }
+}
+/*Beheer pagina*/
+#beheer div{
+    display: inline-block;
+    vertical-align: top;
+    width: 45px;
+    height: auto;
+    margin-top: 15px;
+}
+#beheer div span{
+    display: block;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    border: 1px solid #bbb;
+    margin-bottom: 5px;
+    border-radius: 4px;
+    line-height: 40px;
+    color: #353942;
+}
+#beheer div span:first-child{
+    background-color: #bbb;
 }
 .Inlog
 {
