@@ -13,21 +13,27 @@
             </div>
         </fieldset>
     </div>
-    <div class="formitem">
+
+    <div class="contentbox1">
         <fieldset>
             <legend>Reparatie uitvoeren</legend>
+
             <div class="formitem">
                 <label for="ddlTramState">State</label>
                 <asp:DropDownList ID="ddlTramState" runat="server"></asp:DropDownList>
             </div>
-           
             <asp:Button ID="btnDetailsAdd" runat="server" Text="Toevoegen" />
         </fieldset>
     </div>
 
-    <div class="formitem">
+    <div class="contentbox1">
+        <fieldset>
+            <legend>Reparatie uitvoeren</legend>
+            <div class="formitem">
+
+                <label for="lbox">Lijst</label>
+                <asp:ListBox ID="ListBox1" runat="server"></asp:ListBox>
+            </div>
+        </fieldset>
     </div>
-
-
-
 </asp:Content>
