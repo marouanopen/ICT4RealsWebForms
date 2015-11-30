@@ -6,6 +6,7 @@
 <head runat="server">
     <title> | ICT4Rails</title>
     <link href="style/StyleSheet.css" rel="stylesheet" type="text/css" />
+    <link rel="shortcut icon" type="image/ico" href="Recources/ICTRealLogo.ico"/>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <asp:ContentPlaceHolder ID="head" runat="server">
         
