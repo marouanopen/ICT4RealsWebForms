@@ -2,7 +2,33 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <div class="mainContent"></div>
-    <aside>
+    <div class="contentbox2" id="beheer">
+        <div class="formitem">
+            <asp:Label ID="rail1200" runat="server" Text="12"></asp:Label>
+            <asp:Label ID="rail1300" runat="server" Text="13"></asp:Label>
+            <asp:Label ID="rail1400" runat="server" Text="14"></asp:Label>
+            <asp:Label ID="rail1500" runat="server" Text="15"></asp:Label>
+            <asp:Label ID="rail1600" runat="server" Text="16"></asp:Label>
+            <asp:Label ID="rail1700" runat="server" Text="17"></asp:Label>
+            <asp:Label ID="rail1800" runat="server" Text="18"></asp:Label>
+            <asp:Label ID="rail1900" runat="server" Text="19"></asp:Label>
+            <asp:Label ID="rail2000" runat="server" Text="20"></asp:Label>
+            <asp:Label ID="rail2100" runat="server" Text="21"></asp:Label>
+        </div>
+        <div class ="formitem">
+            <asp:Label ID="rail1201" runat="server" Text="xXx"></asp:Label>
+            <asp:Label ID="rail1301" runat="server" Text="xXx"></asp:Label>
+            <asp:Label ID="rail1401" runat="server" Text="xXx"></asp:Label>
+            <asp:Label ID="rail1501" runat="server" Text="xXx"></asp:Label>
+            <asp:Label ID="rail1601" runat="server" Text="xXx"></asp:Label>
+            <asp:Label ID="rail1701" runat="server" Text="xXx"></asp:Label>
+            <asp:Label ID="rail1801" runat="server" Text="xXx"></asp:Label>
+            <asp:Label ID="rail1901" runat="server" Text="xXx"></asp:Label>
+            <asp:Label ID="rail2001" runat="server" Text="xXx"></asp:Label>
+            <asp:Label ID="rail2101" runat="server" Text="xXx"></asp:Label>
+        </div>
+    </div>
+    <contentbox1>
         <h2><%: Title %></h2>
         <fieldset>
             <legend>Tram Details</legend>
@@ -64,5 +90,5 @@
             </div>
             <asp:Button ID="btnDriveInAssign" runat="server" Text="Toewijzen" />
         </fieldset>
-    </aside>
+    </contentbox1>
 </asp:Content>
