@@ -44,9 +44,6 @@ footer{
 .mainContent{
 
 }
-aside{
-
-}
 /*Einde structuur opmaak*/
 /*Navigatie opmaak*/
 nav{
@@ -61,7 +58,8 @@ nav ul{
     margin-left: 15px;
 }
 nav ul li{
-    display: inline-block;
+    display: block;
+    float: left;
     height: 40px;
     width: auto;
     line-height: 40px;
@@ -215,7 +213,16 @@ input[type=submit] {
     section{
         padding: 0 20px;
     }
-    aside{
+    contentBox1, contentBox2, contentBox3{
+
+    }
+    .contentBox1{
+
+    }
+    .contentBox2{
+
+    }
+    .contentBox3{
 
     }
 }
@@ -224,8 +231,17 @@ input[type=submit] {
     .placeholder{
         width: 1024px;
     }
-    aside{
+    contentBox1, contentBox2, contentBox3{
+
+    }
+    .contentBox1{
         width: 230px;
+    }
+    .contentBox2{
+
+    }
+    .contentBox3{
+
     }
 }
 /*Larger then 1650px*/
@@ -233,7 +249,17 @@ input[type=submit] {
     .placeholder{
         width: 1600px;
     }
-    aside{
-        width: 320px;
+    contentbox1, contentbox2, contentbox3{
+        height: 100%;
+        display: inline-block;
+    }
+    .contentbox1{
+        width: 530px;
+    }
+    .contentbox2{
+        width: 1060px;
+    }
+    .contentbox3{
+        width: 1600px;
     }
 }
