@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Log in" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="ICT4RealsWebForms.Account.Login" Async="true" %>
+﻿<%@ Page Title="Log in" Language="C#" MasterPageFile="~/ICT4Reals.Master" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="ICT4RealsWebForms.Account.Login" Async="true" %>
 
 <%@ Register Src="~/Account/OpenAuthProviders.ascx" TagPrefix="uc" TagName="OpenAuthProviders" %>
 
