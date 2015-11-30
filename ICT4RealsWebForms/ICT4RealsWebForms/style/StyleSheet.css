@@ -237,3 +237,23 @@ input[type=submit] {
         width: 320px;
     }
 }
+.Inlog
+{
+    width: 457px;
+}
+.BigLabel
+{
+    width: 150px;
+    height: 200px;
+    display: inline-block;
+}
+.Free
+{
+    clear:both;
+    width: 457px;
+}
+.Acces
+{
+    display: inline-block;
+    width: 457px;
+}
