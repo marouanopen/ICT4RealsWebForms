@@ -28,11 +28,11 @@
 
     <div class="contentbox1">
         <fieldset>
-            <legend>Reparatie uitvoeren</legend>
+            <legend>Reparatie logboek</legend>
             <div class="formitem">
 
-                <label for="lbox">Lijst</label>
-                <asp:ListBox ID="ListBox1" runat="server"></asp:ListBox>
+                <label for="lboxTramLog">Lijst</label>
+                <asp:ListBox ID="lboxTramLog" runat="server"></asp:ListBox>
             </div>
         </fieldset>
     </div>
