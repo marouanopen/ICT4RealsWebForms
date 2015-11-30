@@ -213,16 +213,16 @@ input[type=submit] {
     section{
         padding: 0 20px;
     }
-    contentBox1, contentBox2, contentBox3{
+    .contentbox1, .contentbox2, .contentbox3{
 
     }
-    .contentBox1{
+    .contentbox1{
 
     }
-    .contentBox2{
+    .contentbox2{
 
     }
-    .contentBox3{
+    .contentbox3{
 
     }
 }
@@ -231,16 +231,16 @@ input[type=submit] {
     .placeholder{
         width: 1024px;
     }
-    contentBox1, contentBox2, contentBox3{
+    .contentbox1, .contentbox2, .contentbox3{
 
     }
-    .contentBox1{
+    .contentbox1{
         width: 230px;
     }
-    .contentBox2{
+    .contentbox2{
 
     }
-    .contentBox3{
+    .contentbox3{
 
     }
 }
@@ -249,15 +249,17 @@ input[type=submit] {
     .placeholder{
         width: 1600px;
     }
-    contentbox1, contentbox2, contentbox3{
+    .contentbox1, .contentbox2, .contentbox3{
         height: 100%;
         display: inline-block;
+        vertical-align: top;
     }
     .contentbox1{
-        width: 530px;
+        width: 517px;
     }
     .contentbox2{
-        width: 1060px;
+        width: 1028px;
+        margin-right: 10px;
     }
     .contentbox3{
         width: 1600px;
