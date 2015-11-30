@@ -17,11 +17,11 @@
         <header>
             <nav>
                 <ul>
-                    <li><a href="#">Beheer</a></li>
-                    <li><a href="#">In/UitRij</a></li>
-                    <li><a href="#">Schoonmaak</a></li>
-                    <li><a href="#">Reparatie</a></li>
-                    <li><a href="#">Loguit</a></li>
+                    <li><a href="Beheer">Beheer</a></li>
+                    <li><a href="InUitRij">In/UitRij</a></li>
+                    <li><a href="Schoonmaak">Schoonmaak</a></li>
+                    <li><a href="Reparatie">Reparatie</a></li>
+                    <li><a href="Loguit">Loguit</a></li>
                 </ul>
             </nav>
         </header>
