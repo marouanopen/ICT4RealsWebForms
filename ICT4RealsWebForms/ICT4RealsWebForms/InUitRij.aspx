@@ -12,7 +12,7 @@
                 <label for="ddlStatus">Status</label>
                 <asp:DropDownList ID="ddlStatus" runat="server"></asp:DropDownList>
             </div>
-            <asp:Button ID="btnRegister" runat="server" Text="Registreren" OnClick="" />
+            <asp:Button ID="btnRegister" runat="server" Text="Registreren" OnClick="btnIncomingTram_Click" />
         </fieldset>
 
         <fieldset class="BigLabel">
@@ -23,9 +23,9 @@
         <legend>Uitrijden</legend>
             <div class="formitem">
                 <label for="ddlTram">Tram</label>
-                <asp:DropDownList ID="DropDownList2" runat="server"></asp:DropDownList>
+                <asp:DropDownList ID="ddlTramOut" runat="server"></asp:DropDownList>
             </div>
-            <asp:Button ID="btnFree" runat="server" Text="Uitrijden" OnClick="" />
+            <asp:Button ID="btnFree" runat="server" Text="Uitrijden" OnClick="btnUitrijden_Click" />
         </fieldset>
 
 </asp:Content>

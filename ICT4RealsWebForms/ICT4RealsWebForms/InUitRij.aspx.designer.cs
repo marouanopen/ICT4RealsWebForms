@@ -49,13 +49,13 @@ namespace ICT4RealsWebForms {
         protected global::System.Web.UI.WebControls.Label lblBigLabel;
         
         /// <summary>
-        /// DropDownList2 control.
+        /// ddlTramOut control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList2;
+        protected global::System.Web.UI.WebControls.DropDownList ddlTramOut;
         
         /// <summary>
         /// btnFree control.
