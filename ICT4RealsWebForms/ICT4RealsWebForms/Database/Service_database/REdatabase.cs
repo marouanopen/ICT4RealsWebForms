@@ -55,7 +55,10 @@ namespace UserInterface_Mockup_ICT4Reals.DataBase
             return true;
         }
 
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>Alle trams met vies of deffect</returns>
         public List<Dictionary<string, object>> GetAllStatus() //name of ur query
         {
             List<Dictionary<string, object>> ret = getQuery("SELECT TramTramID, StatusStatusID FROM tram_status WHERE statusStatusID = 3 OR statusStatusID = 4 ");

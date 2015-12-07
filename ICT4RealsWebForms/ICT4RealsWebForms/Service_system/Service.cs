@@ -32,15 +32,15 @@ namespace UserInterface_Mockup_ICT4Reals.Service
         {
             this.Id = id;
             this.soort = soort;
-            this.startDate = enddate;
+            this.endDate = enddate;
             this.startDate = startDate;
-            this.tramID = tramID;
+            this.tramID = tramid;
             this.superbeurtID = superbeurtID;
         }
 
         public override string ToString()
         {
-            return "ID: " + Id + ", TramID: " + tramID + ", Start datum: " + startDate;
+            return "ID: " + Id + ", TramID: " + tramID + ", Start datum: " + startDate + ", Eind Datum: " + endDate;
         }
     }
 }
