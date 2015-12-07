@@ -1795,13 +1795,13 @@ namespace ICT4RealsWebForms {
         protected global::System.Web.UI.WebControls.TextBox tbDetailsName;
         
         /// <summary>
-        /// ddlDetialsLocation control.
+        /// ddlDetailsLocation control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlDetialsLocation;
+        protected global::System.Web.UI.WebControls.DropDownList ddlDetailsLocation;
         
         /// <summary>
         /// ddlDetailsStatus control.
