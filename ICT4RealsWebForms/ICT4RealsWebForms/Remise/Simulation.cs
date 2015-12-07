@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace UserInterface_Mockup_ICT4Reals.Remise
+namespace ICT4RealsWebForms.Remise
 {
     class Simulation
     {

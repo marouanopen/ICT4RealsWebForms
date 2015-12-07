@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using UserInterface_Mockup_ICT4Reals.AdminSystem;
-using UserInterface_Mockup_ICT4Reals.Remise;
-using UserInterface_Mockup_ICT4Reals.DataBase;
+using ICT4RealsWebForms.AdminSystem;
+using ICT4RealsWebForms.Remise;
+using ICT4RealsWebForms.DataBase;
 
-namespace UserInterface_Mockup_ICT4Reals.Service
+namespace ICT4RealsWebForms.Service
 {
     public class Cleaningservice : Service
     {

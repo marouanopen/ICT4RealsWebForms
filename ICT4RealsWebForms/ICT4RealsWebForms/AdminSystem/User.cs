@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace UserInterface_Mockup_ICT4Reals.AdminSystem
+namespace ICT4RealsWebForms.AdminSystem
 {
     public class User
     {

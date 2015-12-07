@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using UserInterface_Mockup_ICT4Reals.DataBase;
-using UserInterface_Mockup_ICT4Reals.Service;
-using UserInterface_Mockup_ICT4Reals.Remise;
+using ICT4RealsWebForms.DataBase;
+using ICT4RealsWebForms.Service;
+using ICT4RealsWebForms.Remise;
 
-namespace UserInterface_Mockup_ICT4Reals.AdminSystem
+namespace ICT4RealsWebForms.AdminSystem
 {
     public class Administration
     {   
