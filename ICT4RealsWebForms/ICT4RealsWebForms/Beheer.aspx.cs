@@ -4,9 +4,9 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using UserInterface_Mockup_ICT4Reals.DataBase;
-using UserInterface_Mockup_ICT4Reals.Remise;
-using UserInterface_Mockup_ICT4Reals.AdminSystem;
+using ICT4RealsWebForms.Remise;
+using ICT4RealsWebForms.AdminSystem;
+using System.Drawing;
 
 namespace ICT4RealsWebForms
 {
@@ -787,6 +787,47 @@ namespace ICT4RealsWebForms
         protected void btnStatus_Click(object sender, EventArgs e)
         {
             Rail rail = new Rail(Convert.ToInt32(ddlStatusTrack.SelectedItem.Text), false, false, 1);
+            refreshGUI();
+        }
+        /// <summary>
+        /// Refresh the gui to have the trams on the right location
+        /// </summary>
+        private void refreshGUI()
+        {
+            
+            List<Tram> trams = Administration.GetTramList;
+
+            /*
+            foreach (Control c in groupBox1.Controls)
+            {
+                if (c.Name.StartsWith("spoor"))
+                {
+                    c.Text = "";
+                    c.BackColor = Color.White;
+                }
+
+            }
+            */
+            try
+            {
+                foreach (Tram t in trams)
+                {
+                    if (t.OnRail)
+                    {
+                        Rail rail = t.Rail;
+
+                        string id = Convert.ToString(rail.Id);
+                        Label tlbl = (Label)FindControl("rail" + id);
+                        tlbl.Text = Convert.ToString(t.Id);
+                        tlbl.BackColor = Color.DimGray;
+                    }
+                }
+            }
+            catch (NullReferenceException)
+            { 
+            }
+            
+           
 
             if (ddlStatusStatus.SelectedItem.Text == "Blokkeer")
             {

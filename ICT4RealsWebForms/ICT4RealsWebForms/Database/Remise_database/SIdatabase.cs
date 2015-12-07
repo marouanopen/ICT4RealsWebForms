@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace UserInterface_Mockup_ICT4Reals.DataBase.Remise_database
+namespace ICT4RealsWebForms.DataBase.Remise_database
 {
     class SIdatabase
     {

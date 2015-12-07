@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using UserInterface_Mockup_ICT4Reals.DataBase;
+using ICT4RealsWebForms.DataBase;
 
-namespace UserInterface_Mockup_ICT4Reals.DataBase
+namespace ICT4RealsWebForms.DataBase
 {
     class REdatabase : Database
     {
@@ -55,7 +55,10 @@ namespace UserInterface_Mockup_ICT4Reals.DataBase
             return true;
         }
 
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>Alle trams met vies of deffect</returns>
         public List<Dictionary<string, object>> GetAllStatus() //name of ur query
         {
             List<Dictionary<string, object>> ret = getQuery("SELECT TramTramID, StatusStatusID FROM tram_status WHERE statusStatusID = 3 OR statusStatusID = 4 ");

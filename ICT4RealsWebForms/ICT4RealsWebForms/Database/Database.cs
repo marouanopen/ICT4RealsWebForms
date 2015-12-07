@@ -8,7 +8,7 @@ using Oracle.ManagedDataAccess.Types;
 
 
 
-namespace UserInterface_Mockup_ICT4Reals.DataBase
+namespace ICT4RealsWebForms.DataBase
 {
     public class Database
     {

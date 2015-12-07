@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using UserInterface_Mockup_ICT4Reals.DataBase;
-using UserInterface_Mockup_ICT4Reals.AdminSystem;
+using ICT4RealsWebForms.DataBase;
+using ICT4RealsWebForms.AdminSystem;
 
-namespace UserInterface_Mockup_ICT4Reals.Remise
+namespace ICT4RealsWebForms.Remise
 {
     public class Parkingsystem
     {
