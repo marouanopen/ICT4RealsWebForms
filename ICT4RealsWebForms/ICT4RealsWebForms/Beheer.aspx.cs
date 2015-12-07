@@ -811,7 +811,14 @@ namespace ICT4RealsWebForms
         /// </summary>
         private void refreshGUI()
         {
-            Login.administration.UpdateTramList();
+            try
+            {
+                Login.administration.UpdateTramList();
+            }
+            catch (NullReferenceException)
+            {
+                ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('Je moet inloggen om hier gebruik van te maken!!')", true);
+            }
             List<Tram> trams = Administration.GetTramList;
             /*
             foreach (Control c in groupBox1.Controls)
@@ -840,7 +847,7 @@ namespace ICT4RealsWebForms
                 }
             }
             catch (NullReferenceException)
-            { 
+            {
                 ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('Geen trams gevonden in de database.')", true);
             }
         }

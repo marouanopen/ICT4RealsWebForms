@@ -157,6 +157,7 @@ namespace ICT4RealsWebForms.AdminSystem
         //}
         public void UpdateTramList()
         {
+            GetTramList.Clear();
             foreach (Dictionary<string, object> T in addatabase.GetAllTrams())
             {
                 Rail rail = null;
@@ -192,6 +193,7 @@ namespace ICT4RealsWebForms.AdminSystem
                     if (R.Id == Convert.ToInt32(T["spoorid"]))
                     {
                         rail = R;
+                        
                     }
                 }
                 Tram t = new Tram(Convert.ToInt32(T["tramid"]), (string)T["type"], rail, LoggedInUser, status, onRail);
