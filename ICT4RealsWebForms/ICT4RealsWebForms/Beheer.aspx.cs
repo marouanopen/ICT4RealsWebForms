@@ -826,7 +826,7 @@ namespace ICT4RealsWebForms
             {
                 ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('Je moet inloggen om hier gebruik van te maken!!')", true);
             }
-            List<Tram> trams = Administration.GetTramList;
+            //List<Tram> trams = Administration.GetTramList;
             /*
             foreach (Control c in groupBox1.Controls)
             {
@@ -840,7 +840,7 @@ namespace ICT4RealsWebForms
             */
             try
             {
-                foreach (Tram t in trams)
+                foreach (Tram t in Administration.GetTramList)
                 {
                     if (t.OnRail)
                     {
@@ -848,8 +848,11 @@ namespace ICT4RealsWebForms
 
                         string id = Convert.ToString(rail.Id);
                         Label tlbl = (Label)FindControl("rail" + id);
-                        tlbl.Text = Convert.ToString(t.Id);
-                        tlbl.BackColor = Color.DimGray;
+                        if (tlbl != null)
+                        {
+                            tlbl.Text = Convert.ToString(t.Id);
+                            tlbl.BackColor = Color.DimGray;
+                        }
                     }
                 }
             }
