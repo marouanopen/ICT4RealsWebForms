@@ -788,16 +788,24 @@ namespace ICT4RealsWebForms
         protected void btnStatus_Click(object sender, EventArgs e)
         {
             Rail rail = new Rail(Convert.ToInt32(ddlStatusTrack.SelectedItem.Text), false, false, 1);
+            if (ddlStatusStatus.SelectedItem.Text == "Blokkeer")
+            {
+                //blokkeer rail
+            }
+            else if (ddlStatusStatus.SelectedItem.Text == "Deblokkeer")
+            {
+                //deblokkeer rail
+            }
             refreshGUI();
         }
+
+
         /// <summary>
         /// Refresh the gui to have the trams on the right location
         /// </summary>
         private void refreshGUI()
         {
-            
             List<Tram> trams = Administration.GetTramList;
-
             /*
             foreach (Control c in groupBox1.Controls)
             {
@@ -827,17 +835,11 @@ namespace ICT4RealsWebForms
             catch (NullReferenceException)
             { 
             }
-            
-           
+        }
 
-            if (ddlStatusStatus.SelectedItem.Text == "Blokkeer")
-            {
-                //blokkeer rail
-            }
-            else if (ddlStatusStatus.SelectedItem.Text == "Deblokkeer")
-            {
-                //deblokkeer rail
-            }
+        protected void btnDriveInAssign_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -343,7 +343,7 @@
                 <label for="ddlDriveInLocation">Locatie</label>
                 <asp:DropDownList ID="ddlDriveInLocation" runat="server"></asp:DropDownList>
             </div>
-            <asp:Button ID="btnDriveInAssign" runat="server" Text="Toewijzen" />
+            <asp:Button ID="btnDriveInAssign" runat="server" Text="Toewijzen" OnClick="btnDriveInAssign_Click" />
         </fieldset>
     </div>
 </asp:Content>
