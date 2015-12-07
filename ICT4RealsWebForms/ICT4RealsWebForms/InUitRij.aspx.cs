@@ -20,19 +20,10 @@ namespace ICT4RealsWebForms
         private Repairservice rpService = new Repairservice(1, "repair", DateTime.Today, DateTime.Today, 1, 1);
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(!IsPostBack)
-            {
-                ddlStatus.Items.Clear();
-                ddlStatus.Items.Add("Ok");
-                ddlStatus.Items.Add("Vies");
-                ddlStatus.Items.Add("Defect");
-                ddlStatus.Items.Add("Vies en Defect");
-            }
-                administration = Login.administration; 
-            //this.parkingsystem = new Parkingsystem();
-            //this.padatabase = new PAdatabase();
-            
-            remiseRefresh();//not sure
+            ddlStatus.Items.Add("Ok");
+            ddlStatus.Items.Add("Vies");
+            ddlStatus.Items.Add("Defect");
+            ddlStatus.Items.Add("Vies en Defect");
         }
         public void btnIncomingTram_Click(object sender, EventArgs e)
         {
@@ -73,7 +64,7 @@ namespace ICT4RealsWebForms
                         else
                         {
                             rail = parkingsystem.InsertTramNr(Convert.ToInt32(tbTramnr.Text), status);
-                            //tram._Status = status;
+                            tram._Status = status;
                             if (status == 2)
                             {
                                 soort = "Schoonmaak";

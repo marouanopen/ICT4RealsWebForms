@@ -191,11 +191,14 @@ namespace ICT4RealsWebForms
 
             //put items in dropdownlist add tram
             //delete all items first
+            if (!IsPostBack)
+            {
             ddlAddStatus.Items.Clear();
             ddlAddStatus.Items.Add("Ok");
             ddlAddStatus.Items.Add("Vies");
             ddlAddStatus.Items.Add("Defect");
             ddlAddStatus.Items.Add("Vies en Defect");
+            }
             
             #region
             //put items in dropdownlist for each rails 1
@@ -358,9 +361,12 @@ namespace ICT4RealsWebForms
 
             //put items in dropdownlist rails
             //delete all items first
+            if (!IsPostBack)
+            {
             ddlStatusStatus.Items.Clear();
             ddlStatusStatus.Items.Add("Blokkeer");
             ddlStatusStatus.Items.Add("Deblokkeer");
+            }
           
             #region
             //put items in dropdownlist for each rails 1
@@ -692,7 +698,7 @@ namespace ICT4RealsWebForms
                 {
                     if (tram.DeleteTram(Convert.ToInt32(tbDetailsName.Text)) == true)
                     {
-                        //delete the tram
+                        refreshGUI(); //not sure
                     }
                     ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('Kan tram niet verwijderen')",
                         true);
@@ -731,7 +737,7 @@ namespace ICT4RealsWebForms
                         tram.MoveTram(Convert.ToInt32(tbDetailsName.Text),
                             Convert.ToInt32(ddlDetailsLocation.SelectedItem.Text), status))
                     {
-                        //move tram
+                        refreshGUI(); //not sure
                     }                
                     ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('Kan tram niet aanpassen')", true);
                 }
@@ -776,7 +782,7 @@ namespace ICT4RealsWebForms
                             status,
                             tramOnRail))
                     {
-                        //add tram
+                        refreshGUI(); //not sure
                     }                
                     ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('Kan tram niet toevoegen')", true);
                 }                    
@@ -790,11 +796,11 @@ namespace ICT4RealsWebForms
             Rail rail = new Rail(Convert.ToInt32(ddlStatusTrack.SelectedItem.Text), false, false, 1);
             if (ddlStatusStatus.SelectedItem.Text == "Blokkeer")
             {
-                //blokkeer rail
+                refreshGUI(); //not sure
             }
             else if (ddlStatusStatus.SelectedItem.Text == "Deblokkeer")
             {
-                //deblokkeer rail
+                refreshGUI(); //not sure
             }
             refreshGUI();
         }
@@ -838,10 +844,16 @@ namespace ICT4RealsWebForms
                 ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('Geen trams gevonden in de database.')", true);
             }
         }
-            
-        protected void btnDriveInAssign_Click(object sender, EventArgs e)
-            {
 
+        protected void btnDriveInAssign_Click(object sender, EventArgs e)
+        {
+            Tram tram = new Tram(1, "test", new Rail(1, true, false, 1), new User(2323, "test", "test", 1), 1, true);
+            if (tram.MoveTram(Convert.ToInt32(lboxDriveInList.SelectedItem.Text),
+                Convert.ToInt32(ddlDriveInLocation.SelectedItem.Text), 1))
+            {
+                refreshGUI(); //not sure
+            }
+            ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('Kan tram niet verplaatsen')", true);
         }
     }
 }
