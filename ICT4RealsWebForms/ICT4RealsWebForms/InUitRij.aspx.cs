@@ -25,7 +25,7 @@ namespace ICT4RealsWebForms
             ddlStatus.Items.Add("Defect");
             ddlStatus.Items.Add("Vies en Defect");
         }
-        private void btnIncomingTram_Click(object sender, EventArgs e)
+        public void btnIncomingTram_Click(object sender, EventArgs e)
         {
             Rail rail = null;
             Tram tram = null;
@@ -108,7 +108,7 @@ namespace ICT4RealsWebForms
             remiseRefresh();
         }
 
-        private void btnUitrijden_Click(object sender, EventArgs e)
+        public void btnUitrijden_Click(object sender, EventArgs e)
         {
             bool exist = false;
             int tramnr;
@@ -143,7 +143,7 @@ namespace ICT4RealsWebForms
                     ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('A Tram with that number isn't parked yet! Input a tramnumber of a parked tram!')", true);
                 }
             }
-        private void remiseRefresh()
+        public void remiseRefresh()
         {
             /*List<Tram> trams = Administration.GetTramList;
 
