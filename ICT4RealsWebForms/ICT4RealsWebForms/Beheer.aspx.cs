@@ -805,6 +805,7 @@ namespace ICT4RealsWebForms
         /// </summary>
         private void refreshGUI()
         {
+            Login.administration.UpdateTramList();
             List<Tram> trams = Administration.GetTramList;
             /*
             foreach (Control c in groupBox1.Controls)
