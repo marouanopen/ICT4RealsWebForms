@@ -7,7 +7,7 @@ using ICT4RealsWebForms.AdminSystem;
 using ICT4RealsWebForms.Remise;
 using ICT4RealsWebForms.DataBase;
 
-namespace ICT4RealsWebForms.Service
+namespace ICT4RealsWebForms.Service_System
 {
     public class Cleaningservice : Service
     {
