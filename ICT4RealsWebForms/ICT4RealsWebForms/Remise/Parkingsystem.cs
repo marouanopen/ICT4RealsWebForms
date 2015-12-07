@@ -43,7 +43,7 @@ namespace ICT4RealsWebForms.Remise
             {
                 if(T.Id == nr)
                 {
-                    T._Status = status;
+                    //T._Status = status;
                     foreach(Rail r in Administration.GetRailList)
                     {
                         if(T.Rail.Id == r.Id)

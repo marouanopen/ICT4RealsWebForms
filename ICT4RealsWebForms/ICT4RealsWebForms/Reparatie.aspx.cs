@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using ICT4RealsWebForms.DataBase;
 using ICT4RealsWebForms.Service_System;
 using ICT4RealsWebForms.Remise;
+using ICT4RealsWebForms.AdminSystem;
 
 namespace ICT4RealsWebForms
 {
@@ -15,6 +16,8 @@ namespace ICT4RealsWebForms
         private Repairservice rpService = new Repairservice(1, "repair", DateTime.Today, DateTime.Today, 1, 1);
         protected void Page_Load(object sender, EventArgs e)
         {
+            lboxBrokeInList.Items.Clear();
+            lboxTramLog.Items.Clear();
             foreach (string status in rpService.getAllStatus())
             {
                 lboxBrokeInList.Items.Add(status);
@@ -29,29 +32,27 @@ namespace ICT4RealsWebForms
         {
             try
             {
-                /*
                 Tram updateTram = null;
                 string sub = lboxBrokeInList.SelectedItem.ToString().Substring(0, lboxBrokeInList.SelectedItem.ToString().IndexOf(" "));
                 foreach (Tram t in Administration.GetTramList)
                 {
                     if (t.Id == Convert.ToInt32(sub))
                     {
-                        trammetje = t;
+                        updateTram = t;
                     }
                 }
-                if (trammetje._Status == 4 && trammetje != null)
+                if (updateTram._Status == 4 && updateTram != null)
                 {
-                    trammetje._Status = 2;
+                    updateTram._Status = 2;
                 }
-                else if (trammetje._Status == 3 && trammetje != null)
+                else if (updateTram._Status == 3 && updateTram != null)
                 {
-                    trammetje._Status = 1;
+                    updateTram._Status = 1;
                 }
                 else
                 {
-                    MessageBox.Show("Error");
+                    ClientScript.RegisterStartupScript(GetType(), "My Alert", "Alert('Fout bij ophalen reparatielijst.')", true);
                 }
-                 */
             }
             catch
             {

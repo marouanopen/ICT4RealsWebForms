@@ -193,13 +193,13 @@ namespace ICT4RealsWebForms
             //delete all items first
             if (!IsPostBack)
             {
-                ddlAddStatus.Items.Clear();
-                ddlAddStatus.Items.Add("Ok");
-                ddlAddStatus.Items.Add("Vies");
-                ddlAddStatus.Items.Add("Defect");
-                ddlAddStatus.Items.Add("Vies en Defect");
+            ddlAddStatus.Items.Clear();
+            ddlAddStatus.Items.Add("Ok");
+            ddlAddStatus.Items.Add("Vies");
+            ddlAddStatus.Items.Add("Defect");
+            ddlAddStatus.Items.Add("Vies en Defect");
             }
-
+            
             #region
             //put items in dropdownlist for each rails 1
             ddlAddLocation.Items.Add("1201");
@@ -363,11 +363,11 @@ namespace ICT4RealsWebForms
             //delete all items first
             if (!IsPostBack)
             {
-                ddlStatusStatus.Items.Clear();
-                ddlStatusStatus.Items.Add("Blokkeer");
-                ddlStatusStatus.Items.Add("Deblokkeer");
+            ddlStatusStatus.Items.Clear();
+            ddlStatusStatus.Items.Add("Blokkeer");
+            ddlStatusStatus.Items.Add("Deblokkeer");
             }
-
+          
             #region
             //put items in dropdownlist for each rails 1
             ddlDriveInLocation.Items.Add("1201");
@@ -685,7 +685,7 @@ namespace ICT4RealsWebForms
             ddlStatusTrack.Items.Add("7704");
             ddlStatusTrack.Items.Add("7705");
             #endregion
-
+            refreshGUI();
         }
 
         protected void btnDetailsRemove_Click(object sender, EventArgs e)
@@ -840,6 +840,7 @@ namespace ICT4RealsWebForms
             }
             catch (NullReferenceException)
             { 
+                ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('Geen trams gevonden in de database.')", true);
             }
         }
 
