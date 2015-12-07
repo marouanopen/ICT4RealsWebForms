@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using UserInterface_Mockup_ICT4Reals.AdminSystem;
+using ICT4RealsWebForms.AdminSystem;
 
 namespace ICT4RealsWebForms
 {
