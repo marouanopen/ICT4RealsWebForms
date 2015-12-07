@@ -31,8 +31,6 @@ namespace ICT4RealsWebForms
             administration = Login.administration;
             this.parkingsystem = new Parkingsystem();
             this.padatabase = new PAdatabase();
-
-            remiseRefresh();//not sure
         }
         public void btnIncomingTram_Click(object sender, EventArgs e)
         {
@@ -120,8 +118,6 @@ namespace ICT4RealsWebForms
                     ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('The Assigned rail does not exist or is blocked')", true);
                 }
             }
-
-            remiseRefresh();
         }
 
         public void btnUitrijden_Click(object sender, EventArgs e)
@@ -146,13 +142,11 @@ namespace ICT4RealsWebForms
                         ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('The tram is no longer parked')", true);
                         padatabase.RefreshTramdatabase(tramnr);
                         administration.UpdateTramList();
-                        remiseRefresh();
                     }
                     else
                     {
                         ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('The tram still needs cleaning or rapairs.')", true);
                     }
-                    remiseRefresh();
                 }
                 else
                 {
