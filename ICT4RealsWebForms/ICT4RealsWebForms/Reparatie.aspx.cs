@@ -4,9 +4,9 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using UserInterface_Mockup_ICT4Reals.DataBase;
-using UserInterface_Mockup_ICT4Reals.Service;
-using UserInterface_Mockup_ICT4Reals.Remise;
+using ICT4RealsWebForms.DataBase;
+using ICT4RealsWebForms.Service_System;
+using ICT4RealsWebForms.Remise;
 
 namespace ICT4RealsWebForms
 {

@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 using ICT4RealsWebForms.DataBase;
 using ICT4RealsWebForms.AdminSystem;
 using ICT4RealsWebForms.Remise;
-namespace ICT4RealsWebForms.Service
+
+namespace ICT4RealsWebForms.Service_System
 {
     public class Service
     {
