@@ -679,7 +679,7 @@ namespace ICT4RealsWebForms
             ddlStatusTrack.Items.Add("7704");
             ddlStatusTrack.Items.Add("7705");
             #endregion
-
+            refreshGUI();
         }
 
         protected void btnDetailsRemove_Click(object sender, EventArgs e)
@@ -825,10 +825,11 @@ namespace ICT4RealsWebForms
                 }
             }
             catch (NullReferenceException)
-            { 
+            {
+                ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('Geen trams gevonden in de database.')", true);
             }
             
-           
+            /*
 
             if (ddlStatusStatus.SelectedItem.Text == "Blokkeer")
             {
@@ -838,6 +839,7 @@ namespace ICT4RealsWebForms
             {
                 //deblokkeer rail
             }
+             */
         }
     }
 }
