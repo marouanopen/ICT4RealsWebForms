@@ -20,10 +20,19 @@ namespace ICT4RealsWebForms
         private Repairservice rpService = new Repairservice(1, "repair", DateTime.Today, DateTime.Today, 1, 1);
         protected void Page_Load(object sender, EventArgs e)
         {
-            ddlStatus.Items.Add("Ok");
-            ddlStatus.Items.Add("Vies");
-            ddlStatus.Items.Add("Defect");
-            ddlStatus.Items.Add("Vies en Defect");
+            if (!IsPostBack)
+            {
+                ddlStatus.Items.Clear();
+                ddlStatus.Items.Add("Ok");
+                ddlStatus.Items.Add("Vies");
+                ddlStatus.Items.Add("Defect");
+                ddlStatus.Items.Add("Vies en Defect");
+            }
+            administration = Login.administration;
+            this.parkingsystem = new Parkingsystem();
+            this.padatabase = new PAdatabase();
+
+            remiseRefresh();//not sure
         }
         public void btnIncomingTram_Click(object sender, EventArgs e)
         {
@@ -63,28 +72,35 @@ namespace ICT4RealsWebForms
                         }
                         else
                         {
-                            rail = parkingsystem.InsertTramNr(Convert.ToInt32(tbTramnr.Text), status);
-                            tram._Status = status;
-                            if (status == 2)
+                            try
                             {
-                                soort = "Schoonmaak";
+                                rail = parkingsystem.InsertTramNr(Convert.ToInt32(tbTramnr.Text), status);
+                                tram._Status = status;
+                                if (status == 2)
+                                {
+                                    soort = "Schoonmaak";
+                                }
+                                else if (status == 3)
+                                {
+                                    soort = "Reparatie";
+                                }
+                                else if (status == 4)
+                                {
+                                    soort = "Beide";
+                                }
+                                if (soort != "")
+                                {
+                                    padatabase.MakeService(tramnr, soort);
+                                }
+                                tram.OnRail = true;
+                                if (!padatabase.RefreshTramdatabase(tramnr))
+                                {
+                                    ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('The database wasn't updated.')", true);
+                                }
                             }
-                            else if (status == 3)
+                            catch (NullReferenceException)
                             {
-                                soort = "Reparatie";
-                            }
-                            else if (status == 4)
-                            {
-                                soort = "Beide";
-                            }
-                            if (soort != "")
-                            {
-                                padatabase.MakeService(tramnr, soort);
-                            }
-                            tram.OnRail = true;
-                            if (!padatabase.RefreshTramdatabase(tramnr))
-                            {
-                                ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('The database wasn't updated.')", true);
+                                ClientScript.RegisterStartupScript(this.GetType(), "alert", "A rail with that number doesnt exist.", true);
                             }
                         }
                     }

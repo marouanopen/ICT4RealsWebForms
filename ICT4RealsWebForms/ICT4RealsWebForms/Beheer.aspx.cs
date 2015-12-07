@@ -685,7 +685,11 @@ namespace ICT4RealsWebForms
             ddlStatusTrack.Items.Add("7704");
             ddlStatusTrack.Items.Add("7705");
             #endregion
-            refreshGUI();
+
+            if (!IsPostBack)
+            {
+                refreshGUI();
+            }
         }
 
         protected void btnDetailsRemove_Click(object sender, EventArgs e)
@@ -699,6 +703,7 @@ namespace ICT4RealsWebForms
                     if (tram.DeleteTram(Convert.ToInt32(tbDetailsName.Text)) == true)
                     {
                         refreshGUI(); //not sure
+                        return;
                     }
                     ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('Kan tram niet verwijderen')",
                         true);
@@ -738,6 +743,7 @@ namespace ICT4RealsWebForms
                             Convert.ToInt32(ddlDetailsLocation.SelectedItem.Text), status))
                     {
                         refreshGUI(); //not sure
+                        return;
                     }                
                     ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('Kan tram niet aanpassen')", true);
                 }
@@ -783,6 +789,7 @@ namespace ICT4RealsWebForms
                             tramOnRail))
                     {
                         refreshGUI(); //not sure
+                        return;
                     }                
                     ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('Kan tram niet toevoegen')", true);
                 }                    
@@ -855,12 +862,17 @@ namespace ICT4RealsWebForms
         protected void btnDriveInAssign_Click(object sender, EventArgs e)
         {
             Tram tram = new Tram(1, "test", new Rail(1, true, false, 1), new User(2323, "test", "test", 1), 1, true);
-            if (tram.MoveTram(Convert.ToInt32(lboxDriveInList.SelectedItem.Text),
-                Convert.ToInt32(ddlDriveInLocation.SelectedItem.Text), 1))
+            if (lboxDriveInList.SelectedItem != null)
             {
-                refreshGUI(); //not sure
+                if (tram.MoveTram(Convert.ToInt32(lboxDriveInList.SelectedItem.Text),
+                    Convert.ToInt32(ddlDriveInLocation.SelectedItem.Text), 1))
+                {
+                    refreshGUI(); //not sure
+                    return;
+                }
+                ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('Kan tram niet verplaatsen')", true);
             }
-            ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('Kan tram niet verplaatsen')", true);
+            ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('Geen tram geselecteerd')", true);
         }
     }
 }
