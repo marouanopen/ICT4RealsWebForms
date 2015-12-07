@@ -703,6 +703,7 @@ namespace ICT4RealsWebForms
                     if (tram.DeleteTram(Convert.ToInt32(tbDetailsName.Text)) == true)
                     {
                         refreshGUI(); //not sure
+                        return;
                     }
                     ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('Kan tram niet verwijderen')",
                         true);
@@ -742,6 +743,7 @@ namespace ICT4RealsWebForms
                             Convert.ToInt32(ddlDetailsLocation.SelectedItem.Text), status))
                     {
                         refreshGUI(); //not sure
+                        return;
                     }                
                     ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('Kan tram niet aanpassen')", true);
                 }
@@ -787,6 +789,7 @@ namespace ICT4RealsWebForms
                             tramOnRail))
                     {
                         refreshGUI(); //not sure
+                        return;
                     }                
                     ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('Kan tram niet toevoegen')", true);
                 }                    
@@ -858,6 +861,7 @@ namespace ICT4RealsWebForms
                     Convert.ToInt32(ddlDriveInLocation.SelectedItem.Text), 1))
                 {
                     refreshGUI(); //not sure
+                    return;
                 }
                 ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('Kan tram niet verplaatsen')", true);
             }
