@@ -16,6 +16,8 @@ namespace ICT4RealsWebForms
         private Administration administration;
         private Parkingsystem parkingsystem;
         private PAdatabase padatabase;
+        private RAdatabase railDatabase;
+        private List<Rail> Possibletracks;
         private Cleaningservice clService = new Cleaningservice(1, "cleaning", DateTime.Today, DateTime.Today, 1, 1);
         private Repairservice rpService = new Repairservice(1, "repair", DateTime.Today, DateTime.Today, 1, 1);
         protected void Page_Load(object sender, EventArgs e)
@@ -35,17 +37,30 @@ namespace ICT4RealsWebForms
         }
         public Rail ReturnRail(Tram tram)
         {
-            List<string> Possibletracks = new List<string>();
+            Possibletracks = new List<Rail>();
             //controleer bestaande rails. 
-            
-            
+            administration.UpdateRailList();
+            //check blokkade
+            //check taken?            
+            foreach(Rail r in Administration.GetRailList)
+            {
+                if (Convert.ToInt32(railDatabase.IsRailBlocked(r.Id)) == 0 && r.Taken == false)
+                {
+                    Possibletracks.Add(r);
+                }
+            }
+            foreach(Rail r in Possibletracks)
+            {
+                //if(/*r.rechten == tram.rechten*/)
+                //{
+                    //Rail rail = r;
+                //}
+            }
 
             //check typeallowed
-            //check blokkade
-            //check taken?
             //check eerstvolgende van die rail
             //return
-            return tram;
+            return null;
         }
         public void btnIncomingTram_Click(object sender, EventArgs e)
         {
