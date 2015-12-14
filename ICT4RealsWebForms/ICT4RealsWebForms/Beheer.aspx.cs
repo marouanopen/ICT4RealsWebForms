@@ -783,15 +783,23 @@ namespace ICT4RealsWebForms
                 bool result = Int32.TryParse(tbAddName.Text, out number);
                 if (result)
                 {
-                    if (
-                        tram.AddTram(Convert.ToInt32(tbAddName.Text), Convert.ToInt32(ddlAddLocation.SelectedItem.Text),
-                            status,
-                            tramOnRail))
+                    //if there is already a tram on this rail, give message
+                    ContentPlaceHolder cph = (ContentPlaceHolder) this.Master.FindControl("MainContent");
+                    Label tlbl = (Label)cph.FindControl("rail" + ddlAddLocation.Text);
+                    if (tlbl.BackColor != Color.DimGray)
                     {
-                        refreshGUI(); //not sure
-                        return;
-                    }                
-                    ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('Kan tram niet toevoegen')", true);
+                        if (
+                            tram.AddTram(Convert.ToInt32(tbAddName.Text),
+                                Convert.ToInt32(ddlAddLocation.SelectedItem.Text),
+                                status,
+                                tramOnRail))
+                        {
+                            refreshGUI(); //not sure
+                            return;
+                        }
+                        ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('Kan tram niet toevoegen')", true);
+                    }
+                    ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('Er staat al een tram op dit spoor')", true);
                 }                    
                 ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('Voer een nummer in')", true);
             }
@@ -818,7 +826,6 @@ namespace ICT4RealsWebForms
         /// </summary>
         private void refreshGUI()
         {
-            // Update the tram list 
             try
             {
                 Login.administration.UpdateTramList();
@@ -827,13 +834,20 @@ namespace ICT4RealsWebForms
             {
                 ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('Je moet inloggen om hier gebruik van te maken!!')", true);
             }
+            //List<Tram> trams = Administration.GetTramList;
+            /*
+            foreach (Control c in groupBox1.Controls)
+            {
+                if (c.Name.StartsWith("spoor"))
+                {
+                    c.Text = "";
+                    c.BackColor = Color.White;
+                }
 
-
+            }
+            */
             try
             {
-                // Check for every tram if they are on a rails
-                // if they are, colour the corespondig rectangle 
-                // grey and put the id in the rectangle
                 foreach (Tram t in Administration.GetTramList)
                 {
                     if (t.OnRail)
