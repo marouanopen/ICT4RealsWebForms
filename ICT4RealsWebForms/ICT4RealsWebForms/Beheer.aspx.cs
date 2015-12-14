@@ -783,8 +783,14 @@ namespace ICT4RealsWebForms
                 bool result = Int32.TryParse(tbAddName.Text, out number);
                 if (result)
                 {
+                    //if there is already a tram on this rail, give message
+                    ContentPlaceHolder cph = (ContentPlaceHolder) this.Master.FindControl("MainContent");
+                    Label tlbl = (Label)cph.FindControl("rail" + ddlAddLocation.Text);
+                    if (tlbl.BackColor != Color.DimGray)
+                    {
                     if (
-                        tram.AddTram(Convert.ToInt32(tbAddName.Text), Convert.ToInt32(ddlAddLocation.SelectedItem.Text),
+                            tram.AddTram(Convert.ToInt32(tbAddName.Text),
+                                Convert.ToInt32(ddlAddLocation.SelectedItem.Text),
                             status,
                             tramOnRail))
                     {
@@ -792,6 +798,8 @@ namespace ICT4RealsWebForms
                         return;
                     }                
                     ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('Kan tram niet toevoegen')", true);
+                }                    
+                    ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('Er staat al een tram op dit spoor')", true);
                 }                    
                 ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('Voer een nummer in')", true);
             }
@@ -844,7 +852,7 @@ namespace ICT4RealsWebForms
 
             // Clear all the labels
             clearGUI();
-            
+
             if (tramList != null)
             {
                 // Check for every tram if they are on a rails
@@ -856,8 +864,8 @@ namespace ICT4RealsWebForms
                     {
                         Rail rail = t.Rail;
                         fillRailLbl(rail.Id, t.Id.ToString(), Color.DimGray);
-                    }
                 }
+            }
             }
         }
 
@@ -873,9 +881,9 @@ namespace ICT4RealsWebForms
                 foreach (Rail r in railList)
                 {
                     fillRailLbl(r.Id, "", Color.Transparent);
+                    }
                 }
             }
-        }
 
         /// <summary>
         /// Colour and fill the label with a string, the label represents the rail 

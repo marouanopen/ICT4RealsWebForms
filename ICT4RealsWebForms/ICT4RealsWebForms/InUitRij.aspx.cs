@@ -20,6 +20,7 @@ namespace ICT4RealsWebForms
         private Repairservice rpService = new Repairservice(1, "repair", DateTime.Today, DateTime.Today, 1, 1);
         protected void Page_Load(object sender, EventArgs e)
         {
+            administration = Login.administration;
             if (!IsPostBack)
             {
                 ddlStatus.Items.Clear();
@@ -33,7 +34,6 @@ namespace ICT4RealsWebForms
                     ddlTramOut.Items.Add(Convert.ToString(t.Id));
                 }
             }
-            administration = Login.administration;
             this.parkingsystem = new Parkingsystem();
             this.padatabase = new PAdatabase();
         }
@@ -63,50 +63,59 @@ namespace ICT4RealsWebForms
                 }
                 if (exist == true)
                 {
-                    if (tram.OnRail)
+                    if(tram.Rail.Taken)
                     {
-                        ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('The tram is already parked and should be on its rail.')", true);
+                        ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('A tram is already parked here. Unable to park this tram right now.')", true);
                     }
                     else
                     {
-                        if (tram.Rail.IsRailBlocked(tram.Rail.Id))
+                        if (tram.OnRail)
                         {
-                            ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('This rail is blocked')", true);
+                            ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('The tram is already parked and should be on its rail.')", true);
                         }
                         else
                         {
-                            try
+                            if (tram.Rail.IsRailBlocked(tram.Rail.Id))
                             {
-                                rail = parkingsystem.InsertTramNr(Convert.ToInt32(tbTramnr.Text), status);
-                                tram._Status = status;
-                                if (status == 2)
-                                {
-                                    soort = "Schoonmaak";
-                                }
-                                else if (status == 3)
-                                {
-                                    soort = "Reparatie";
-                                }
-                                else if (status == 4)
-                                {
-                                    soort = "Beide";
-                                }
-                                if (soort != "")
-                                {
-                                    padatabase.MakeService(tramnr, soort);
-                                }
-                                tram.OnRail = true;
-                                if (!padatabase.RefreshTramdatabase(tramnr))
-                                {
-                                    ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('The database wasn't updated.')", true);
-                                }
+                                ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('This rail is blocked')", true);
                             }
-                            catch (NullReferenceException)
+                            else
                             {
-                                ClientScript.RegisterStartupScript(this.GetType(), "alert", "A rail with that number doesnt exist.", true);
+                                try
+                                {
+                                    rail = parkingsystem.InsertTramNr(Convert.ToInt32(tbTramnr.Text), status);
+                                    tram._Status = status;
+                                    if (status == 2)
+                                    {
+                                        soort = "Schoonmaak";
+                                    }
+                                    else if (status == 3)
+                                    {
+                                        soort = "Reparatie";
+                                    }
+                                    else if (status == 4)
+                                    {
+                                        soort = "Beide";
+                                    }
+                                    if (soort != "")
+                                    {
+                                        padatabase.MakeService(tramnr, soort);
+                                    }
+                                    tram.OnRail = true;
+                                    tram.Rail.Taken = true;
+                                    if (!padatabase.RefreshTramdatabase(tramnr))
+                                    {
+                                        ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('The database wasn't updated.')", true);
+                                    }
+                                }
+                                catch (NullReferenceException)
+                                {
+                                    ClientScript.RegisterStartupScript(this.GetType(), "alert", "A rail with that number doesnt exist.", true);
+                                }
                             }
                         }
                     }
+                    
                 }
                 else
                 {
@@ -148,6 +157,7 @@ namespace ICT4RealsWebForms
                         ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('The tram is no longer parked')", true);
                         padatabase.RefreshTramdatabase(tramnr);
                         administration.UpdateTramList();
+                        tram.Rail.Taken = false;
                     }
                     else
                     {
