@@ -811,11 +811,17 @@ namespace ICT4RealsWebForms
             Rail rail = new Rail(Convert.ToInt32(ddlStatusTrack.SelectedItem.Text), false, false, 1);
             if (ddlStatusStatus.SelectedItem.Text == "Blokkeer")
             {
-                refreshGUI(); //not sure
+                if (rail.BlockRail(Convert.ToInt32(ddlStatusTrack.SelectedItem.Text), 1))
+                {
+                    refreshGUI(); //not sure
+                }
             }
             else if (ddlStatusStatus.SelectedItem.Text == "Deblokkeer")
             {
-                refreshGUI(); //not sure
+                if (rail.BlockRail(Convert.ToInt32(ddlStatusTrack.SelectedItem.Text), 0))
+                {
+                    refreshGUI(); //not sure
+                }
             }
             refreshGUI();
         }
