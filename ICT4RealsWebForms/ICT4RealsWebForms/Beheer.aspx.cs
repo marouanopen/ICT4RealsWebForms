@@ -870,7 +870,7 @@ namespace ICT4RealsWebForms
         }
 
         /// <summary>
-        /// Clear all the labels in the gui
+        /// Clear all the labels in the gui and color labels if they are blocked
         /// </summary>
         private void clearGUI()
         {
@@ -880,10 +880,17 @@ namespace ICT4RealsWebForms
             {
                 foreach (Rail r in railList)
                 {
-                    fillRailLbl(r.Id, "", Color.Transparent);
+                    if (!r.IsRailBlocked(r.Id))
+                    {
+                        fillRailLbl(r.Id, "", Color.Transparent);
+                    }
+                    else
+                    {
+                        fillRailLbl(r.Id, "X", Color.Red);
                     }
                 }
             }
+        }
 
         /// <summary>
         /// Colour and fill the label with a string, the label represents the rail 
