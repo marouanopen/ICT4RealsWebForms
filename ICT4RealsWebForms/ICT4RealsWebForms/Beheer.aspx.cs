@@ -788,17 +788,17 @@ namespace ICT4RealsWebForms
                     Label tlbl = (Label)cph.FindControl("rail" + ddlAddLocation.Text);
                     if (tlbl.BackColor != Color.DimGray)
                     {
-                        if (
+                    if (
                             tram.AddTram(Convert.ToInt32(tbAddName.Text),
                                 Convert.ToInt32(ddlAddLocation.SelectedItem.Text),
-                                status,
-                                tramOnRail))
-                        {
-                            refreshGUI(); //not sure
-                            return;
-                        }
-                        ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('Kan tram niet toevoegen')", true);
-                    }
+                            status,
+                            tramOnRail))
+                    {
+                        refreshGUI(); //not sure
+                        return;
+                    }                
+                    ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('Kan tram niet toevoegen')", true);
+                }                    
                     ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('Er staat al een tram op dit spoor')", true);
                 }                    
                 ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('Voer een nummer in')", true);
@@ -834,20 +834,15 @@ namespace ICT4RealsWebForms
             {
                 ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('Je moet inloggen om hier gebruik van te maken!!')", true);
             }
-            //List<Tram> trams = Administration.GetTramList;
-            /*
-            foreach (Control c in groupBox1.Controls)
-            {
-                if (c.Name.StartsWith("spoor"))
-                {
-                    c.Text = "";
-                    c.BackColor = Color.White;
-                }
 
-            }
-            */
+            // Clear all the labels
+            clearGUI();
+
             try
             {
+                // Check for every tram if they are on a rails
+                // if they are, colour the corespondig rectangle 
+                // grey and put the id in the rectangle
                 foreach (Tram t in Administration.GetTramList)
                 {
                     if (t.OnRail)
@@ -868,9 +863,36 @@ namespace ICT4RealsWebForms
             catch (NullReferenceException)
             {
                 ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('Geen trams gevonden in de database.')", true);
+
             }
         }
 
+        /// <summary>
+        /// Clear all the labels in the gui
+        /// </summary>
+        private void clearGUI()
+        {
+            ContentPlaceHolder cph = (ContentPlaceHolder)this.Master.FindControl("MainContent");
+            List<Rail> railList = Administration.GetRailList;
+
+            try
+            {
+                foreach (Rail r in railList)
+                {
+                    Label tlbl = (Label)cph.FindControl("rail" + r.Id);
+                    if (tlbl != null)
+                    {
+                        tlbl.Text = Convert.ToString("");
+                        tlbl.BackColor = Color.Transparent;
+                    }
+                }
+            }
+            catch (NullReferenceException)
+            {
+                ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('ERROR, geen rails gevonden.')", true);
+            }
+
+        }
         protected void btnDriveInAssign_Click(object sender, EventArgs e)
         {
             Tram tram = new Tram(1, "test", new Rail(1, true, false, 1), new User(2323, "test", "test", 1), 1, true);
