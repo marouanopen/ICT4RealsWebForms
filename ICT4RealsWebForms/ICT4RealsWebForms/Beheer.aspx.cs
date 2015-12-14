@@ -845,9 +845,10 @@ namespace ICT4RealsWebForms
                     if (t.OnRail)
                     {
                         Rail rail = t.Rail;
-
+                        
                         string id = Convert.ToString(rail.Id);
-                        Label tlbl = (Label)FindControl("rail" + id);
+                        ContentPlaceHolder cph = (ContentPlaceHolder) this.Master.FindControl("MainContent");
+                        Label tlbl = (Label)cph.FindControl("rail" + id);
                         if (tlbl != null)
                         {
                             tlbl.Text = Convert.ToString(t.Id);

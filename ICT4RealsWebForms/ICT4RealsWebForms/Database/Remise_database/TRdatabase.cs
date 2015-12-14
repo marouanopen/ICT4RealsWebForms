@@ -104,9 +104,15 @@ namespace ICT4RealsWebForms.DataBase
             try
             {
                 string query; // the query will end up in here
+                query = "DELETE FROM Tram_Status"; //delete a tram_status
+                query += " WHERE TramTramID = " + tramId; //deletes tram_status with given tram id
+                if (doQuery(query) == -1) //query will be activated
+                {
+                    return false;
+                }
                 query = "DELETE FROM Tram";  //delete a tram
                 query += " WHERE TramID = " + tramId; //deletes tram with given tram id
-                if (doQuery(query) == -1) //query will be activated
+                if (doQuery(query) == -1)
                 {
                     return false;
                 }
