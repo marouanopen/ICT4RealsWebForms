@@ -811,16 +811,40 @@ namespace ICT4RealsWebForms
             Rail rail = new Rail(Convert.ToInt32(ddlStatusTrack.SelectedItem.Text), false, false, 1);
             if (ddlStatusStatus.SelectedItem.Text == "Blokkeer")
             {
-                if (rail.BlockRail(Convert.ToInt32(ddlStatusTrack.SelectedItem.Text), 1))
-                {
-                    refreshGUI(); //not sure
-                }
+              if (!rail.IsRailBlocked(Convert.ToInt32(ddlStatusTrack.SelectedItem.Text)))
+              {
+                  if (rail.BlockRail(Convert.ToInt32(ddlStatusTrack.SelectedItem.Text), 1))
+                  {
+                      refreshGUI(); //not sure
+                  }
+
+                  else
+                  {
+                      ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('Spoor is al geblokkeerd')", true);
+                  }
+              }
+              else
+              {
+                  ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('Spoor is al geblokkeerd')", true);
+              }
             }
             else if (ddlStatusStatus.SelectedItem.Text == "Deblokkeer")
             {
-                if (rail.BlockRail(Convert.ToInt32(ddlStatusTrack.SelectedItem.Text), 0))
+                if (rail.IsRailBlocked(Convert.ToInt32(ddlStatusTrack.SelectedItem.Text)))
                 {
-                    refreshGUI(); //not sure
+                    if (rail.BlockRail(Convert.ToInt32(ddlStatusTrack.SelectedItem.Text), 0))
+                    {
+                        refreshGUI(); //not sure
+                    }
+                    else
+                    {
+                        ClientScript.RegisterStartupScript(GetType(), "myalert",
+                            "alert('Spoor is al gedeblokkeerd')", true);
+                    }
+                }
+                else
+                {
+                    ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('Spoor is al gedeblokkeerd')", true);
                 }
             }
             refreshGUI();

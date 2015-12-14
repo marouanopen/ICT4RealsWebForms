@@ -17,6 +17,7 @@ namespace ICT4RealsWebForms.Remise
         public bool Status { get; set; }
         public bool Taken { get; set; }
         public int RemiseID { get; set; }
+        public string Type { get; set; }
         public Rail(int id, bool status, bool taken, int remiseid)
         {
             this.Id = id;

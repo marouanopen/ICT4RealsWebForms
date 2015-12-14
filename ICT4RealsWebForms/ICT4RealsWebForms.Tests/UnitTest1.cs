@@ -29,8 +29,8 @@ namespace ICT4RealsWebForms.Tests
             Rail rail = new Rail(1, true, false, 1);
             Rail rail2 = new Rail(2, true, false, 1);
             User user = new User(2323, "test", "test", 1);
-            Tram tram = new Tram(1, "test", rail, user, 1, true);
-            tram.AddTram(1, 1, 1, 1);/*
+            Tram tram = new Tram(1, "test", rail, user, 1, true);/*
+            tram.AddTram(1, 1, 1, 1);
             tram.MoveTram(2, 1, 1);
             Assert.AreEqual(2, rail2.Id, "rail 2");*/
             Assert.AreEqual(1,1);
