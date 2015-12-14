@@ -27,6 +27,11 @@ namespace ICT4RealsWebForms
                 ddlStatus.Items.Add("Vies");
                 ddlStatus.Items.Add("Defect");
                 ddlStatus.Items.Add("Vies en Defect");
+                ddlTramOut.Items.Clear();
+                foreach (Tram t in Administration.GetTramList)
+                {
+                    ddlTramOut.Items.Add(Convert.ToString(t.Id));
+                }
             }
             administration = Login.administration;
             this.parkingsystem = new Parkingsystem();
@@ -125,9 +130,6 @@ namespace ICT4RealsWebForms
             bool exist = false;
             int tramnr;
             Tram tram = null;
-            //leegmaken ddl
-            ddlTramOut.Items.Clear();
-            //refreshen van tramlist
             bool res = int.TryParse(ddlTramOut.Text, out tramnr);
                 foreach (Tram t in Administration.GetTramList)
                 {
@@ -136,7 +138,7 @@ namespace ICT4RealsWebForms
                         exist = true;
                         tram = t;
                     }
-                    ddlTramOut.Items.Add(Convert.ToString(t.Id));
+
                 }
                 if (exist == true && tram.OnRail == true)
                 {
