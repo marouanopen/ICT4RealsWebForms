@@ -28,11 +28,7 @@ namespace ICT4RealsWebForms
                 ddlStatus.Items.Add("Vies");
                 ddlStatus.Items.Add("Defect");
                 ddlStatus.Items.Add("Vies en Defect");
-                ddlTramOut.Items.Clear();
-                foreach (Tram t in Administration.GetTramList)
-                {
-                    ddlTramOut.Items.Add(Convert.ToString(t.Id));
-                }
+                Updatedll();
             }
             this.parkingsystem = new Parkingsystem();
             this.padatabase = new PAdatabase();
@@ -158,6 +154,7 @@ namespace ICT4RealsWebForms
                         padatabase.RefreshTramdatabase(tramnr);
                         administration.UpdateTramList();
                         tram.Rail.Taken = false;
+                        Updatedll();
                     }
                     else
                     {
@@ -169,6 +166,19 @@ namespace ICT4RealsWebForms
                     ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('A Tram with that number isn't parked yet! Input a tramnumber of a parked tram!')", true);
                 }
             }
+        public void Updatedll()
+        {
+            ddlTramOut.Items.Clear();
+            Administration.GetTramList.Sort(new SortTramAsc());
+            foreach (Tram t in Administration.GetTramList)
+            {
+                if (t.OnRail)
+                {
+                    ddlTramOut.Items.Add(Convert.ToString(t.Id));
+                }
+
+            }
+        }
         public void remiseRefresh()
         {
             /*List<Tram> trams = Administration.GetTramList;

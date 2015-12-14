@@ -333,6 +333,7 @@
     <Compile Include="Schoonmaak.aspx.designer.cs">
       <DependentUpon>Schoonmaak.aspx</DependentUpon>
     </Compile>
+    <Compile Include="SortTramAsc.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
