@@ -33,6 +33,20 @@ namespace ICT4RealsWebForms
             this.parkingsystem = new Parkingsystem();
             this.padatabase = new PAdatabase();
         }
+        public Rail ReturnRail(Tram tram)
+        {
+            List<string> Possibletracks = new List<string>();
+            //controleer bestaande rails. 
+            
+            
+
+            //check typeallowed
+            //check blokkade
+            //check taken?
+            //check eerstvolgende van die rail
+            //return
+            return tram;
+        }
         public void btnIncomingTram_Click(object sender, EventArgs e)
         {
             Rail rail = null;

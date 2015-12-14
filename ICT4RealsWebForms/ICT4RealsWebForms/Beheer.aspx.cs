@@ -827,34 +827,29 @@ namespace ICT4RealsWebForms
         }
 
         /// <summary>
-        /// Updates the tramList and returns it
+        /// Update Tram and Rail list
         /// </summary>
-        /// <returns>Tram list</returns>
-        private List<Tram> getTramList()
+        private void updateListsFromDB()
         {
-            // Try updating tram list
-            // if the user isn't logged in the update returns null and an alert shows
             try
             {
                 Login.administration.UpdateTramList();
+                Login.administration.UpdateRailList();
             }
             catch (NullReferenceException)
             {
                 ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('Je moet inloggen om hier gebruik van te maken!!')", true);
             }
-
-            List<Tram> tramList = Administration.GetTramList;
-
-            return tramList;
         }
+
 
         /// <summary>
         /// Refresh the gui to have the trams on the right location
         /// </summary>
         private void refreshGUI()
         {
-
-            List<Tram> tramList = getTramList();
+            updateListsFromDB();
+            List<Tram> tramList = Administration.GetTramList;
 
             // Clear all the labels
             clearGUI();
@@ -880,6 +875,7 @@ namespace ICT4RealsWebForms
         /// </summary>
         private void clearGUI()
         {
+            updateListsFromDB();
             List<Rail> railList = Administration.GetRailList;
 
             if (railList != null)
