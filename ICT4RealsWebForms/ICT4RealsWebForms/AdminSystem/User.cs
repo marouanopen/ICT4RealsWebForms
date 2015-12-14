@@ -27,6 +27,7 @@ namespace ICT4RealsWebForms.AdminSystem
         /// <param name="roleId">role represented by the enum</param>
         public User(int id, string name, string username, int roleId)
         {
+            Allowedpages = new List<string>();
             this.Id = id;
             this.Name = name;
             this.Username = username;
