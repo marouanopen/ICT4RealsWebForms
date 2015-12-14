@@ -34,6 +34,7 @@ namespace ICT4RealsWebForms
             }
             this.parkingsystem = new Parkingsystem();
             this.padatabase = new PAdatabase();
+            this.railDatabase = new RAdatabase();
         }
         public Rail ReturnRail(Tram tram)
         {
@@ -105,10 +106,10 @@ namespace ICT4RealsWebForms
                             {
                                 try
                                 {
-                                    //rail = ReturnRail(tram);
-                                    rail = parkingsystem.InsertTramNr(Convert.ToInt32(tbTramnr.Text), status);
+                                    rail = ReturnRail(tram);
+                                    //rail = parkingsystem.InsertTramNr(Convert.ToInt32(tbTramnr.Text), status);
                                     tram._Status = status;
-                                    //tram.Rail = rail;
+                                    tram.Rail = rail;
                                     if (status == 2)
                                     {
                                         soort = "Schoonmaak";

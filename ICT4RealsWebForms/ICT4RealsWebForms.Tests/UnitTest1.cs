@@ -12,7 +12,7 @@ namespace ICT4RealsWebForms.Tests
         [TestMethod]
         public void TestTramProperties()
         {
-            Rail rail = new Rail(1, true, false, 1);
+            Rail rail = new Rail(1, true, false, 1, "Combino");
             User user = new User(2323, "test", "test", 1);
             Tram tram = new Tram(1, "test", rail, user, 1, true);
             Assert.AreEqual(tram.Id, 1, "TramID");
@@ -26,8 +26,8 @@ namespace ICT4RealsWebForms.Tests
         [TestMethod]
         public void TestMoveTram()
         {
-            Rail rail = new Rail(1, true, false, 1);
-            Rail rail2 = new Rail(2, true, false, 1);
+            Rail rail = new Rail(1, true, false, 1, "Combino");
+            Rail rail2 = new Rail(2, true, false, 1, "Combino");
             User user = new User(2323, "test", "test", 1);
             Tram tram = new Tram(1, "test", rail, user, 1, true);/*
             tram.AddTram(1, 1, 1, 1);
@@ -39,7 +39,7 @@ namespace ICT4RealsWebForms.Tests
         [TestMethod]
         public void TestTramOnRail()
         {
-            Rail rail = new Rail(1, true, false, 1);
+            Rail rail = new Rail(1, true, false, 1, "Combino");
             User user = new User(2323, "test", "test", 1);
             Tram tram = new Tram(1, "test", rail, user, 1, false);
             tram.OnRail = true;

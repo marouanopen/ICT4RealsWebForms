@@ -694,7 +694,7 @@ namespace ICT4RealsWebForms
 
         protected void btnDetailsRemove_Click(object sender, EventArgs e)
         {
-            Tram tram = new Tram(1, "test", new Rail(1, true, false, 1), new User(2323, "test", "test", 1), 1, true);
+            Tram tram = new Tram(1, "test", new Rail(1, true, false, 1, "Combino"), new User(2323, "test", "test", 1), 1, true);
             if (tbDetailsName.Text != "")
             {
                 bool result = Int32.TryParse(tbDetailsName.Text, out number);
@@ -715,7 +715,7 @@ namespace ICT4RealsWebForms
 
         protected void btnDetailsEdit_Click(object sender, EventArgs e)
         {
-            Tram tram = new Tram(1, "test", new Rail(1, true, false, 1), new User(2323, "test", "test", 1), 1, true);
+            Tram tram = new Tram(1, "test", new Rail(1, true, false, 1, "Combino"), new User(2323, "test", "test", 1), 1, true);
             int status = 0;
             switch (ddlDetailsStatus.SelectedItem.Text)
             {
@@ -777,7 +777,7 @@ namespace ICT4RealsWebForms
             {
                 tramOnRail = 1;
             }
-            Tram tram = new Tram(1, "test", new Rail(1, true, false, 1), new User(2323, "test", "test", 1), 1, true);
+            Tram tram = new Tram(1, "test", new Rail(1, true, false, 1, "Combino"), new User(2323, "test", "test", 1), 1, true);
             if (tbAddName.Text != "")
             {
                 bool result = Int32.TryParse(tbAddName.Text, out number);
@@ -809,7 +809,7 @@ namespace ICT4RealsWebForms
 
         protected void btnStatus_Click(object sender, EventArgs e)
         {
-            Rail rail = new Rail(Convert.ToInt32(ddlStatusTrack.SelectedItem.Text), false, false, 1);
+            Rail rail = new Rail(Convert.ToInt32(ddlStatusTrack.SelectedItem.Text), false, false, 1, "Combino");
             if (ddlStatusStatus.SelectedItem.Text == "Blokkeer")
             {
               if (!rail.IsRailBlocked(Convert.ToInt32(ddlStatusTrack.SelectedItem.Text)))
@@ -937,7 +937,7 @@ namespace ICT4RealsWebForms
         }
         protected void btnDriveInAssign_Click(object sender, EventArgs e)
         {
-            Tram tram = new Tram(1, "test", new Rail(1, true, false, 1), new User(2323, "test", "test", 1), 1, true);
+            Tram tram = new Tram(1, "test", new Rail(1, true, false, 1, "Combino"), new User(2323, "test", "test", 1), 1, true);
             if (lboxDriveInList.SelectedItem != null)
             {
                 if (tram.MoveTram(Convert.ToInt32(lboxDriveInList.SelectedItem.Text),

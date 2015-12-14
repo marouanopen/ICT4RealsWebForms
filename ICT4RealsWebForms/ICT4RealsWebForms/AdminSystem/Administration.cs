@@ -110,7 +110,7 @@ namespace ICT4RealsWebForms.AdminSystem
                     status = true;
                 }
 
-                Rail r = new Rail(Convert.ToInt32(R["spoorid"]), status, false, Convert.ToInt32(R["remiseid"]));
+                Rail r = new Rail(Convert.ToInt32(R["spoorid"]), status, false, Convert.ToInt32(R["remiseid"]), Convert.ToString(R["type"]));
                 GetRailList.Add(r);
             }
         }
