@@ -46,6 +46,10 @@ namespace ICT4RealsWebForms
             //check taken?            
             foreach(Rail r in Administration.GetRailList)
             {
+                //////
+                //tram.type = opleidingstrams vs r.type = ????
+                /////
+                //fix hier!
                 if (Convert.ToInt32(railDatabase.IsRailBlocked(r.Id)) == 0 && r.Taken == false && r.Type == tram.Type)
                 {
                     Possibletracks.Add(r);
@@ -86,6 +90,8 @@ namespace ICT4RealsWebForms
                 }
                 if (exist == true)
                 {
+                    rail = ReturnRail(tram);
+                    tram.Rail = rail;
                     if(tram.Rail.Taken)
                     {
                         ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('A tram is already parked here. Unable to park this tram right now.')", true);
@@ -106,10 +112,8 @@ namespace ICT4RealsWebForms
                             {
                                 try
                                 {
-                                    rail = ReturnRail(tram);
                                     //rail = parkingsystem.InsertTramNr(Convert.ToInt32(tbTramnr.Text), status);
                                     tram._Status = status;
-                                    tram.Rail = rail;
                                     if (status == 2)
                                     {
                                         soort = "Schoonmaak";
