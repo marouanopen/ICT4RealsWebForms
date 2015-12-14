@@ -828,6 +828,8 @@ namespace ICT4RealsWebForms
                 ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('Je moet inloggen om hier gebruik van te maken!!')", true);
             }
 
+            // Clear all the labels
+            clearGUI();
 
             try
             {
@@ -854,9 +856,36 @@ namespace ICT4RealsWebForms
             catch (NullReferenceException)
             {
                 ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('Geen trams gevonden in de database.')", true);
+
             }
         }
 
+        /// <summary>
+        /// Clear all the labels in the gui
+        /// </summary>
+        private void clearGUI()
+        {
+            ContentPlaceHolder cph = (ContentPlaceHolder)this.Master.FindControl("MainContent");
+            List<Rail> railList = Administration.GetRailList;
+
+            try
+            {
+                foreach (Rail r in railList)
+                {
+                    Label tlbl = (Label)cph.FindControl("rail" + r.Id);
+                    if (tlbl != null)
+                    {
+                        tlbl.Text = Convert.ToString("");
+                        tlbl.BackColor = Color.Transparent;
+                    }
+                }
+            }
+            catch (NullReferenceException)
+            {
+                ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('ERROR, geen rails gevonden.')", true);
+            }
+
+        }
         protected void btnDriveInAssign_Click(object sender, EventArgs e)
         {
             Tram tram = new Tram(1, "test", new Rail(1, true, false, 1), new User(2323, "test", "test", 1), 1, true);
