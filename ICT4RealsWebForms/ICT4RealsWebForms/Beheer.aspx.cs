@@ -793,11 +793,12 @@ namespace ICT4RealsWebForms
                                 Convert.ToInt32(ddlAddLocation.SelectedItem.Text),
                             status,
                             tramOnRail))
-                    {
+                      {
+                        tram.Rail.Taken = true;
                         refreshGUI(); //not sure
                         return;
-                    }                
-                    ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('Kan tram niet toevoegen')", true);
+                      }                
+                      ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('Kan tram niet toevoegen')", true);
                 }                    
                     ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('Er staat al een tram op dit spoor')", true);
                 }                    
@@ -838,8 +839,7 @@ namespace ICT4RealsWebForms
                     }
                     else
                     {
-                        ClientScript.RegisterStartupScript(GetType(), "myalert",
-                            "alert('Spoor is al gedeblokkeerd')", true);
+                        ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('Spoor is al gedeblokkeerd')", true);
                     }
                 }
                 else
