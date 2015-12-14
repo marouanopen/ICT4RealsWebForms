@@ -125,6 +125,9 @@ namespace ICT4RealsWebForms
             bool exist = false;
             int tramnr;
             Tram tram = null;
+            //leegmaken ddl
+            ddlTramOut.Items.Clear();
+            //refreshen van tramlist
             bool res = int.TryParse(ddlTramOut.Text, out tramnr);
                 foreach (Tram t in Administration.GetTramList)
                 {
@@ -133,6 +136,7 @@ namespace ICT4RealsWebForms
                         exist = true;
                         tram = t;
                     }
+                    ddlTramOut.Items.Add(Convert.ToString(t.Id));
                 }
                 if (exist == true && tram.OnRail == true)
                 {
