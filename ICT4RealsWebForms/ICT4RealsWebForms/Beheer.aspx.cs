@@ -193,11 +193,11 @@ namespace ICT4RealsWebForms
             //delete all items first
             if (!IsPostBack)
             {
-            ddlAddStatus.Items.Clear();
-            ddlAddStatus.Items.Add("Ok");
-            ddlAddStatus.Items.Add("Vies");
-            ddlAddStatus.Items.Add("Defect");
-            ddlAddStatus.Items.Add("Vies en Defect");
+                ddlAddStatus.Items.Clear();
+                ddlAddStatus.Items.Add("Ok");
+                ddlAddStatus.Items.Add("Vies");
+                ddlAddStatus.Items.Add("Defect");
+                ddlAddStatus.Items.Add("Vies en Defect");
             }
             
             #region
@@ -363,9 +363,9 @@ namespace ICT4RealsWebForms
             //delete all items first
             if (!IsPostBack)
             {
-            ddlStatusStatus.Items.Clear();
-            ddlStatusStatus.Items.Add("Blokkeer");
-            ddlStatusStatus.Items.Add("Deblokkeer");
+                ddlStatusStatus.Items.Clear();
+                ddlStatusStatus.Items.Add("Blokkeer");
+                ddlStatusStatus.Items.Add("Deblokkeer");
             }
           
             #region
@@ -926,5 +926,11 @@ namespace ICT4RealsWebForms
             }
             ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('Geen tram geselecteerd')", true);
         }
+
+        protected void btnRefresh_Click(object sender, EventArgs e)
+        {
+            refreshGUI();
+        }
+
     }
 }
