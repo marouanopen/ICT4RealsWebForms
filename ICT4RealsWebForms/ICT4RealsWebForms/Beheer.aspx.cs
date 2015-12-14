@@ -812,13 +812,14 @@ namespace ICT4RealsWebForms
             refreshGUI();
         }
 
-
         /// <summary>
-        /// Refresh the gui to have the trams on the right location
+        /// Updates the tramList and returns it
         /// </summary>
-        private void refreshGUI()
+        /// <returns>Tram list</returns>
+        private List<Tram> getTramList()
         {
-            // Update the tram list 
+            // Try updating tram list
+            // if the user isn't logged in the update returns null and an alert shows
             try
             {
                 Login.administration.UpdateTramList();
@@ -828,35 +829,35 @@ namespace ICT4RealsWebForms
                 ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('Je moet inloggen om hier gebruik van te maken!!')", true);
             }
 
+            List<Tram> tramList = Administration.GetTramList;
+
+            return tramList;
+        }
+
+        /// <summary>
+        /// Refresh the gui to have the trams on the right location
+        /// </summary>
+        private void refreshGUI()
+        {
+
+            List<Tram> tramList = getTramList();
+
             // Clear all the labels
             clearGUI();
-
-            try
+            
+            if (tramList != null)
             {
                 // Check for every tram if they are on a rails
                 // if they are, colour the corespondig rectangle 
                 // grey and put the id in the rectangle
-                foreach (Tram t in Administration.GetTramList)
+                foreach (Tram t in tramList)
                 {
                     if (t.OnRail)
                     {
                         Rail rail = t.Rail;
-                        
-                        string id = Convert.ToString(rail.Id);
-                        ContentPlaceHolder cph = (ContentPlaceHolder) this.Master.FindControl("MainContent");
-                        Label tlbl = (Label)cph.FindControl("rail" + id);
-                        if (tlbl != null)
-                        {
-                            tlbl.Text = Convert.ToString(t.Id);
-                            tlbl.BackColor = Color.DimGray;
-                        }
+                        fillRailLbl(rail.Id, t.Id.ToString(), Color.DimGray);
                     }
                 }
-            }
-            catch (NullReferenceException)
-            {
-                ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('Geen trams gevonden in de database.')", true);
-
             }
         }
 
@@ -865,26 +866,33 @@ namespace ICT4RealsWebForms
         /// </summary>
         private void clearGUI()
         {
-            ContentPlaceHolder cph = (ContentPlaceHolder)this.Master.FindControl("MainContent");
             List<Rail> railList = Administration.GetRailList;
 
-            try
+            if (railList != null)
             {
                 foreach (Rail r in railList)
                 {
-                    Label tlbl = (Label)cph.FindControl("rail" + r.Id);
-                    if (tlbl != null)
-                    {
-                        tlbl.Text = Convert.ToString("");
-                        tlbl.BackColor = Color.Transparent;
-                    }
+                    fillRailLbl(r.Id, "", Color.Transparent);
                 }
             }
-            catch (NullReferenceException)
-            {
-                ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('ERROR, geen rails gevonden.')", true);
-            }
+        }
 
+        /// <summary>
+        /// Colour and fill the label with a string, the label represents the rail 
+        /// and string specifies what tram is on the rail.
+        /// </summary>
+        /// <param name="railID">The id of the rail which the label represents</param>
+        /// <param name="lblContent">The string you want to put into that label</param>
+        /// <param name="color">The color you want to give the label</param>
+        private void fillRailLbl(int railID, string lblContent, Color color)
+        {
+            ContentPlaceHolder cph = (ContentPlaceHolder)this.Master.FindControl("MainContent");
+            Label tlbl = (Label)cph.FindControl("rail" + railID);
+            if (tlbl != null)
+            {
+                tlbl.Text = lblContent;
+                tlbl.BackColor = color;
+            }
         }
         protected void btnDriveInAssign_Click(object sender, EventArgs e)
         {
