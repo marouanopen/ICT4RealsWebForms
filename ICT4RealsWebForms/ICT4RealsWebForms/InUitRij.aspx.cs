@@ -37,6 +37,7 @@ namespace ICT4RealsWebForms
         }
         public Rail ReturnRail(Tram tram)
         {
+            Rail rail = null;
             Possibletracks = new List<Rail>();
             //controleer bestaande rails. 
             administration.UpdateRailList();
@@ -44,23 +45,19 @@ namespace ICT4RealsWebForms
             //check taken?            
             foreach(Rail r in Administration.GetRailList)
             {
-                if (Convert.ToInt32(railDatabase.IsRailBlocked(r.Id)) == 0 && r.Taken == false)
+                if (Convert.ToInt32(railDatabase.IsRailBlocked(r.Id)) == 0 && r.Taken == false && r.Type == tram.Type)
                 {
                     Possibletracks.Add(r);
                 }
             }
             foreach(Rail r in Possibletracks)
             {
-                //if(/*r.rechten == tram.rechten*/)
-                //{
-                    //Rail rail = r;
-                //}
+                return r;
             }
-
             //check typeallowed
             //check eerstvolgende van die rail
             //return
-            return null;
+            return rail;
         }
         public void btnIncomingTram_Click(object sender, EventArgs e)
         {
@@ -108,8 +105,10 @@ namespace ICT4RealsWebForms
                             {
                                 try
                                 {
+                                    //rail = ReturnRail(tram);
                                     rail = parkingsystem.InsertTramNr(Convert.ToInt32(tbTramnr.Text), status);
                                     tram._Status = status;
+                                    //tram.Rail = rail;
                                     if (status == 2)
                                     {
                                         soort = "Schoonmaak";
