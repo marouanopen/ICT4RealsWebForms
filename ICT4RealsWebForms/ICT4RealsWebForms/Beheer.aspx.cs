@@ -818,6 +818,7 @@ namespace ICT4RealsWebForms
         /// </summary>
         private void refreshGUI()
         {
+            // Update the tram list 
             try
             {
                 Login.administration.UpdateTramList();
@@ -826,20 +827,13 @@ namespace ICT4RealsWebForms
             {
                 ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('Je moet inloggen om hier gebruik van te maken!!')", true);
             }
-            //List<Tram> trams = Administration.GetTramList;
-            /*
-            foreach (Control c in groupBox1.Controls)
-            {
-                if (c.Name.StartsWith("spoor"))
-                {
-                    c.Text = "";
-                    c.BackColor = Color.White;
-                }
 
-            }
-            */
+
             try
             {
+                // Check for every tram if they are on a rails
+                // if they are, colour the corespondig rectangle 
+                // grey and put the id in the rectangle
                 foreach (Tram t in Administration.GetTramList)
                 {
                     if (t.OnRail)
