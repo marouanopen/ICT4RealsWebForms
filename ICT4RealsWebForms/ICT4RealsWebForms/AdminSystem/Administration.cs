@@ -20,69 +20,18 @@ namespace ICT4RealsWebForms.AdminSystem
         public static List<Rail> GetRailList { get; set; }
         public static List<Tram> GetTramList { get; set; }
         public static User LoggedInUser { get; set; }
+
         /// <summary>
-        /// constructor
+        /// constructor, initializes the lists and updates them
         /// </summary>
         public Administration()
         {
             GetRailList = new List<Rail>();
             GetTramList = new List<Tram>();
-            foreach(Dictionary<string, object> R in addatabase.GetAllRails())
-            {
-                bool status = false;
-                if(Convert.ToInt32(R["blokkeer"]) == 0)
-                {
-                    status = false;
-                }
-                else
-                {
-                    status = true;
-                }
-                
-                Rail r = new Rail(Convert.ToInt32(R["spoorid"]), status , false, Convert.ToInt32(R["remiseid"]));
-                GetRailList.Add(r);
-            }
-            foreach (Dictionary<string, object> T in addatabase.GetAllTrams())
-            {
-                Rail rail = null;
-                int status = 0;
-                bool onRail = false;
-                
-                if ((string)T["status"] == "Ok")
-                {
-                    status = 1;
-                }
-                if ((string)T["status"] == "Vies")
-                {
-                    status = 2;
-                }
-                if ((string)T["status"] == "Defect")
-                {
-                    status = 3;
-                }
-                if ((string)T["status"] == "ViesEnDefect")
-                {
-                    status = 4;
-                }
-                if (Convert.ToInt32(T["aanwezigopspoor"]) == 0)
-                {
-                    onRail = false;
-                }
-                else
-                {
-                    onRail = true;
-                }
-                foreach(Rail R in Administration.GetRailList)
-                {
-                    if(R.Id == Convert.ToInt32(T["spoorid"]))
-                    {
-                        rail = R;
-                    }
-                }
-                Tram t = new Tram(Convert.ToInt32(T["tramid"]), (string)T["type"], rail, LoggedInUser, status, onRail);
-                GetTramList.Add(t);
-            }
+            UpdateRailList();
+            UpdateTramList();
         }
+
         /// <summary>
         /// not implemented
         /// </summary>
@@ -146,6 +95,25 @@ namespace ICT4RealsWebForms.AdminSystem
             }
             return false;
         }
+        public void UpdateRailList()
+        {
+            GetRailList.Clear();
+            foreach (Dictionary<string, object> R in addatabase.GetAllRails())
+            {
+                bool status = false;
+                if (Convert.ToInt32(R["blokkeer"]) == 0)
+                {
+                    status = false;
+                }
+                else
+                {
+                    status = true;
+                }
+
+                Rail r = new Rail(Convert.ToInt32(R["spoorid"]), status, false, Convert.ToInt32(R["remiseid"]), Convert.ToString(R["type"]));
+                GetRailList.Add(r);
+            }
+        }
         /// <summary>
         /// addon for enabling tabs. not used anymore
         /// </summary>
@@ -157,6 +125,7 @@ namespace ICT4RealsWebForms.AdminSystem
         //}
         public void UpdateTramList()
         {
+            GetTramList.Clear();
             foreach (Dictionary<string, object> T in addatabase.GetAllTrams())
             {
                 Rail rail = null;
@@ -192,6 +161,7 @@ namespace ICT4RealsWebForms.AdminSystem
                     if (R.Id == Convert.ToInt32(T["spoorid"]))
                     {
                         rail = R;
+                        
                     }
                 }
                 Tram t = new Tram(Convert.ToInt32(T["tramid"]), (string)T["type"], rail, LoggedInUser, status, onRail);

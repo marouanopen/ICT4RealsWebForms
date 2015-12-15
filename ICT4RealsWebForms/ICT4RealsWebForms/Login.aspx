@@ -12,6 +12,6 @@
                 <label for="tbPassword">Password</label>
                 <asp:TextBox ID="tbPassword" runat="server"></asp:TextBox>
             </div>
-            <asp:Button ID="btnLogin" runat="server" Text="Login" />
+            <asp:Button ID="btnLogin" runat="server" Text="Login" onclick="btlogin_Click"/>
         </fieldset>
 </asp:Content>

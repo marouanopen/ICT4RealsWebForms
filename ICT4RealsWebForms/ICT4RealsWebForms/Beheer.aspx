@@ -1,7 +1,9 @@
 ﻿<%@ Page Title="Beheer" Language="C#" MasterPageFile="~/ICT4Reals.Master" AutoEventWireup="true" CodeBehind="Beheer.aspx.cs" Inherits="ICT4RealsWebForms.About" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-    <div class="mainContent"></div>
+    <div class="mainContent">
+        <asp:Button ID="btnRefresh" runat="server" OnClick="btnRefresh_Click" Text="Refresh" />
+    </div>
     <div class="contentbox2" id="beheer">
         <div>
             <asp:Label ID="rail1200" runat="server" Text="12"></asp:Label> 

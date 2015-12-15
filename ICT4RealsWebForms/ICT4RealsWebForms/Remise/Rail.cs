@@ -17,12 +17,14 @@ namespace ICT4RealsWebForms.Remise
         public bool Status { get; set; }
         public bool Taken { get; set; }
         public int RemiseID { get; set; }
-        public Rail(int id, bool status, bool taken, int remiseid)
+        public string Type { get; set; }
+        public Rail(int id, bool status, bool taken, int remiseid, string type)
         {
             this.Id = id;
             this.Status = status;
             this.Taken = taken;
             this.RemiseID = RemiseID;
+            this.Type = type;
         }
         /// <summary>
         /// See if the rail is blocked

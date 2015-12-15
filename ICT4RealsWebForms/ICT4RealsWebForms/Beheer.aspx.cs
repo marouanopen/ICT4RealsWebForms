@@ -191,11 +191,14 @@ namespace ICT4RealsWebForms
 
             //put items in dropdownlist add tram
             //delete all items first
-            ddlAddStatus.Items.Clear();
-            ddlAddStatus.Items.Add("Ok");
-            ddlAddStatus.Items.Add("Vies");
-            ddlAddStatus.Items.Add("Defect");
-            ddlAddStatus.Items.Add("Vies en Defect");
+            if (!IsPostBack)
+            {
+                ddlAddStatus.Items.Clear();
+                ddlAddStatus.Items.Add("Ok");
+                ddlAddStatus.Items.Add("Vies");
+                ddlAddStatus.Items.Add("Defect");
+                ddlAddStatus.Items.Add("Vies en Defect");
+            }
             
             #region
             //put items in dropdownlist for each rails 1
@@ -358,9 +361,12 @@ namespace ICT4RealsWebForms
 
             //put items in dropdownlist rails
             //delete all items first
-            ddlStatusStatus.Items.Clear();
-            ddlStatusStatus.Items.Add("Blokkeer");
-            ddlStatusStatus.Items.Add("Deblokkeer");
+            if (!IsPostBack)
+            {
+                ddlStatusStatus.Items.Clear();
+                ddlStatusStatus.Items.Add("Blokkeer");
+                ddlStatusStatus.Items.Add("Deblokkeer");
+            }
           
             #region
             //put items in dropdownlist for each rails 1
@@ -680,11 +686,15 @@ namespace ICT4RealsWebForms
             ddlStatusTrack.Items.Add("7705");
             #endregion
 
+            if (!IsPostBack)
+            {
+                refreshGUI();
+            }
         }
 
         protected void btnDetailsRemove_Click(object sender, EventArgs e)
         {
-            Tram tram = new Tram(1, "test", new Rail(1, true, false, 1), new User(2323, "test", "test", 1), 1, true);
+            Tram tram = new Tram(1, "test", new Rail(1, true, false, 1, "Combino"), new User(2323, "test", "test", 1), 1, true);
             if (tbDetailsName.Text != "")
             {
                 bool result = Int32.TryParse(tbDetailsName.Text, out number);
@@ -692,7 +702,8 @@ namespace ICT4RealsWebForms
                 {
                     if (tram.DeleteTram(Convert.ToInt32(tbDetailsName.Text)) == true)
                     {
-                        //delete the tram
+                        refreshGUI(); //not sure
+                        return;
                     }
                     ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('Kan tram niet verwijderen')",
                         true);
@@ -704,7 +715,7 @@ namespace ICT4RealsWebForms
 
         protected void btnDetailsEdit_Click(object sender, EventArgs e)
         {
-            Tram tram = new Tram(1, "test", new Rail(1, true, false, 1), new User(2323, "test", "test", 1), 1, true);
+            Tram tram = new Tram(1, "test", new Rail(1, true, false, 1, "Combino"), new User(2323, "test", "test", 1), 1, true);
             int status = 0;
             switch (ddlDetailsStatus.SelectedItem.Text)
             {
@@ -731,7 +742,8 @@ namespace ICT4RealsWebForms
                         tram.MoveTram(Convert.ToInt32(tbDetailsName.Text),
                             Convert.ToInt32(ddlDetailsLocation.SelectedItem.Text), status))
                     {
-                        //move tram
+                        refreshGUI(); //not sure
+                        return;
                     }                
                     ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('Kan tram niet aanpassen')", true);
                 }
@@ -765,20 +777,30 @@ namespace ICT4RealsWebForms
             {
                 tramOnRail = 1;
             }
-            Tram tram = new Tram(1, "test", new Rail(1, true, false, 1), new User(2323, "test", "test", 1), 1, true);
+            Tram tram = new Tram(1, "test", new Rail(1, true, false, 1, "Combino"), new User(2323, "test", "test", 1), 1, true);
             if (tbAddName.Text != "")
             {
                 bool result = Int32.TryParse(tbAddName.Text, out number);
                 if (result)
                 {
+                    //if there is already a tram on this rail, give message
+                    ContentPlaceHolder cph = (ContentPlaceHolder) this.Master.FindControl("MainContent");
+                    Label tlbl = (Label)cph.FindControl("rail" + ddlAddLocation.Text);
+                    if (tlbl.BackColor != Color.DimGray)
+                    {
                     if (
-                        tram.AddTram(Convert.ToInt32(tbAddName.Text), Convert.ToInt32(ddlAddLocation.SelectedItem.Text),
+                            tram.AddTram(Convert.ToInt32(tbAddName.Text),
+                                Convert.ToInt32(ddlAddLocation.SelectedItem.Text),
                             status,
                             tramOnRail))
-                    {
-                        //add tram
-                    }                
-                    ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('Kan tram niet toevoegen')", true);
+                      {
+                        tram.Rail.Taken = true;
+                        refreshGUI(); //not sure
+                        return;
+                      }                
+                      ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('Kan tram niet toevoegen')", true);
+                }                    
+                    ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('Er staat al een tram op dit spoor')", true);
                 }                    
                 ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('Voer een nummer in')", true);
             }
@@ -787,16 +809,61 @@ namespace ICT4RealsWebForms
 
         protected void btnStatus_Click(object sender, EventArgs e)
         {
-            Rail rail = new Rail(Convert.ToInt32(ddlStatusTrack.SelectedItem.Text), false, false, 1);
+            Rail rail = new Rail(Convert.ToInt32(ddlStatusTrack.SelectedItem.Text), false, false, 1, "Combino");
             if (ddlStatusStatus.SelectedItem.Text == "Blokkeer")
             {
-                //blokkeer rail
+              if (!rail.IsRailBlocked(Convert.ToInt32(ddlStatusTrack.SelectedItem.Text)))
+              {
+                  if (rail.BlockRail(Convert.ToInt32(ddlStatusTrack.SelectedItem.Text), 1))
+                  {
+                      refreshGUI(); //not sure
+                  }
+
+                  else
+                  {
+                      ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('Spoor is al geblokkeerd')", true);
+                  }
+              }
+              else
+              {
+                  ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('Spoor is al geblokkeerd')", true);
+              }
             }
             else if (ddlStatusStatus.SelectedItem.Text == "Deblokkeer")
             {
-                //deblokkeer rail
+                if (rail.IsRailBlocked(Convert.ToInt32(ddlStatusTrack.SelectedItem.Text)))
+                {
+                    if (rail.BlockRail(Convert.ToInt32(ddlStatusTrack.SelectedItem.Text), 0))
+                    {
+                        refreshGUI(); //not sure
+                    }
+                    else
+                    {
+                        ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('Spoor is al gedeblokkeerd')", true);
+                    }
+                }
+                else
+                {
+                    ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('Spoor is al gedeblokkeerd')", true);
+                }
             }
             refreshGUI();
+        }
+
+        /// <summary>
+        /// Update Tram and Rail list
+        /// </summary>
+        private void updateListsFromDB()
+        {
+            try
+            {
+                Login.administration.UpdateTramList();
+                Login.administration.UpdateRailList();
+            }
+            catch (NullReferenceException)
+            {
+                ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('Je moet inloggen om hier gebruik van te maken!!')", true);
+            }
         }
 
 
@@ -805,41 +872,89 @@ namespace ICT4RealsWebForms
         /// </summary>
         private void refreshGUI()
         {
-            List<Tram> trams = Administration.GetTramList;
-            /*
-            foreach (Control c in groupBox1.Controls)
-            {
-                if (c.Name.StartsWith("spoor"))
-                {
-                    c.Text = "";
-                    c.BackColor = Color.White;
-                }
+            updateListsFromDB();
+            List<Tram> tramList = Administration.GetTramList;
 
-            }
-            */
-            try
+            // Clear all the labels
+            clearGUI();
+
+            if (tramList != null)
             {
-                foreach (Tram t in trams)
+                // Check for every tram if they are on a rails
+                // if they are, colour the corespondig rectangle 
+                // grey and put the id in the rectangle
+                foreach (Tram t in tramList)
                 {
                     if (t.OnRail)
                     {
                         Rail rail = t.Rail;
+                        fillRailLbl(rail.Id, t.Id.ToString(), Color.DimGray);
+                }
+            }
+            }
+        }
 
-                        string id = Convert.ToString(rail.Id);
-                        Label tlbl = (Label)FindControl("rail" + id);
-                        tlbl.Text = Convert.ToString(t.Id);
-                        tlbl.BackColor = Color.DimGray;
+        /// <summary>
+        /// Clear all the labels in the gui and color labels if they are blocked
+        /// </summary>
+        private void clearGUI()
+        {
+            updateListsFromDB();
+            List<Rail> railList = Administration.GetRailList;
+
+            if (railList != null)
+            {
+                foreach (Rail r in railList)
+                {
+                    if (!r.IsRailBlocked(r.Id))
+                    {
+                        fillRailLbl(r.Id, "", Color.Transparent);
+                    }
+                    else
+                    {
+                        fillRailLbl(r.Id, "X", Color.Red);
                     }
                 }
             }
-            catch (NullReferenceException)
-            { 
+        }
+
+        /// <summary>
+        /// Colour and fill the label with a string, the label represents the rail 
+        /// and string specifies what tram is on the rail.
+        /// </summary>
+        /// <param name="railID">The id of the rail which the label represents</param>
+        /// <param name="lblContent">The string you want to put into that label</param>
+        /// <param name="color">The color you want to give the label</param>
+        private void fillRailLbl(int railID, string lblContent, Color color)
+        {
+            ContentPlaceHolder cph = (ContentPlaceHolder)this.Master.FindControl("MainContent");
+            Label tlbl = (Label)cph.FindControl("rail" + railID);
+            if (tlbl != null)
+            {
+                tlbl.Text = lblContent;
+                tlbl.BackColor = color;
             }
         }
-
         protected void btnDriveInAssign_Click(object sender, EventArgs e)
         {
-
+            Tram tram = new Tram(1, "test", new Rail(1, true, false, 1, "Combino"), new User(2323, "test", "test", 1), 1, true);
+            if (lboxDriveInList.SelectedItem != null)
+            {
+                if (tram.MoveTram(Convert.ToInt32(lboxDriveInList.SelectedItem.Text),
+                    Convert.ToInt32(ddlDriveInLocation.SelectedItem.Text), 1))
+                {
+                    refreshGUI(); //not sure
+                    return;
+                }
+                ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('Kan tram niet verplaatsen')", true);
+            }
+            ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('Geen tram geselecteerd')", true);
         }
+
+        protected void btnRefresh_Click(object sender, EventArgs e)
+        {
+            refreshGUI();
+        }
+
     }
 }
