@@ -4,10 +4,19 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title> | ICT4Rails</title>
+    <title><%: Page.Title %> | ICT4Rails</title>
     <link href="style/StyleSheet.css" rel="stylesheet" type="text/css" />
     <link rel="shortcut icon" type="image/ico" href="Recources/ICTRealLogo.ico"/>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('header nav ul li a').click(function () {
+                $("header nav ul li a").removeClass("active");
+                $(this).addClass('active');
+            });
+        });
+    </script>
     <asp:ContentPlaceHolder ID="head" runat="server">
         
     </asp:ContentPlaceHolder>
