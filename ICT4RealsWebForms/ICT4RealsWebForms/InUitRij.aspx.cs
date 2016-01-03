@@ -183,6 +183,7 @@ namespace ICT4RealsWebForms
             {
                 ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('A nullreference exception occured. Fix your code!')", true);
             }
+            Updatedll();
         }
 
         public void btnUitrijden_Click(object sender, EventArgs e)
