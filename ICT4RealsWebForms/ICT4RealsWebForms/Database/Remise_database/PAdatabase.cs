@@ -119,6 +119,20 @@ namespace ICT4RealsWebForms.DataBase
             return false;
             
         }
-        
+
+        public bool RefreshRaildatabase(int railnr, int taken)
+        {
+            string query; // the query will end up in here
+            foreach (Rail r in Administration.GetRailList)
+            {
+                if (r.Id == railnr)
+                {
+                    query = "Update spoor set taken = " + taken + " where spoorid = " + r.Id;  //replace with INSERT if need
+                    doQuery(query); //query will be activated
+                    return true;
+                }
+            }
+            return false;
+        }
     }
 }

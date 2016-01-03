@@ -101,6 +101,7 @@ namespace ICT4RealsWebForms.AdminSystem
             foreach (Dictionary<string, object> R in addatabase.GetAllRails())
             {
                 bool status = false;
+                bool taken = false;
                 if (Convert.ToInt32(R["blokkeer"]) == 0)
                 {
                     status = false;
@@ -109,8 +110,16 @@ namespace ICT4RealsWebForms.AdminSystem
                 {
                     status = true;
                 }
+                if(Convert.ToInt32(R["taken"]) == 0)
+                {
+                    taken = false;
+                }
+                else
+                {
+                    taken = true;
+                }
 
-                Rail r = new Rail(Convert.ToInt32(R["spoorid"]), status, false, Convert.ToInt32(R["remiseid"]), Convert.ToString(R["type"]));
+                Rail r = new Rail(Convert.ToInt32(R["spoorid"]), status, taken, Convert.ToInt32(R["remiseid"]), Convert.ToString(R["type"]));
                 GetRailList.Add(r);
             }
         }
