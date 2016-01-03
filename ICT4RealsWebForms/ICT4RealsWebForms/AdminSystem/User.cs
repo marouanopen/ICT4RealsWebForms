@@ -49,7 +49,7 @@ namespace ICT4RealsWebForms.AdminSystem
             }
             if (RoleId == 4)
             {
-                Allowedpages.Add("raparatie");
+                Allowedpages.Add("reparatie");
             }
             if (RoleId == 5)
             {

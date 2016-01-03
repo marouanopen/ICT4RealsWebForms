@@ -22,6 +22,18 @@ namespace ICT4RealsWebForms
         private Repairservice rpService = new Repairservice(1, "repair", DateTime.Today, DateTime.Today, 1, 1);
         protected void Page_Load(object sender, EventArgs e)
         {
+            if(Administration.LoggedInUser != null)
+            {
+                if (!Administration.LoggedInUser.Allowedpages.Contains("inuitrij"))
+                {
+                    Response.Redirect("Login.aspx");
+                }
+            }
+            else
+            {
+                Response.Redirect("Login.aspx");
+            }
+            
             administration = Login.administration;
             if (!IsPostBack)
             {

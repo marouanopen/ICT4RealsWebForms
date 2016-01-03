@@ -160,6 +160,7 @@
     <Content Include="Account\RegisterExternalLogin.aspx" />
     <Content Include="InUitRij.aspx" />
     <Content Include="Login.aspx" />
+    <Content Include="Loguit.aspx" />
     <Content Include="Reparatie.aspx" />
     <Content Include="Schoonmaak.aspx" />
     <Content Include="style\bootstrap.css" />
@@ -308,6 +309,13 @@
     <Compile Include="Database\Example_database.cs">
       <SubType>
       </SubType>
+    </Compile>
+    <Compile Include="Loguit.aspx.cs">
+      <DependentUpon>Loguit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Loguit.aspx.designer.cs">
+      <DependentUpon>Loguit.aspx</DependentUpon>
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

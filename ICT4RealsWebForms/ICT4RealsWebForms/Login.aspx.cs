@@ -36,38 +36,31 @@ namespace ICT4RealsWebForms
             password = (string)tbPassword.Text;
             try
             {
-                //pseudo doquery met check of hij lines teruggeeft wanneer je naar password vraagt die bij ingevulde gebruikersnaam hoort
-                //if so login met gebruiker met de data van die gebruiker uit de database //check in de administrationklasse
-                //if (administration.LogIn(username, password))
                 if(administration.LogIn("beheerder@mail.com", "ict4reals"))
+                //if (administration.LogIn(username, password))
                 {
                     ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('You have succesfully logged in')", true);
-                    Response.Redirect("beheer.aspx");
+                    if(Administration.LoggedInUser.Allowedpages.Contains("beheer"))
+                    {
+                        Response.Redirect("beheer.aspx");
+                    }
+                    else if(Administration.LoggedInUser.Allowedpages.Contains("inuitrij"))
+                    {
+                        Response.Redirect("InUitRij.aspx");
+                    }
+                    else if (Administration.LoggedInUser.Allowedpages.Contains("reparatie"))
+                    {
+                        Response.Redirect("Reparatie.aspx");
+                    }
+                    else if (Administration.LoggedInUser.Allowedpages.Contains("schoonmaak"))
+                    {
+                        Response.Redirect("Schoonmaak.aspx");
+                    }
                 }
                 else
                 {
                     ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Something went wrong when trying to login, please try again')", true);
                 
-                }
-                if (Administration.LoggedInUser.RoleId == 1)
-                {
-
-                }
-                if (Administration.LoggedInUser.RoleId == 2)
-                {
-                    ///rechten hier
-                }
-                if (Administration.LoggedInUser.RoleId == 3)
-                {
-                    //rechten hier
-                }
-                if (Administration.LoggedInUser.RoleId == 4)
-                {
-                    //rechten hier
-                }
-                if (Administration.LoggedInUser.RoleId == 5)
-                {
-                    ///rechten hier
                 }
             }
             catch (NullReferenceException)

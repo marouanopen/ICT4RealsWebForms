@@ -18,6 +18,14 @@ namespace ICT4RealsWebForms
         int number; //test for tryparse
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Administration.LoggedInUser != null)
+            {
+
+            }
+            else
+            {
+                Response.Redirect("Login.aspx");
+            }
             if (!IsPostBack)
             {
                 ddlDetailsStatus.Items.Clear();
@@ -26,6 +34,7 @@ namespace ICT4RealsWebForms
                 ddlDetailsStatus.Items.Add("Defect");
                 ddlDetailsStatus.Items.Add("Vies en Defect");
             }
+
             //put items in dropdownlist tram details
             //delete items first
             
