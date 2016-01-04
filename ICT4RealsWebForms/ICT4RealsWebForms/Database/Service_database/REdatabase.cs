@@ -87,7 +87,7 @@ namespace ICT4RealsWebForms.DataBase
         }
         public List<Dictionary<string, object>> GetAlllogs() //name of ur query
         {
-            List<Dictionary<string, object>> ret = getQuery("SELECT BeurtID, Soort, BeginDatum, TramID, NVL(SuperBeurtID, '1'), NVL(type, 'Groot') FROM beurt WHERE soort = 'Reparatie'");
+            List<Dictionary<string, object>> ret = getQuery("SELECT BeurtID, Soort, BeginDatum, EindDatum, TramID, NVL(SuperBeurtID, '1'), NVL(type, 'Groot') FROM beurt WHERE soort = 'Reparatie' AND Einddatum IS NOT NULL");
             return ret;     //this will return the list as result from the query.
         }
 

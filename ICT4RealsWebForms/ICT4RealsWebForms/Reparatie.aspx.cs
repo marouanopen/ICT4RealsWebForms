@@ -28,6 +28,7 @@ namespace ICT4RealsWebForms
                 Response.Redirect("Login.aspx");
             }
             UpdateRepairList();
+            lboxTramLog.Items.Clear();
             foreach (Service log in rpService.getAllLog())
             {
                 lboxTramLog.Items.Add(log.ToString());
@@ -50,10 +51,14 @@ namespace ICT4RealsWebForms
                 if (updateTram._Status == 4 && updateTram != null)
                 {
                     updateTram._Status = 2;
+                    rpService.update(updateTram.Id, updateTram._Status);
+                    rpService.UpdateLog(updateTram.Id, 0);
                 }
                 else if (updateTram._Status == 3 && updateTram != null)
                 {
                     updateTram._Status = 1;
+                    rpService.update(updateTram.Id, updateTram._Status);
+                    rpService.UpdateLog(updateTram.Id, 0);
                 }
                 else
                 {
