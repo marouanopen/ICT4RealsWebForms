@@ -27,13 +27,7 @@ namespace ICT4RealsWebForms
             {
                 Response.Redirect("Login.aspx");
             }
-            
-            lboxBrokeInList.Items.Clear();
-            lboxTramLog.Items.Clear();
-            foreach (string status in rpService.getAllStatus())
-            {
-                lboxBrokeInList.Items.Add(status);
-            }
+            UpdateRepairList();
             foreach (Service log in rpService.getAllLog())
             {
                 lboxTramLog.Items.Add(log.ToString());
@@ -69,6 +63,13 @@ namespace ICT4RealsWebForms
             catch
             {
 
+            }
+        }
+        private void UpdateRepairList()
+        {
+            lboxBrokeInList.Items.Clear();
+            foreach(string item in rpService.getAllStatus()){
+                lboxBrokeInList.Items.Add(item);
             }
         }
     }
