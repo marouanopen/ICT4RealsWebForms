@@ -711,7 +711,7 @@ namespace ICT4RealsWebForms
                 {
                     if (tram.DeleteTram(Convert.ToInt32(tbDetailsName.Text)) == true)
                     {
-                        refreshGUI(); //not sure
+                        refreshGUI();
                         return;
                     }
                     ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('Kan tram niet verwijderen')",
@@ -751,7 +751,7 @@ namespace ICT4RealsWebForms
                         tram.MoveTram(Convert.ToInt32(tbDetailsName.Text),
                             Convert.ToInt32(ddlDetailsLocation.SelectedItem.Text), status))
                     {
-                        refreshGUI(); //not sure
+                        refreshGUI();
                         return;
                     }                
                     ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('Kan tram niet aanpassen')", true);
@@ -804,7 +804,7 @@ namespace ICT4RealsWebForms
                             tramOnRail))
                       {
                         tram.Rail.Taken = true;
-                        refreshGUI(); //not sure
+                        refreshGUI();
                         return;
                       }                
                       ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('Kan tram niet toevoegen')", true);
@@ -825,7 +825,7 @@ namespace ICT4RealsWebForms
               {
                   if (rail.BlockRail(Convert.ToInt32(ddlStatusTrack.SelectedItem.Text), 1))
                   {
-                      refreshGUI(); //not sure
+                      refreshGUI();
                   }
 
                   else
@@ -844,7 +844,7 @@ namespace ICT4RealsWebForms
                 {
                     if (rail.BlockRail(Convert.ToInt32(ddlStatusTrack.SelectedItem.Text), 0))
                     {
-                        refreshGUI(); //not sure
+                        refreshGUI();
                     }
                     else
                     {
@@ -952,7 +952,7 @@ namespace ICT4RealsWebForms
                 if (tram.MoveTram(Convert.ToInt32(lboxDriveInList.SelectedItem.Text),
                     Convert.ToInt32(ddlDriveInLocation.SelectedItem.Text), 1))
                 {
-                    refreshGUI(); //not sure
+                    refreshGUI();
                     return;
                 }
                 ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('Kan tram niet verplaatsen')", true);
