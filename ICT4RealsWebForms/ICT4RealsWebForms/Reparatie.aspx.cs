@@ -30,11 +30,7 @@ namespace ICT4RealsWebForms
             if (!IsPostBack)
             {
                 UpdateRepairList();
-                lboxTramLog.Items.Clear();
-                foreach (Service log in rpService.getAllLog())
-                {
-                    lboxTramLog.Items.Add(log.ToString());
-                }
+                UpdateLogList();
             }
         }
 
@@ -72,12 +68,25 @@ namespace ICT4RealsWebForms
             {
 
             }
+            finally
+            {
+                UpdateRepairList();
+                UpdateLogList();
+            }
         }
         private void UpdateRepairList()
         {
             lboxBrokeInList.Items.Clear();
             foreach(string item in rpService.getAllStatus()){
                 lboxBrokeInList.Items.Add(item);
+            }
+        }
+        private void UpdateLogList()
+        {
+            lboxTramLog.Items.Clear();
+            foreach (Service log in rpService.getAllLog())
+            {
+                lboxTramLog.Items.Add(log.ToString());
             }
         }
     }
