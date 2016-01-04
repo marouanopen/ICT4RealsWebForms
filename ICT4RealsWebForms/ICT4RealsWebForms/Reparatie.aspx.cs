@@ -27,11 +27,14 @@ namespace ICT4RealsWebForms
             {
                 Response.Redirect("Login.aspx");
             }
-            UpdateRepairList();
-            lboxTramLog.Items.Clear();
-            foreach (Service log in rpService.getAllLog())
+            if (!IsPostBack)
             {
-                lboxTramLog.Items.Add(log.ToString());
+                UpdateRepairList();
+                lboxTramLog.Items.Clear();
+                foreach (Service log in rpService.getAllLog())
+                {
+                    lboxTramLog.Items.Add(log.ToString());
+                }
             }
         }
 
