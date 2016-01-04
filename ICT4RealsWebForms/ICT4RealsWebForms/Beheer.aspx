@@ -2,6 +2,7 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <div class="mainContent">
+        <asp:Button ID="Simulatie" runat="server" OnClick="Simulatie_Click" Text="Simuleer!" />
         <asp:Button ID="btnRefresh" runat="server" OnClick="btnRefresh_Click" Text="Refresh" />
     </div>
     <div class="contentbox2" id="beheer">
@@ -284,6 +285,8 @@
             <asp:Label ID="rail7704" runat="server" Text=""></asp:Label>
             <asp:Label ID="rail7705" runat="server" Text=""></asp:Label>
         </div>
+
+        <asp:ScriptManager runat="server" ID="Script"></asp:ScriptManager>
     </div>
     <div class="contentbox1">
         <h2><%: Title %></h2>

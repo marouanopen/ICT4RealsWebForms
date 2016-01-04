@@ -13,6 +13,15 @@ namespace ICT4RealsWebForms {
     public partial class About {
         
         /// <summary>
+        /// Simulatie control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Simulatie;
+        
+        /// <summary>
         /// btnRefresh control.
         /// </summary>
         /// <remarks>
@@ -1793,6 +1802,15 @@ namespace ICT4RealsWebForms {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label rail7705;
+        
+        /// <summary>
+        /// Script control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.ScriptManager Script;
         
         /// <summary>
         /// tbDetailsName control.

@@ -8,6 +8,7 @@ using ICT4RealsWebForms.Remise;
 using ICT4RealsWebForms.AdminSystem;
 using ICT4RealsWebForms.DataBase;
 using System.Drawing;
+using System.Diagnostics;
 
 namespace ICT4RealsWebForms
 {
@@ -15,6 +16,7 @@ namespace ICT4RealsWebForms
     {
         TRdatabase tramDatabase = new TRdatabase();
         RAdatabase railDatabase = new RAdatabase();
+        InUitRij inuitrij = new InUitRij();
         int number; //test for tryparse
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -963,6 +965,21 @@ namespace ICT4RealsWebForms
         protected void btnRefresh_Click(object sender, EventArgs e)
         {
             refreshGUI();
+        }
+
+        void timer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
+        {
+            foreach (Tram t in Administration.GetTramList)
+            {
+                inuitrij.Assign(t);
+                refreshGUI();
+            }
+            //timer enabled = false
+        }
+
+        protected void Simulatie_Click(object sender, EventArgs e)
+        {
+            //timer enabled = true
         }
 
     }

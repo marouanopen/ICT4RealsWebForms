@@ -198,6 +198,77 @@ namespace ICT4RealsWebForms
             Updatedll();
         }
 
+        public void Assign(Tram tram)
+        {
+            Rail rail = null;
+            int status = 1;
+            int tramnr = tram.Id;
+            bool exist = false;
+                    foreach (Tram t in Administration.GetTramList)
+                    {
+                        if (t.Id == tramnr)
+                        {
+                            exist = true;
+                            tram = t;
+                        }
+                    }
+                    if (exist == true)
+                    {
+                        rail = ReturnRail(tram);
+                        tram.Rail = rail;
+                        if (tram.Rail.Taken)
+                        {
+                            ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('A tram is already parked here. Unable to park this tram right now.')", true);
+                        }
+                        else
+                        {
+                            if (tram.OnRail)
+                            {
+                                ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('The tram is already parked and should be on its rail.')", true);
+                            }
+                            else
+                            {
+                                if (tram.Rail.IsRailBlocked(tram.Rail.Id))
+                                {
+                                    ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('This rail is blocked')", true);
+                                }
+                                else
+                                {
+                                    try
+                                    {
+                                        //rail = parkingsystem.InsertTramNr(Convert.ToInt32(tbTramnr.Text), status);
+                                        tram._Status = status;
+                                        tram.OnRail = true;
+                                        tram.Rail.Taken = true;
+                                        if (!padatabase.RefreshRaildatabase(tram.Rail.Id, 1))
+                                        {
+                                            ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('The raildatabase wasn't updated.')", true);
+                                        }
+                                        ///Fix update raillist
+                                        if (!padatabase.RefreshTramdatabase(tramnr))
+                                        {
+                                            ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('The tramdatabase wasn't updated.')", true);
+                                        }
+                                    }
+                                    catch (NullReferenceException)
+                                    {
+                                        ClientScript.RegisterStartupScript(this.GetType(), "alert", "A rail with that number doesnt exist.", true);
+                                    }
+                                }
+                            }
+                        }
+                    if (rail != null)
+                    {
+                        lblBigLabel.Text = Convert.ToString(rail.Id);
+
+                    }
+                    else
+                    {
+                        ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('The Assigned rail does not exist or is blocked')", true);
+                    }
+                }
+            Updatedll();
+        }
         public void btnUitrijden_Click(object sender, EventArgs e)
         {
             bool exist = false;
