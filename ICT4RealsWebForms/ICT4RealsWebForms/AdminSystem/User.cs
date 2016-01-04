@@ -36,7 +36,7 @@ namespace ICT4RealsWebForms.AdminSystem
             {
                 Allowedpages.Add("beheer");
                 Allowedpages.Add("inuitrij");
-                Allowedpages.Add("raparatie");
+                Allowedpages.Add("reparatie");
                 Allowedpages.Add("schoonmaak");
             }
             if (RoleId == 2)
