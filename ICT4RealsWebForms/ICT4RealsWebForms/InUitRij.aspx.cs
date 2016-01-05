@@ -92,7 +92,7 @@ namespace ICT4RealsWebForms
             Tram tram = null;
             int status = 0;
             string soort = "";
-            status = ddlStatus.SelectedIndex;
+            status = ddlStatus.SelectedIndex + 1;
             int tramnr;
             bool exist = false;
             bool res = int.TryParse(tbTramnr.Text, out tramnr);

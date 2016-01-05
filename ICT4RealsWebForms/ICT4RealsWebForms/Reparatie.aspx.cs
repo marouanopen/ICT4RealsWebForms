@@ -27,16 +27,10 @@ namespace ICT4RealsWebForms
             {
                 Response.Redirect("Login.aspx");
             }
-            
-            lboxBrokeInList.Items.Clear();
-            lboxTramLog.Items.Clear();
-            foreach (string status in rpService.getAllStatus())
+            if (!IsPostBack)
             {
-                lboxBrokeInList.Items.Add(status);
-            }
-            foreach (Service log in rpService.getAllLog())
-            {
-                lboxTramLog.Items.Add(log.ToString());
+                UpdateRepairList();
+                UpdateLogList();
             }
         }
 
@@ -56,10 +50,14 @@ namespace ICT4RealsWebForms
                 if (updateTram._Status == 4 && updateTram != null)
                 {
                     updateTram._Status = 2;
+                    rpService.update(updateTram.Id, updateTram._Status);
+                    rpService.UpdateLog(updateTram.Id, 0);
                 }
                 else if (updateTram._Status == 3 && updateTram != null)
                 {
                     updateTram._Status = 1;
+                    rpService.update(updateTram.Id, updateTram._Status);
+                    rpService.UpdateLog(updateTram.Id, 0);
                 }
                 else
                 {
@@ -69,6 +67,26 @@ namespace ICT4RealsWebForms
             catch
             {
 
+            }
+            finally
+            {
+                UpdateRepairList();
+                UpdateLogList();
+            }
+        }
+        private void UpdateRepairList()
+        {
+            lboxBrokeInList.Items.Clear();
+            foreach(string item in rpService.getAllStatus()){
+                lboxBrokeInList.Items.Add(item);
+            }
+        }
+        private void UpdateLogList()
+        {
+            lboxTramLog.Items.Clear();
+            foreach (Service log in rpService.getAllLog())
+            {
+                lboxTramLog.Items.Add(log.ToString());
             }
         }
     }
