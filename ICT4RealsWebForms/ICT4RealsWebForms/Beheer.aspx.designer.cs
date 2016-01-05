@@ -31,6 +31,15 @@ namespace ICT4RealsWebForms {
         protected global::System.Web.UI.WebControls.Button btnRefresh;
         
         /// <summary>
+        /// Timer1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.Timer Timer1;
+        
+        /// <summary>
         /// rail1200 control.
         /// </summary>
         /// <remarks>

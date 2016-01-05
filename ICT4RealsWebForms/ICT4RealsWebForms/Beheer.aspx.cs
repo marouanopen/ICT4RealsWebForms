@@ -18,6 +18,7 @@ namespace ICT4RealsWebForms
         RAdatabase railDatabase = new RAdatabase();
         InUitRij inuitrij = new InUitRij();
         int number; //test for tryparse
+        int index;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Administration.LoggedInUser != null)
@@ -979,8 +980,31 @@ namespace ICT4RealsWebForms
 
         protected void Simulatie_Click(object sender, EventArgs e)
         {
-            //timer enabled = true
+            if (!Timer1.Enabled)
+            {
+                index = 0;
+                Timer1.Enabled = true;
+                Simulatie.Text = "Stop Simulatie";
+            }
+            else
+            {
+                Timer1.Enabled = false;
+                Simulatie.Text = "Simuleer!";
+            }
         }
 
+        protected void Timer1_Tick(object sender, EventArgs e)
+        {
+            if (index <= Administration.GetTramList.Count)
+            {
+                inuitrij.Assign(Administration.GetTramList.ElementAt(index));
+                index++;
+            }
+            else
+            {
+                Timer1.Enabled = false;
+            }
+            refreshGUI();
+        }
     }
 }
