@@ -5,6 +5,7 @@
     <div class="mainContent">
         
         <asp:Button ID="Simulatie" runat="server" OnClick="Simulatie_Click" Text="Simuleer!" />
+        <asp:Button ID="Uitrijden" runat="server" OnClick="Uitrijden_Click" Text="Alles Uitrijden" />
         <asp:Button ID="btnRefresh" runat="server" OnClick="btnRefresh_Click" Text="Refresh" />
     </div>
     <asp:UpdatePanel runat="server">

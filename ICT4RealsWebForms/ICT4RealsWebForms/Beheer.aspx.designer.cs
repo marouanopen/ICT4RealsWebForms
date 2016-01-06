@@ -22,6 +22,15 @@ namespace ICT4RealsWebForms {
         protected global::System.Web.UI.WebControls.Button Simulatie;
         
         /// <summary>
+        /// Uitrijden control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Uitrijden;
+        
+        /// <summary>
         /// btnRefresh control.
         /// </summary>
         /// <remarks>

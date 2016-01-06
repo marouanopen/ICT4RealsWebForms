@@ -16,7 +16,9 @@ namespace ICT4RealsWebForms
     {
         TRdatabase tramDatabase = new TRdatabase();
         RAdatabase railDatabase = new RAdatabase();
+        PAdatabase padatabase = new PAdatabase();
         InUitRij inuitrij = new InUitRij();
+        Administration administration = new Administration();
         int number; //test for tryparse
         int index;
         protected void Page_Load(object sender, EventArgs e)
@@ -1005,6 +1007,20 @@ namespace ICT4RealsWebForms
                 Timer1.Enabled = false;
             }
             refreshGUI();
+        }
+
+        protected void Uitrijden_Click(object sender, EventArgs e)
+        {
+            if(padatabase.Clearremise())
+            {
+                administration.UpdateTramList();
+                refreshGUI();
+            }
+            else
+            {
+                ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('er is iets fout gegaan! probeer het opnieuw!')", true);
+            }
+
         }
     }
 }
