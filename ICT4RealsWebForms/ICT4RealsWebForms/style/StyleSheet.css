@@ -268,7 +268,7 @@ input[type=submit] {
     .contentbox1{
         width: 325px;
     }
-    .contentbox2{
+    .contentbox2, #MainContent_ctl00{
         width: 650px;
     }
     .contentbox3{
@@ -291,7 +291,7 @@ input[type=submit] {
     .contentbox1{
         width: 517px;
     }
-    .contentbox2{
+    .contentbox2, #MainContent_ctl00{
         width: 1039px;
     }
     .contentbox3{
@@ -301,23 +301,11 @@ input[type=submit] {
     width: 45px;
     }
 }
+#MainContent_ctl00{
+    /*Width from contentbox2*/
+    display:inline-block;
+}
 .Inlog
 {
-    width: 457px;
-}
-.BigLabel
-{
-    width: 150px;
-    height: 200px;
-    display: inline-block;
-}
-.Free
-{
-    clear:both;
-    width: 457px;
-}
-.Acces
-{
-    display: inline-block;
     width: 457px;
 }
