@@ -34,14 +34,17 @@ namespace ICT4RealsWebForms.Service_System
             this.Id = id;
             this.soort = soort;
             this.endDate = enddate;
-            this.startDate = startDate;
+            this.startDate = startdate;
             this.tramID = tramid;
             this.superbeurtID = superbeurtID;
         }
 
         public override string ToString()
         {
-            return "ID: " + Id + ", TramID: " + tramID + ", Start datum: " + startDate + ", Eind Datum: " + endDate;
+            string start = startDate.ToString("d");
+            string eind = endDate.ToString("d");
+
+            return "ID: " + Id + ", TramID: " + tramID + ", Start datum: " + start + ", Eind Datum: " + eind;
         }
     }
 }
