@@ -6,7 +6,7 @@
         <div class="contentbox1">
 
             <fieldset>
-                <legend>kapote Trams</legend>
+                <legend>Kapote Trams</legend>
                 <div class="formitem">
                     <label for="lboxBrokeInList">Lijst</label>
                     <asp:ListBox ID="lboxBrokeInList" runat="server"></asp:ListBox>
@@ -16,7 +16,7 @@
 
         <div class="contentbox1">
             <fieldset>
-                <legend>Reparatie uitvoeren</legend>
+                <legend>Reparatie Uitvoeren</legend>
 
                 <div class="formitem">
                     <label for="ddlTramState">State</label>
@@ -31,7 +31,7 @@
 
         <div class="contentbox1">
             <fieldset>
-                <legend>Reparatie logboek</legend>
+                <legend>Reparatie Logboek</legend>
                 <div class="formitem">
 
                     <label for="lboxTramLog">Lijst</label>

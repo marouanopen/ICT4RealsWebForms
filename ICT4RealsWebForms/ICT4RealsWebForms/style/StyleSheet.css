@@ -39,7 +39,11 @@ section{
     padding: 10px;
 }
 footer{
-
+    display: block;
+    background-color: #ffffff;
+    width: 100%;
+    min-height: 40px;
+    border-top: solid 1px #bbb;
 }
 .mainContent{
 
@@ -119,6 +123,9 @@ input[type=text], input[type=url], input[type=email], input[type=password], inpu
     width: 100%;
     height: 40px;
     font-size: 21px;
+}
+select[id*="lbox"]{
+    height:200px;
 }
 input[type=radio], input[type=checkbox]{
     width: 34px; height: 34px;
@@ -221,6 +228,13 @@ input[type=submit] {
 #beheer div span:first-child{
     background-color: #D4D4D4;
 }
+#beheerbtn{
+    height: 54px;
+}
+#beheerbtn input{
+    width: 32.6%;
+    display: inline-block;
+}
 /*Einde beheer pagina*/
 /*Pagina opmaak*/
 /*  Larger then 760px*/
@@ -236,6 +250,7 @@ input[type=submit] {
     .placeholder {
         width: 760px;
         margin-top: 20px;
+        margin-bottom: 20px;
     }
     section{
         padding: 0 20px;
@@ -254,6 +269,9 @@ input[type=submit] {
     }
     #beheer div {
     width: 41px;
+    }
+    #beheerbtn input{
+        width: 32.8%;
     }
 }
 /*Larger then 1224px*/
@@ -277,6 +295,9 @@ input[type=submit] {
     #beheer div {
     width: 41px;
     }
+    #beheerbtn input{
+        width: 32.8%;
+    }
 }
 /*Larger then 1650px*/
 @media only screen and (min-width: 1650px){
@@ -299,6 +320,9 @@ input[type=submit] {
     }
     #beheer div {
     width: 45px;
+    }
+    #beheerbtn input{
+        width: 33.1%;
     }
 }
 #MainContent_ctl00{

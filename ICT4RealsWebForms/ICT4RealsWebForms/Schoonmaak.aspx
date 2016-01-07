@@ -16,13 +16,13 @@
 
     <div class="contentbox1">
         <fieldset>
-            <legend>schoonmaak uitvoeren</legend>
+            <legend>Schoonmaak Uitvoeren</legend>
 
             <div class="formitem">
                 <label for="ddlTramState">State</label>
                 <asp:DropDownList ID="ddlTramState" runat="server">
-                    <asp:ListItem>ok</asp:ListItem>
-                    <asp:ListItem>Kapot</asp:ListItem>
+                    <asp:ListItem Text="Ok" Value="1" Selected="false"></asp:ListItem>
+                    <asp:ListItem Text="Kapot" Value="2" Selected="false"></asp:ListItem>
                 </asp:DropDownList>
             </div>
             <asp:Button ID="btnDetailsAdd" runat="server" Text="Toevoegen" OnClick="btnDetailsAdd_Click" />
@@ -31,7 +31,7 @@
 
     <div class="contentbox1">
         <fieldset>
-            <legend>schoonmaak logboek</legend>
+            <legend>Schoonmaak Logboek</legend>
             <div class="formitem">
 
                 <label for="lboxTramLog">Lijst</label>
