@@ -10,7 +10,7 @@ using ICT4RealsWebForms.Remise;
 namespace ICT4RealsWebForms.AdminSystem
 {
     public class Administration
-    {   
+    {
         /// <summary>
         /// fields
         /// </summary>
@@ -85,9 +85,9 @@ namespace ICT4RealsWebForms.AdminSystem
         /// <returns>bool indicating succes</returns>
         public bool LogIn(string username, string password)
         {
-            foreach(Dictionary<string, object> D in addatabase.Getuserpassword(username))
+            foreach (Dictionary<string, object> D in addatabase.Getuserpassword(username))
             {
-                if((string)D["wachtwoord"] == password)
+                if ((string)D["wachtwoord"] == password)
                 {
                     LoggedInUser = new User(Convert.ToInt32(D["gebruikerid"]), (string)D["naam"], (string)D["email"], Convert.ToInt32(D["functieid"]));
                     return true;
@@ -110,7 +110,7 @@ namespace ICT4RealsWebForms.AdminSystem
                 {
                     status = true;
                 }
-                if(Convert.ToInt32(R["taken"]) == 0)
+                if (Convert.ToInt32(R["taken"]) == 0)
                 {
                     taken = false;
                 }
@@ -203,7 +203,7 @@ namespace ICT4RealsWebForms.AdminSystem
                     if (R.Id == Convert.ToInt32(T["spoorid"]))
                     {
                         rail = R;
-                        
+
                     }
                 }
                 Tram t = new Tram(Convert.ToInt32(T["tramid"]), (string)T["type"], rail, LoggedInUser, status, onRail);

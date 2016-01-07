@@ -11,12 +11,12 @@ namespace ICT4RealsWebForms.AdminSystem
     /// </summary>
     public enum RoleType
     {
-        
+
         Admin = 1,
         Driver = 2,
         Tramparkoverseer = 3,
         Technician = 4,
         Cleaner = 5
-        
+
     }
 }

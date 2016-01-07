@@ -24,7 +24,7 @@ namespace ICT4RealsWebForms.DataBase
                 queryRail = "UPDATE Tram SET";  //update the location of the tram
                 queryRail += " SpoorID = " + railId + " WHERE TramID = " + tramId; //change the location of to a new location from the tram with the matching id
                 queryStatus = "UPDATE Tram_Status SET"; //UPDATE tram status
-                queryStatus+= " StatusStatusID = " + statusId + " WHERE TramTramID = " + tramId;
+                queryStatus += " StatusStatusID = " + statusId + " WHERE TramTramID = " + tramId;
                 if (doQuery(queryRail) == -1)  //query will be activated
                 {
                     return false;
@@ -73,12 +73,12 @@ namespace ICT4RealsWebForms.DataBase
             {
                 string query; // the query will end up in here
                 query = "INSERT INTO Tram(tramID, spoorID, typeID, AanwezigOpSpoor)";  //adding a tram
-                query += " VALUES(" + tramId + ", " + spoorId + ", " + typeId + ", " + aanwezigOpSpoor +")"; //insert data given to db
+                query += " VALUES(" + tramId + ", " + spoorId + ", " + typeId + ", " + aanwezigOpSpoor + ")"; //insert data given to db
                 if (doQuery(query) == -1)//query will be activated
                 {
                     return false;
                 }
-                query = "insert into Tram_Status(tramtramid, statusstatusid) values("+ tramId + ", " + "1)";
+                query = "insert into Tram_Status(tramtramid, statusstatusid) values(" + tramId + ", " + "1)";
                 if (doQuery(query) == -1)
                 {
                     return false;
@@ -87,7 +87,7 @@ namespace ICT4RealsWebForms.DataBase
                 {
                     return true;
                 }
-                
+
             }
             catch
             {
@@ -140,7 +140,7 @@ namespace ICT4RealsWebForms.DataBase
                 string query; // the query will end up in here
                 query = "UPDATE Tram_Status SET"; //UPDATE tram status
                 query += " StatusStatusID = '" + statusId + "' WHERE TramTramID = " + tramId;
-                    //updates tram_status with given status
+                //updates tram_status with given status
                 if (doQuery(query) == -1) //query will be activated
                 {
                     return false;
@@ -157,4 +157,3 @@ namespace ICT4RealsWebForms.DataBase
         }
     }
 }
- 

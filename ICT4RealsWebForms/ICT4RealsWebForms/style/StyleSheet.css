@@ -1,120 +1,142 @@
-﻿*{
+﻿* {
     margin: 0;
     padding: 0;
 }
+
 body {
     background-color: #2D3339;
 }
 /*Basic opmaak*/
-p{}
-h1,h2,h3,h4{
+p {
+}
+
+h1, h2, h3, h4 {
     color: #2D3339;
 }
-h1{
+
+h1 {
     font-size: 24px;
 }
-h2{
+
+h2 {
     font-size: 21px;
 }
-h3{
+
+h3 {
     font-size: 18px;
 }
-h4{
+
+h4 {
     font-size: 15px;
 }
-a{
+
+a {
     color: #6FBDDC;
 }
-a:visited{
-    color: #A4CBDB;
-}
+
+    a:visited {
+        color: #A4CBDB;
+    }
 /*Einde basic opmaak*/
 /*Structuur opmaak*/
-.placeholder{
+.placeholder {
     background-color: #ECF2F6;
     margin: 0 auto;
     height: auto;
 }
-section{
+
+section {
     padding: 10px;
 }
-footer{
+
+footer {
     display: block;
     background-color: #ffffff;
     width: 100%;
     min-height: 40px;
     border-top: solid 1px #bbb;
 }
-.mainContent{
 
+.mainContent {
 }
 /*Einde structuur opmaak*/
 /*Navigatie opmaak*/
-nav{
+nav {
     display: block;
     background-color: #ffffff;
     width: 100%;
     min-height: 40px;
     border-bottom: solid 1px #bbb;
 }
-nav ul{
-    list-style: none;
-    margin-left: 15px;
-}
-nav ul li{
-    display: block;
-    float: left;
-    height: 40px;
-    width: auto;
-    line-height: 40px;
-}
-nav ul li a{
-    line-height: 30px;
-    display:block;
-    height: 30px;
-    padding: 0 10px;
-    margin-top: 5px;
-    font-size: 20px;
-    border-right: solid 1px #bbb;
-}
-nav ul li:last-child > a{
-    border-right: none;
-}
-nav ul li a:hover{
-    background-color: gray;
-}
-nav ul li a:visited{
 
-}
-.active{
+    nav ul {
+        list-style: none;
+        margin-left: 15px;
+    }
+
+        nav ul li {
+            display: block;
+            float: left;
+            height: 40px;
+            width: auto;
+            line-height: 40px;
+        }
+
+            nav ul li a {
+                line-height: 30px;
+                display: block;
+                height: 30px;
+                padding: 0 10px;
+                margin-top: 5px;
+                font-size: 20px;
+                border-right: solid 1px #bbb;
+            }
+
+            nav ul li:last-child > a {
+                border-right: none;
+            }
+
+            nav ul li a:hover {
+                background-color: gray;
+            }
+
+            nav ul li a:visited {
+            }
+
+.active {
     background-color: green;
 }
 /*Einde navigatie opmaak*/
 /*Form Opmaak*/
-fieldset{
+fieldset {
     padding: 5px;
     border: solid #bbb 1px;
     margin-bottom: 15px;
 }
-legend{
+
+legend {
     color: #525D69;
 }
-.formitem{
+
+.formitem {
     margin-bottom: 10px;
 }
-label{
+
+label {
     font-size: 17px;
     font-weight: bold;
     color: #525D69;
 }
-label:after{
-    content: ":";
-}
-input[type=text], input[type=url], input[type=email], input[type=password], input[type=tel], textarea, select{
-    background-color:#ffffff;
-    color:#353942;
+
+    label:after {
+        content: ":";
+    }
+
+input[type=text], input[type=url], input[type=email], input[type=password], input[type=tel], textarea, select {
+    background-color: #ffffff;
+    color: #353942;
     border: 1px solid #bbb;
-    border-radius:4px;
+    border-radius: 4px;
     text-indent: 10px;
     max-width: 100%;
     display: block;
@@ -124,24 +146,31 @@ input[type=text], input[type=url], input[type=email], input[type=password], inpu
     height: 40px;
     font-size: 21px;
 }
-select[id*="lbox"]{
-    height:200px;
-}
-input[type=radio], input[type=checkbox]{
-    width: 34px; height: 34px;
+
+    select[id*="lbox"] {
+        height: 200px;
+    }
+
+input[type=radio], input[type=checkbox] {
+    width: 34px;
+    height: 34px;
     border: 1px solid #bbb;
     vertical-align: top;
     margin: 3px 5px;
 }
-input[type=checkbox]{
+
+input[type=checkbox] {
     border-radius: 4px;
 }
-input[type=radio]{
+
+input[type=radio] {
     border-radius: 22px;
 }
-textarea{
+
+textarea {
     min-height: 100px;
 }
+
 input[type=submit] {
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -164,17 +193,17 @@ input[type=submit] {
     border-radius: 4px;
 }
 /*Checkbox && Ratio*/
-.checkbox{
+.checkbox {
     width: 100%;
-    height:40px;
+    height: 40px;
     line-height: 40px;
-    background-color:gray;
+    background-color: gray;
     display: block;
-    background-color:#ffffff;
+    background-color: #ffffff;
     border-left: 1px solid #bbb;
     border-right: 1px solid #bbb;
     border-top: 1px solid #bbb;
-    color:#353942;
+    color: #353942;
     font-weight: normal;
     font-size: 21px;
     vertical-align: text-top;
@@ -184,153 +213,179 @@ input[type=submit] {
     background-image: -o-linear-gradient(#fff, #f1f1f1);
     background-image: linear-gradient(#fff, #f1f1f1);
 }
-.checkbox:after{
-    content: "";
-}
-.checkbox:hover{
-    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#fff), to(#dfdfdf));
-    background-image: -webkit-linear-gradient(#fff, #dfdfdf);
-    background-image: -moz-linear-gradient(#fff, #dfdfdf);
-    background-image: -o-linear-gradient(#fff, #dfdfdf);
-    background-image: linear-gradient(#fff, #dfdfdf);
-}
-.checkbox:first-child{
-    border-top-left-radius: 4px;
-    border-top-right-radius: 4px;
-}
-.checkbox:last-child{
-    border-bottom-left-radius: 4px;
-    border-bottom-right-radius: 4px;
-    border-bottom: 1px solid #bbb;
-}
+
+    .checkbox:after {
+        content: "";
+    }
+
+    .checkbox:hover {
+        background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#fff), to(#dfdfdf));
+        background-image: -webkit-linear-gradient(#fff, #dfdfdf);
+        background-image: -moz-linear-gradient(#fff, #dfdfdf);
+        background-image: -o-linear-gradient(#fff, #dfdfdf);
+        background-image: linear-gradient(#fff, #dfdfdf);
+    }
+
+    .checkbox:first-child {
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
+    }
+
+    .checkbox:last-child {
+        border-bottom-left-radius: 4px;
+        border-bottom-right-radius: 4px;
+        border-bottom: 1px solid #bbb;
+    }
 /*End Checkbox && Ratio*/
 /*Einde form opmaak*/
 /*Pagina opmaak*/
 /*Beheer pagina*/
-#beheer div{
+#beheer div {
     display: inline-block;
     vertical-align: top;
     width: 42px;
     height: auto;
     margin-top: 15px;
+}
 
-}
-#beheer div span{
-    display: block;
-    width: 40px;
-    height: 40px;
-    text-align: center;
-    border: 1px solid #bbb;
-    margin-bottom: 5px;
-    border-radius: 4px;
-    line-height: 40px;
-    color: #353942;
-}
-#beheer div span:first-child{
-    background-color: #D4D4D4;
-}
-#beheerbtn{
+    #beheer div span {
+        display: block;
+        width: 40px;
+        height: 40px;
+        text-align: center;
+        border: 1px solid #bbb;
+        margin-bottom: 5px;
+        border-radius: 4px;
+        line-height: 40px;
+        color: #353942;
+    }
+
+        #beheer div span:first-child {
+            background-color: #D4D4D4;
+        }
+
+#beheerbtn {
     height: 54px;
 }
-#beheerbtn input{
-    width: 32.6%;
-    display: inline-block;
-}
+
+    #beheerbtn input {
+        width: 32.6%;
+        display: inline-block;
+    }
 /*Einde beheer pagina*/
 /*Pagina opmaak*/
 /*  Larger then 760px*/
-@media only screen and (min-width: 760px){
-    .placeholder, header,nav{
+@media only screen and (min-width: 760px) {
+    .placeholder, header, nav {
         border-top-left-radius: 6px;
         border-top-right-radius: 6px;
     }
-    .placeholder, footer{
+
+    .placeholder, footer {
         border-bottom-left-radius: 6px;
         border-bottom-right-radius: 6px;
     }
+
     .placeholder {
         width: 760px;
         margin-top: 20px;
         margin-bottom: 20px;
     }
-    section{
+
+    section {
         padding: 0 20px;
     }
-    .contentbox1, .contentbox2, .contentbox3{
 
+    .contentbox1, .contentbox2, .contentbox3 {
     }
-    .contentbox1{
 
+    .contentbox1 {
     }
-    .contentbox2{
+
+    .contentbox2 {
         float: left;
     }
-    .contentbox3{
 
+    .contentbox3 {
     }
+
     #beheer div {
-    width: 41px;
+        width: 41px;
     }
-    #beheerbtn input{
+
+    #beheerbtn input {
         width: 32.8%;
     }
 }
 /*Larger then 1224px*/
-@media only screen and (min-width: 1224px){
-    .placeholder{
+@media only screen and (min-width: 1224px) {
+    .placeholder {
         width: 1024px;
     }
-    .contentbox1, .contentbox2, .contentbox3{
+
+    .contentbox1, .contentbox2, .contentbox3 {
         display: inline-block;
         vertical-align: top;
         box-sizing: border-box;
     }
-    .contentbox1{
+
+    .contentbox1 {
         width: 325px;
     }
-    .contentbox2, #MainContent_ctl00{
+
+    .contentbox2, #MainContent_ctl00 {
         width: 650px;
         float: left;
     }
-    .contentbox3{
+
+    .contentbox3 {
         width: 1024px;
     }
+
     #beheer div {
-    width: 41px;
+        width: 41px;
     }
-    #beheerbtn input{
+
+    #beheerbtn input {
         width: 32.8%;
     }
 }
 /*Larger then 1650px*/
-@media only screen and (min-width: 1650px){
-    .placeholder{
+@media only screen and (min-width: 1650px) {
+    .placeholder {
         width: 1600px;
     }
-    .contentbox1, .contentbox2, .contentbox3{
+
+    .contentbox1, .contentbox2, .contentbox3 {
         height: 100%;
         display: inline-block;
         vertical-align: top;
         box-sizing: border-box;
     }
-    .contentbox1{
+
+    .contentbox1 {
         width: 517px;
     }
-    .contentbox2, #MainContent_ctl00{
+
+    .contentbox2, #MainContent_ctl00 {
         width: 1039px;
         float: left;
     }
-    .contentbox3{
+
+    .contentbox3 {
         width: 1600px;
     }
+
     #beheer div {
-    width: 45px;
+        width: 45px;
     }
-    #beheerbtn input{
+
+    #beheerbtn input {
         width: 33.1%;
     }
 }
-#MainContent_ctl00{
+
+#MainContent_ctl00 {
     /*Width from contentbox2*/
-    display:inline-block;
+    display: inline-block;
 }

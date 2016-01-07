@@ -19,7 +19,7 @@ namespace ICT4RealsWebForms.DataBase
 
         public List<Dictionary<string, object>> GetTramInfo(int TramId)
         {
-            List<Dictionary<string, object>> TramInfo= getQuery("SELECT TramID, SpoorID, TypeID, AanwezigOpSpoor FROM Tram WHERE TramID = " + TramId);
+            List<Dictionary<string, object>> TramInfo = getQuery("SELECT TramID, SpoorID, TypeID, AanwezigOpSpoor FROM Tram WHERE TramID = " + TramId);
 
             return TramInfo;
         }
@@ -45,7 +45,7 @@ namespace ICT4RealsWebForms.DataBase
                     id++;
                 }
                 string query; // the query will end up in here
-                query = "insert into beurt(BeurtID, Soort, BeginDatum, Einddatum, TramID, SuperBeurtID) Values("+ id +", '" + kind + "', to_date('" + DateTime.Now.ToString("MM-dd-yyyy hh:mm") + "','MM-DD-YYYY hh24:MI'), null, " + tramid + ", null)";  //replace with INSERT if need
+                query = "insert into beurt(BeurtID, Soort, BeginDatum, Einddatum, TramID, SuperBeurtID) Values(" + id + ", '" + kind + "', to_date('" + DateTime.Now.ToString("MM-dd-yyyy hh:mm") + "','MM-DD-YYYY hh24:MI'), null, " + tramid + ", null)";  //replace with INSERT if need
                 doQuery(query); //query will be activated
                 return true;
             }
@@ -62,7 +62,7 @@ namespace ICT4RealsWebForms.DataBase
         {
             List<Dictionary<string, object>> services = getQuery("SELECT * FROM beurt"); //replace your query with te example query, replace 'QueryX' with a clear name.
             return services;     //this will return the list as result from the query.
-        } 
+        }
         /// <summary>
         /// updates the trampart of the database (tram, tram_status, and rail)
         /// </summary>
@@ -74,50 +74,50 @@ namespace ICT4RealsWebForms.DataBase
             int type = 0;
             int onrail;
 
-            foreach(Tram t in Administration.GetTramList)
+            foreach (Tram t in Administration.GetTramList)
             {
-                
-                if(t.Id == tramnr)
+
+                if (t.Id == tramnr)
                 {
-                        if (t.Type == "Combino")
-                        {
-                            type = 1;
-                        }
-                        if (t.Type == "11G")
-                        {
-                            type = 2;
-                        }
-                        if (t.Type == "Dubbel kop combino")
-                        {
-                            type = 3;
-                        }
-                        if (t.Type == "12G")
-                        {
-                            type = 4;
-                        }
-                        if (t.Type == "Opleidingstrams")
-                        {
-                            type = 5;
-                        }
-                        if (!t.OnRail)
-                        {
-                            onrail = 0;
-                        }
-                        else
-                        {
-                            t.OnRail = true;
-                            onrail = 1;
-                        }
-                        query = "Update tram set TramID = " + t.Id + ", SpoorID = " + t.Rail.Id + ", TypeID = " + type + ", AanwezigOpSpoor = " + onrail + " where tramid = " + t.Id;  //replace with INSERT if need
-                        doQuery(query); //query will be activated
-                        //doquery update status 
-                        query = "update tram_status set tramtramid = " + t.Id + ", statusstatusid = " + (int)t._Status + "where tramtramid = " + t.Id;
-                        doQuery(query);
-                        return true;
+                    if (t.Type == "Combino")
+                    {
+                        type = 1;
+                    }
+                    if (t.Type == "11G")
+                    {
+                        type = 2;
+                    }
+                    if (t.Type == "Dubbel kop combino")
+                    {
+                        type = 3;
+                    }
+                    if (t.Type == "12G")
+                    {
+                        type = 4;
+                    }
+                    if (t.Type == "Opleidingstrams")
+                    {
+                        type = 5;
+                    }
+                    if (!t.OnRail)
+                    {
+                        onrail = 0;
+                    }
+                    else
+                    {
+                        t.OnRail = true;
+                        onrail = 1;
+                    }
+                    query = "Update tram set TramID = " + t.Id + ", SpoorID = " + t.Rail.Id + ", TypeID = " + type + ", AanwezigOpSpoor = " + onrail + " where tramid = " + t.Id;  //replace with INSERT if need
+                    doQuery(query); //query will be activated
+                                    //doquery update status 
+                    query = "update tram_status set tramtramid = " + t.Id + ", statusstatusid = " + (int)t._Status + "where tramtramid = " + t.Id;
+                    doQuery(query);
+                    return true;
                 }
             }
             return false;
-            
+
         }
 
         public bool RefreshRaildatabase(int railnr, int taken)

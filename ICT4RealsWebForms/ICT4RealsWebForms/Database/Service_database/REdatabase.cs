@@ -47,7 +47,7 @@ namespace ICT4RealsWebForms.DataBase
                 {
                     bigcount++;
                 }
-                if( smallcount > 4 || bigcount > 100)
+                if (smallcount > 4 || bigcount > 100)
                 {
                     return false;
                 }
@@ -76,7 +76,7 @@ namespace ICT4RealsWebForms.DataBase
             {
                 string query;
                 query = "UPDATE Beurt SET ";
-                query +=  "Einddatum = to_date('" + date.ToString("MM-dd-yyyy") + "','MM-DD-YYYY') , superbeurtID = null WHERE TramID = " + tramID;
+                query += "Einddatum = to_date('" + date.ToString("MM-dd-yyyy") + "','MM-DD-YYYY') , superbeurtID = null WHERE TramID = " + tramID;
                 doQuery(query); //query will be activated
                 return true;
             }

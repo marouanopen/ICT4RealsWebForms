@@ -17,7 +17,7 @@ namespace ICT4RealsWebForms.AdminSystem
         public string Name { get; set; }
         public string Username { get; set; }
         public List<string> Allowedpages { get; set; }
-        
+
         /// <summary>
         /// constructor
         /// </summary>

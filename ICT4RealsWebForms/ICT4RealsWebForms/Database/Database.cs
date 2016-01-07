@@ -82,7 +82,7 @@ namespace ICT4RealsWebForms.DataBase
                     ret.Add(d);
                 }
 
-                if(!read)
+                if (!read)
                 {
                     throw new Exception("An open connection is already active");
                 }
@@ -98,7 +98,7 @@ namespace ICT4RealsWebForms.DataBase
             }
             finally { Disconnect(); }
         }
-#endregion
+        #endregion
 
         /// <summary>
         /// Connect

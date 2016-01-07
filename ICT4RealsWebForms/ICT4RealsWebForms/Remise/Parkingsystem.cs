@@ -39,17 +39,17 @@ namespace ICT4RealsWebForms.Remise
         public Rail InsertTramNr(int nr, int status)
         {
             Rail R = null;
-            foreach(Tram T in Administration.GetTramList)
+            foreach (Tram T in Administration.GetTramList)
             {
-                if(T.Id == nr)
+                if (T.Id == nr)
                 {
                     //T._Status = status;
-                    foreach(Rail r in Administration.GetRailList)
+                    foreach (Rail r in Administration.GetRailList)
                     {
-                        if(T.Rail.Id == r.Id)
+                        if (T.Rail.Id == r.Id)
                         {
                             //check of taken of status aangeeft of een spoor geblokkerd is
-                            if(T.Rail.Status)
+                            if (T.Rail.Status)
                             {
                                 //implement own exception?
                                 return null;

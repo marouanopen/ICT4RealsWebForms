@@ -12,7 +12,7 @@ namespace ICT4RealsWebForms.Remise
     {
         //status 1= OK 2= Dirty 3= Defect 4= DirtyAndDefect
         Status Status;
-        public int _Status { get { return (int)Status; } set { Status = (Status)value;} }
+        public int _Status { get { return (int)Status; } set { Status = (Status)value; } }
         TRdatabase tramDatabase = new TRdatabase();
         public int Id { get; set; }
         public string Type { get; set; }

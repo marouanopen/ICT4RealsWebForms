@@ -6,7 +6,7 @@
 <head runat="server">
     <title><%: Page.Title %> | ICT4Rails</title>
     <link href="style/StyleSheet.css" rel="stylesheet" type="text/css" />
-    <link rel="shortcut icon" type="image/ico" href="Recources/ICTRealLogo.ico"/>
+    <link rel="shortcut icon" type="image/ico" href="Recources/ICTRealLogo.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script type="text/javascript">
@@ -18,7 +18,6 @@
         });
     </script>
     <asp:ContentPlaceHolder ID="head" runat="server">
-        
     </asp:ContentPlaceHolder>
 </head>
 <body>
@@ -36,9 +35,8 @@
         </header>
         <section>
             <form id="form1" runat="server">
-            <asp:ContentPlaceHolder ID="MainContent" runat="server">
-        
-            </asp:ContentPlaceHolder>
+                <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                </asp:ContentPlaceHolder>
             </form>
         </section>
         <footer></footer>

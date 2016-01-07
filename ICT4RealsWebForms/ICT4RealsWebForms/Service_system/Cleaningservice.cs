@@ -39,15 +39,15 @@ namespace ICT4RealsWebForms.Service_System
         /// <returns></returns>
         public bool update(int tramID, int StatusID)
         {
-          
-                if (database.updateCleaning(tramID, StatusID))
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                
+
+            if (database.updateCleaning(tramID, StatusID))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+
             }
             return false;
 

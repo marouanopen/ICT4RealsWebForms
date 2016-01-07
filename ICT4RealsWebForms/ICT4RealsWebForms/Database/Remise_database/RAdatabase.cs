@@ -16,7 +16,7 @@ namespace ICT4RealsWebForms.DataBase
         public string IsRailBlocked(int railNumber) //name of ur query
         {
             string ret = ""; //result of query will end up in here
-            List<Dictionary<string, object>> RailQuery = getQuery("SELECT Blokkeer FROM Spoor WHERE SpoorID =" + railNumber); 
+            List<Dictionary<string, object>> RailQuery = getQuery("SELECT Blokkeer FROM Spoor WHERE SpoorID =" + railNumber);
             foreach (Dictionary<string, object> results in RailQuery) //look for all possible results in the query result.
             {
                 ret = ((Convert.ToString(results["blokkeer"]))); //add each result to the created list

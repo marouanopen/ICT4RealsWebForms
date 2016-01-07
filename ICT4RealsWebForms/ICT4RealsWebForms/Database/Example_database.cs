@@ -12,7 +12,7 @@ namespace ICT4RealsWebForms.DataBase
         //this class has no use. its just an example of how the database works
 
         // if u want to use get/do add using UserInterface_Mockup_ICT4Reals.DataBase;
-           public List<string> GetQueryExample() //name of ur query
+        public List<string> GetQueryExample() //name of ur query
         {
             List<string> ret = new List<string>(); //result of query will end up in here
             List<Dictionary<string, object>> QueryX = getQuery("SELECT naam FROM gebruiker WHERE GebruikerID = 5"); //replace your query with te example query, replace 'QueryX' with a clear name.
@@ -41,6 +41,6 @@ namespace ICT4RealsWebForms.DataBase
                 return false;   // if query fails, return a false.
             }
         }
-        
+
     }
 }
