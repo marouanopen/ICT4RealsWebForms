@@ -1,20 +1,20 @@
 ﻿<%@ Page Title="Beheer" Language="C#" MasterPageFile="~/ICT4Reals.Master" AutoEventWireup="true" CodeBehind="Beheer.aspx.cs" Inherits="ICT4RealsWebForms.About" %>
-
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
         <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Conditional">
          <ContentTemplate>
-            <div class="mainContent">
-
-            <asp:Button ID="Simulatie" runat="server" OnClick="Simulatie_Click" Text="Simuleer!" />
+    <div class="mainContent">
+        <div id="beheerbtn">
+        <asp:Button ID="Simulatie" runat="server" OnClick="Simulatie_Click" Text="Simuleer!" />
             <asp:Label ID="simulatielbl" runat="server"></asp:Label>
-            <asp:Button ID="btnRefresh" runat="server" OnClick="btnRefresh_Click" Text="Refresh" />
-            </div>
+            <asp:Button ID="Uitrijden" runat="server" OnClick="Uitrijden_Click" Text="Alles Uitrijden" />
+        <asp:Button ID="btnRefresh" runat="server" OnClick="btnRefresh_Click" Text="Refresh" />
+    </div>
     
             <asp:Timer ID="Timer1" runat="server" Enabled="False" Interval="1000" OnTick="Timer1_Tick"></asp:Timer>
-            <div class="contentbox2" id="beheer">
+        <div class="contentbox2" id="beheer">
         <div>
-
-            <asp:Label ID="rail1200" runat="server" Text="12"></asp:Label>
+            
+            <asp:Label ID="rail1200" runat="server" Text="12"></asp:Label> 
             <asp:Label ID="rail1201" runat="server" Text=""></asp:Label>
         </div>
         <div>
@@ -38,8 +38,8 @@
             <asp:Label ID="rail1701" runat="server" Text=""></asp:Label>
         </div>
         <div>
-            <asp:Label ID="rail1800" runat="server" Text="18"></asp:Label>
-            <asp:Label ID="rail1801" runat="server" Text=""></asp:Label>
+             <asp:Label ID="rail1800" runat="server" Text="18"></asp:Label>
+             <asp:Label ID="rail1801" runat="server" Text=""></asp:Label>
         </div>
         <div>
             <asp:Label ID="rail1900" runat="server" Text="19"></asp:Label>
@@ -200,7 +200,7 @@
             <asp:Label ID="rail5406" runat="server" Text=""></asp:Label>
             <asp:Label ID="rail5407" runat="server" Text=""></asp:Label>
         </div>
-        <div>
+         <div>
             <asp:Label ID="rail5500" runat="server" Text="55"></asp:Label>
             <asp:Label ID="rail5501" runat="server" Text=""></asp:Label>
             <asp:Label ID="rail5502" runat="server" Text=""></asp:Label>
@@ -292,17 +292,16 @@
             <asp:Label ID="rail7704" runat="server" Text=""></asp:Label>
             <asp:Label ID="rail7705" runat="server" Text=""></asp:Label>
         </div>
-
         <asp:ScriptManager runat="server" ID="Script"></asp:ScriptManager>
     </div>
-          </ContentTemplate>
+  </ContentTemplate>
     </asp:UpdatePanel>
     <div class="contentbox1">
         <h2><%: Title %></h2>
         <fieldset>
             <legend>Tram Details</legend>
             <div class="formitem">
-                <label for="tbDetailsName">Naam</label>
+                <label for="tbDetailsName">Naam</label> 
                 <asp:TextBox ID="tbDetailsName" runat="server"></asp:TextBox>
             </div>
             <div class="formitem">
@@ -319,7 +318,7 @@
         <fieldset>
             <legend>Tram Toevoegen</legend>
             <div class="formitem">
-                <label for="tbAddName">Naam</label>
+                <label for="tbAddName">Naam</label> 
                 <asp:TextBox ID="tbAddName" runat="server"></asp:TextBox>
             </div>
             <div class="formitem">
@@ -339,7 +338,7 @@
         <fieldset>
             <legend>Spoor Status</legend>
             <div class="formitem">
-                <label for="ddlStatusTrack">Spoor</label>
+                <label for="ddlStatusTrack">Spoor</label> 
                 <asp:DropDownList ID="ddlStatusTrack" runat="server"></asp:DropDownList>
             </div>
             <div class="formitem">
@@ -351,7 +350,7 @@
         <fieldset>
             <legend>Inrijdende Trams</legend>
             <div class="formitem">
-                <label for="lboxDriveInList">Lijst</label>
+                <label for="lboxDriveInList">Lijst</label> 
                 <asp:ListBox ID="lboxDriveInList" runat="server"></asp:ListBox>
             </div>
             <div class="formitem">
@@ -360,5 +359,6 @@
             </div>
             <asp:Button ID="btnDriveInAssign" runat="server" Text="Toewijzen" OnClick="btnDriveInAssign_Click" />
         </fieldset>
+    </div>
     </div>
 </asp:Content>

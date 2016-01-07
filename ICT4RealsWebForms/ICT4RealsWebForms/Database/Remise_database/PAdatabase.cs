@@ -134,5 +134,18 @@ namespace ICT4RealsWebForms.DataBase
             }
             return false;
         }
+
+        public bool Clearremise()
+        {
+            string query = "update tram set aanwezigopspoor = 0";
+            doQuery(query);
+            query = "update tram_status set statusstatusid = 1";
+            doQuery(query);
+            query = "update spoor set taken = 0";
+            doQuery(query);
+            query = "delete from beurt where einddatum is null";
+            doQuery(query);
+            return true;
+        }
     }
 }
