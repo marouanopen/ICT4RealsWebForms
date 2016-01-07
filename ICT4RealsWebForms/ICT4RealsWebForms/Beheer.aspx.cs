@@ -31,11 +31,22 @@ namespace ICT4RealsWebForms
             }
             if (!IsPostBack)
             {
+
+
                 ddlDetailsStatus.Items.Clear();
                 ddlDetailsStatus.Items.Add("Ok");
                 ddlDetailsStatus.Items.Add("Vies");
                 ddlDetailsStatus.Items.Add("Defect");
                 ddlDetailsStatus.Items.Add("Vies en Defect");
+            }
+            else
+            {
+                if (Session["index"] != null)
+                {
+                    index = (int)Session["index"];
+                    simulatielbl.Text = "Simulatie stap: " + index;
+
+                }
             }
 
             //put items in dropdownlist tram details
@@ -928,6 +939,7 @@ namespace ICT4RealsWebForms
                     }
                 }
             }
+            UpdatePanel1.Update();
         }
 
         /// <summary>
@@ -968,43 +980,78 @@ namespace ICT4RealsWebForms
             refreshGUI();
         }
 
-        void timer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
-        {
-            foreach (Tram t in Administration.GetTramList)
-            {
-                inuitrij.Assign(t);
-                refreshGUI();
-            }
-            //timer enabled = false
-        }
 
+
+        /// <summary>
+        /// Starts or stops the simulation depending on whether the simulation already started
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void Simulatie_Click(object sender, EventArgs e)
         {
             if (!Timer1.Enabled)
             {
-                index = 0;
-                Timer1.Enabled = true;
-                Simulatie.Text = "Stop Simulatie";
+                startSimulation();
             }
             else
             {
-                Timer1.Enabled = false;
-                Simulatie.Text = "Simuleer!";
+                stopSimulation();
             }
         }
 
+        /// <summary>
+        /// Timer tick that does one step of the simulation
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void Timer1_Tick(object sender, EventArgs e)
         {
-            if (index <= Administration.GetTramList.Count)
+            simulationStep();
+        }
+
+        private void simulationStep()
+        {
+            List<Tram> trList = Administration.GetTramList;
+            if (index <= trList.Count)
             {
-                inuitrij.Assign(Administration.GetTramList.ElementAt(index));
+                Tram tram = trList[index];
                 index++;
+                Session["index"] = index;
+                inuitrij.Assign(tram);
+
             }
             else
             {
-                Timer1.Enabled = false;
+                stopSimulation();
             }
+
             refreshGUI();
+        }
+        /// <summary>
+        /// Starts the simulation will make trams enter the remise per timer tick
+        /// </summary>
+        private void startSimulation()
+        {
+            // Set index to zero
+            index = 0;
+            Session["index"] = index;
+            // Change the text on the button to match the functionality of that button when pressed
+            Simulatie.Text = "Stop Simulatie";
+            // Enables the Timer
+            Timer1.Enabled = true;
+            simulationStep();
+        }
+
+        /// <summary>
+        /// Stops the simulation
+        /// </summary>
+        private void stopSimulation()
+        {
+            // Disable the Timer
+            Timer1.Enabled = false;
+
+            // Change the text on the button to match the functionality of that button when pressed
+            Simulatie.Text = "Simuleer!";
         }
     }
 }

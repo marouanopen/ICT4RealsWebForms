@@ -43,6 +43,16 @@ namespace ICT4RealsWebForms.DataBase
             return rails;
         }
 
+        /// <summary>
+        /// gets all rails with a certain type known in the database
+        /// </summary>
+        /// <returns>returns a dictionary from the datebase with all the rails known in the database</returns>
+        public List<Dictionary<string, object>> GetAllRailsOfType(string type)
+        {
+            string queer = string.Format("SELECT * FROM Spoor WHERE blokkeer = 0 AND taken = 0 AND type = '{0}'", type);
+            List<Dictionary<string, object>> rails = getQuery(queer);
+            return rails;
+        }
 
     }
 }

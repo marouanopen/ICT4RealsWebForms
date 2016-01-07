@@ -123,6 +123,39 @@ namespace ICT4RealsWebForms.AdminSystem
                 GetRailList.Add(r);
             }
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public List<Rail> GetRailsOfType(string type)
+        {
+            List<Rail> railSStoAuswitch = new List<Rail>();
+            foreach (Dictionary<string, object> R in addatabase.GetAllRailsOfType(type))
+            {
+                bool status = false;
+                bool taken = false;
+                if (Convert.ToInt32(R["blokkeer"]) == 0)
+                {
+                    status = false;
+                }
+                else
+                {
+                    status = true;
+                }
+                if (Convert.ToInt32(R["taken"]) == 0)
+                {
+                    taken = false;
+                }
+                else
+                {
+                    taken = true;
+                }
+
+                Rail r = new Rail(Convert.ToInt32(R["spoorid"]), status, taken, Convert.ToInt32(R["remiseid"]), Convert.ToString(R["type"]));
+                railSStoAuswitch.Add(r);
+            }
+            return railSStoAuswitch;
+        }
         /// <summary>
         /// addon for enabling tabs. not used anymore
         /// </summary>
