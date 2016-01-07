@@ -706,19 +706,28 @@ namespace ICT4RealsWebForms
             }
         }
 
+        /// <summary>
+        /// Deletes the selected tram
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void btnDetailsRemove_Click(object sender, EventArgs e)
         {
             Tram tram = new Tram(1, "test", new Rail(1, true, false, 1, "Combino"), new User(2323, "test", "test", 1), 1, true);
             if (tbDetailsName.Text != "")
             {
+                //tramname needs to be a number
                 bool result = Int32.TryParse(tbDetailsName.Text, out number);
                 if (result)
                 {
+                    //delete the tram 
                     if (tram.DeleteTram(Convert.ToInt32(tbDetailsName.Text)) == true)
                     {
+                        //refresh the GUI
                         refreshGUI();
                         return;
                     }
+                    //error messages
                     ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('Kan tram niet verwijderen')",
                         true);
                 }
@@ -727,11 +736,16 @@ namespace ICT4RealsWebForms
             ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('Geef tramnummer mee')", true);
         }
 
+        /// <summary>
+        /// Edit a tram
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void btnDetailsEdit_Click(object sender, EventArgs e)
         {
             Tram tram = new Tram(1, "test", new Rail(1, true, false, 1, "Combino"), new User(2323, "test", "test", 1), 1, true);
             int status = 0;
-            switch (ddlDetailsStatus.SelectedItem.Text)
+            switch (ddlDetailsStatus.SelectedItem.Text) //check the tram status
             {
                 case "Ok":
                     status = 1;
@@ -747,18 +761,20 @@ namespace ICT4RealsWebForms
                     break;
             }
 
-            if (tbDetailsName.Text != "")
+            if (tbDetailsName.Text != "")   //tram name cannot be empty
             {
-                bool result = Int32.TryParse(tbDetailsName.Text, out number);
+                bool result = Int32.TryParse(tbDetailsName.Text, out number); //tram name needs to be a number
                 if (result)
                 {
+                    //edit the tram
                     if (
                         tram.MoveTram(Convert.ToInt32(tbDetailsName.Text),
                             Convert.ToInt32(ddlDetailsLocation.SelectedItem.Text), status))
                     {
-                        refreshGUI();
+                        refreshGUI();   //refresh the GUI
                         return;
-                    }                
+                    }               
+                    //error messages
                     ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('Kan tram niet aanpassen')", true);
                 }
                 ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('Voer een nummer in')", true);
@@ -766,12 +782,17 @@ namespace ICT4RealsWebForms
             ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('Geef tramnummer mee')", true);
         }
 
+        /// <summary>
+        /// create a new tram
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void btnAddSubmit_Click(object sender, EventArgs e)
         {
             
             int tramOnRail = 0;
             int status = 0;
-            switch (ddlAddStatus.SelectedItem.Text)
+            switch (ddlAddStatus.SelectedItem.Text) //get tram status
             {
                 case "Ok":
                     status = 1;
@@ -792,7 +813,7 @@ namespace ICT4RealsWebForms
                 tramOnRail = 1;
             }
             Tram tram = new Tram(1, "test", new Rail(1, true, false, 1, "Combino"), new User(2323, "test", "test", 1), 1, true);
-            if (tbAddName.Text != "")
+            if (tbAddName.Text != "")   //tram name cannot be emtpy
             {
                 bool result = Int32.TryParse(tbAddName.Text, out number);
                 if (result)
@@ -802,6 +823,7 @@ namespace ICT4RealsWebForms
                     Label tlbl = (Label)cph.FindControl("rail" + ddlAddLocation.Text);
                     if (tlbl.BackColor != Color.DimGray)
                     {
+                        //add the tram
                     if (
                             tram.AddTram(Convert.ToInt32(tbAddName.Text),
                                 Convert.ToInt32(ddlAddLocation.SelectedItem.Text),
@@ -809,9 +831,10 @@ namespace ICT4RealsWebForms
                             tramOnRail))
                       {
                         tram.Rail.Taken = true;
-                        refreshGUI();
+                        refreshGUI();   //refresh the GUI
                         return;
-                      }                
+                      }          
+                        //error messages
                       ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('Kan tram niet toevoegen')", true);
                 }                    
                     ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('Er staat al een tram op dit spoor')", true);
@@ -821,16 +844,23 @@ namespace ICT4RealsWebForms
             ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('Geef tramnummer mee')", true);
         }
 
+        /// <summary>
+        /// blocks or unblocks a rail
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void btnStatus_Click(object sender, EventArgs e)
         {
             Rail rail = new Rail(Convert.ToInt32(ddlStatusTrack.SelectedItem.Text), false, false, 1, "Combino");
             if (ddlStatusStatus.SelectedItem.Text == "Blokkeer")
             {
+                //if rail is already blocked, go to else
               if (!rail.IsRailBlocked(Convert.ToInt32(ddlStatusTrack.SelectedItem.Text)))
               {
+                  //blocks the rail
                   if (rail.BlockRail(Convert.ToInt32(ddlStatusTrack.SelectedItem.Text), 1))
                   {
-                      refreshGUI();
+                      refreshGUI(); //refresh GUI
                   }
 
                   else
@@ -845,11 +875,13 @@ namespace ICT4RealsWebForms
             }
             else if (ddlStatusStatus.SelectedItem.Text == "Deblokkeer")
             {
+                //check if rail is already unblocked
                 if (rail.IsRailBlocked(Convert.ToInt32(ddlStatusTrack.SelectedItem.Text)))
                 {
+                    //unblock rail
                     if (rail.BlockRail(Convert.ToInt32(ddlStatusTrack.SelectedItem.Text), 0))
                     {
-                        refreshGUI();
+                        refreshGUI();   //refresh GUI
                     }
                     else
                     {
@@ -954,10 +986,11 @@ namespace ICT4RealsWebForms
             Tram tram = new Tram(1, "test", new Rail(1, true, false, 1, "Combino"), new User(2323, "test", "test", 1), 1, true);
             if (lboxDriveInList.SelectedItem != null)
             {
+                //updates the tram
                 if (tram.MoveTram(Convert.ToInt32(lboxDriveInList.SelectedItem.Text),
                     Convert.ToInt32(ddlDriveInLocation.SelectedItem.Text), 1))
                 {
-                    refreshGUI();
+                    refreshGUI();   //refresh GUI
                     return;
                 }
                 ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('Kan tram niet verplaatsen')", true);
@@ -986,15 +1019,20 @@ namespace ICT4RealsWebForms
             {
                 index = 0;
                 Timer1.Enabled = true;
-                Simulatie.Text = "Stop Simulatie";
+                Simulatie.Text = "Stop Simulatie";  //set text to stop simulatie
             }
             else
             {
                 Timer1.Enabled = false;
-                Simulatie.Text = "Simuleer!";
+                Simulatie.Text = "Simuleer!";   //set text to simuleer!
             }
         }
 
+        /// <summary>
+        /// timer tick event to assign trams every 0.8 seconds
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void Timer1_Tick(object sender, EventArgs e)
         {
             if (index <= Administration.GetTramList.Count)
@@ -1013,8 +1051,8 @@ namespace ICT4RealsWebForms
         {
             if(padatabase.Clearremise())
             {
-                administration.UpdateTramList();
-                refreshGUI();
+                administration.UpdateTramList();    //update tram list
+                refreshGUI();   //refresh GUI
             }
             else
             {
