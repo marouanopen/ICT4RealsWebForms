@@ -46,14 +46,14 @@ namespace ICT4RealsWebForms
                 if (Session["index"] != null)
                 {
                     index = (int)Session["index"];
-                    simulatielbl.Text = "Simulatie stap: " + index;
+                    //simulatielbl.Text = "Simulatie stap: " + index;
 
                 }
             }
 
             //put items in dropdownlist tram details
             //delete items first
-            
+
 
             #region
             //put items in dropdownlist for each rails 1
@@ -224,7 +224,7 @@ namespace ICT4RealsWebForms
                 ddlAddStatus.Items.Add("Defect");
                 ddlAddStatus.Items.Add("Vies en Defect");
             }
-            
+
             #region
             //put items in dropdownlist for each rails 1
             ddlAddLocation.Items.Add("1201");
@@ -392,7 +392,7 @@ namespace ICT4RealsWebForms
                 ddlStatusStatus.Items.Add("Blokkeer");
                 ddlStatusStatus.Items.Add("Deblokkeer");
             }
-          
+
             #region
             //put items in dropdownlist for each rails 1
             ddlDriveInLocation.Items.Add("1201");
@@ -784,7 +784,7 @@ namespace ICT4RealsWebForms
                     {
                         refreshGUI();   //refresh the GUI
                         return;
-                    }                
+                    }
                     //error messages
                     ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('Kan tram niet aanpassen')", true);
                 }
@@ -800,7 +800,7 @@ namespace ICT4RealsWebForms
         /// <param name="e"></param>
         protected void btnAddSubmit_Click(object sender, EventArgs e)
         {
-            
+
             int tramOnRail = 0;
             int status = 0;
             switch (ddlAddStatus.SelectedItem.Text) //get tram status
@@ -830,26 +830,26 @@ namespace ICT4RealsWebForms
                 if (result)
                 {
                     //if there is already a tram on this rail, give message
-                    ContentPlaceHolder cph = (ContentPlaceHolder) this.Master.FindControl("MainContent");
+                    ContentPlaceHolder cph = (ContentPlaceHolder)this.Master.FindControl("MainContent");
                     Label tlbl = (Label)cph.FindControl("rail" + ddlAddLocation.Text);
                     if (tlbl.BackColor != Color.DimGray)
                     {
                         //add the tram
-                    if (
-                            tram.AddTram(Convert.ToInt32(tbAddName.Text),
-                                Convert.ToInt32(ddlAddLocation.SelectedItem.Text),
-                            status,
-                            tramOnRail))
-                      {
-                        tram.Rail.Taken = true;
-                        refreshGUI();   //refresh the GUI
-                        return;
-                      }                
+                        if (
+                                tram.AddTram(Convert.ToInt32(tbAddName.Text),
+                                    Convert.ToInt32(ddlAddLocation.SelectedItem.Text),
+                                status,
+                                tramOnRail))
+                        {
+                            tram.Rail.Taken = true;
+                            refreshGUI();   //refresh the GUI
+                            return;
+                        }
                         //error messages
-                      ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('Kan tram niet toevoegen')", true);
-                }                    
+                        ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('Kan tram niet toevoegen')", true);
+                    }
                     ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('Er staat al een tram op dit spoor')", true);
-                }                    
+                }
                 ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('Voer een nummer in')", true);
             }
             ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('Geef tramnummer mee')", true);
@@ -866,23 +866,23 @@ namespace ICT4RealsWebForms
             if (ddlStatusStatus.SelectedItem.Text == "Blokkeer")
             {
                 //if rail is already blocked, go to else
-              if (!rail.IsRailBlocked(Convert.ToInt32(ddlStatusTrack.SelectedItem.Text)))
-              {
-                  //blocks the rail
-                  if (rail.BlockRail(Convert.ToInt32(ddlStatusTrack.SelectedItem.Text), 1))
-                  {
-                      refreshGUI(); //refresh GUI
-                  }
+                if (!rail.IsRailBlocked(Convert.ToInt32(ddlStatusTrack.SelectedItem.Text)))
+                {
+                    //blocks the rail
+                    if (rail.BlockRail(Convert.ToInt32(ddlStatusTrack.SelectedItem.Text), 1))
+                    {
+                        refreshGUI(); //refresh GUI
+                    }
 
-                  else
-                  {
-                      ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('Spoor is al geblokkeerd')", true);
-                  }
-              }
-              else
-              {
-                  ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('Spoor is al geblokkeerd')", true);
-              }
+                    else
+                    {
+                        ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('Spoor is al geblokkeerd')", true);
+                    }
+                }
+                else
+                {
+                    ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('Spoor is al geblokkeerd')", true);
+                }
             }
             else if (ddlStatusStatus.SelectedItem.Text == "Deblokkeer")
             {
@@ -946,8 +946,8 @@ namespace ICT4RealsWebForms
                     {
                         Rail rail = t.Rail;
                         fillRailLbl(rail.Id, t.Id.ToString(), Color.DimGray);
+                    }
                 }
-            }
             }
         }
 
@@ -1045,7 +1045,7 @@ namespace ICT4RealsWebForms
         }
 
         private void simulationStep()
-            {
+        {
             List<Tram> trList = Administration.GetTramList;
             if (index <= trList.Count)
             {
@@ -1087,12 +1087,12 @@ namespace ICT4RealsWebForms
 
             // Change the text on the button to match the functionality of that button when pressed
             Simulatie.Text = "Simuleer!";
-            simulatielbl.Text = "";
+            //simulatielbl.Text = "";
         }
 
         protected void Uitrijden_Click(object sender, EventArgs e)
         {
-            if(padatabase.Clearremise())
+            if (padatabase.Clearremise())
             {
                 administration.UpdateTramList();    //update tram list
                 refreshGUI();   //refresh GUI

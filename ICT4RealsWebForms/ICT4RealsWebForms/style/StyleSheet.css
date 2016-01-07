@@ -213,6 +213,7 @@ input[type=submit] {
     width: 42px;
     height: auto;
     margin-top: 15px;
+
 }
 #beheer div span{
     display: block;
@@ -262,7 +263,7 @@ input[type=submit] {
 
     }
     .contentbox2{
-
+        float: left;
     }
     .contentbox3{
 
@@ -282,12 +283,14 @@ input[type=submit] {
     .contentbox1, .contentbox2, .contentbox3{
         display: inline-block;
         vertical-align: top;
+        box-sizing: border-box;
     }
     .contentbox1{
         width: 325px;
     }
     .contentbox2, #MainContent_ctl00{
         width: 650px;
+        float: left;
     }
     .contentbox3{
         width: 1024px;
@@ -308,12 +311,14 @@ input[type=submit] {
         height: 100%;
         display: inline-block;
         vertical-align: top;
+        box-sizing: border-box;
     }
     .contentbox1{
         width: 517px;
     }
     .contentbox2, #MainContent_ctl00{
         width: 1039px;
+        float: left;
     }
     .contentbox3{
         width: 1600px;

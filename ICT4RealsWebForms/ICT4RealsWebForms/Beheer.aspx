@@ -1,14 +1,14 @@
 ﻿<%@ Page Title="Beheer" Language="C#" MasterPageFile="~/ICT4Reals.Master" AutoEventWireup="true" CodeBehind="Beheer.aspx.cs" Inherits="ICT4RealsWebForms.About" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-    <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Conditional">
+    <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Conditional" Visible="True">
         <ContentTemplate>
             <div class="mainContent">
                 <div id="beheerbtn">
                     <asp:Button ID="Simulatie" runat="server" OnClick="Simulatie_Click" Text="Simuleer!" />
                     <asp:Button ID="Uitrijden" runat="server" OnClick="Uitrijden_Click" Text="Alles Uitrijden" />
                     <asp:Button ID="btnRefresh" runat="server" OnClick="btnRefresh_Click" Text="Refresh" />
-                    <asp:Label ID="simulatielbl" runat="server"></asp:Label>
+                    <!--<asp:Label ID="simulatielbl" runat="server"></asp:Label>-->
                 </div>
 
                 <asp:Timer ID="Timer1" runat="server" Enabled="False" Interval="1000" OnTick="Timer1_Tick"></asp:Timer>
