@@ -1,7 +1,7 @@
-﻿<%@ Page Title="schoonmaak" Language="C#" MasterPageFile="~/ICT4Reals.Master" AutoEventWireup="true" CodeBehind="Schoonmaak.aspx.cs" Inherits="ICT4RealsWebForms.Schoonmaak" %>
+﻿<%@ Page Title="Schoonmaak" Language="C#" MasterPageFile="~/ICT4Reals.Master" AutoEventWireup="true" CodeBehind="Schoonmaak.aspx.cs" Inherits="ICT4RealsWebForms.Schoonmaak" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-        <div class="mainContent"></div>
+    <div class="mainContent">
     <h2><%: Title %></h2>
     <div class="contentbox1">
 
@@ -38,5 +38,6 @@
                 <asp:ListBox ID="lboxTramLog" runat="server"></asp:ListBox>
             </div>
         </fieldset>
+    </div>
     </div>
 </asp:Content>
