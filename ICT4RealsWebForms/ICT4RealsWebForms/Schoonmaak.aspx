@@ -20,9 +20,12 @@
 
             <div class="formitem">
                 <label for="ddlTramState">State</label>
-                <asp:DropDownList ID="ddlTramState" runat="server"></asp:DropDownList>
+                <asp:DropDownList ID="ddlTramState" runat="server">
+                    <asp:ListItem>ok</asp:ListItem>
+                    <asp:ListItem>Kapot</asp:ListItem>
+                </asp:DropDownList>
             </div>
-            <asp:Button ID="btnDetailsAdd" runat="server" Text="Toevoegen" />
+            <asp:Button ID="btnDetailsAdd" runat="server" Text="Toevoegen" OnClick="btnDetailsAdd_Click" />
         </fieldset>
     </div>
 

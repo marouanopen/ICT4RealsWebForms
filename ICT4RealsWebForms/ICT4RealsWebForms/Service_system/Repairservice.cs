@@ -34,8 +34,7 @@ namespace ICT4RealsWebForms.Service_System
         /// <returns></returns>
         public bool update(int tramID, int StatusID)
         {
-            if (database.controleMax())
-            {
+            
                 if (database.updateRepair(tramID, StatusID))
                 {
                     return true;
@@ -44,7 +43,7 @@ namespace ICT4RealsWebForms.Service_System
                 {
                     return false;
                 }
-            }
+            
             return false;
             
         }
