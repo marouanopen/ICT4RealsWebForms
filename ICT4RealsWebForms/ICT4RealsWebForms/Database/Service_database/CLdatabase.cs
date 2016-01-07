@@ -51,8 +51,8 @@ namespace ICT4RealsWebForms.DataBase
             try
             {
                 string query;
-                query = "UPDATE Beurt SET";
-                query += "einddatum = to_date('" + date.ToString("MM-dd-yyyy") + "','MM-DD-YYYY') , superbeurt ="+ superbeurt + "WHERE TramID = " + tramID;
+                query = "UPDATE Beurt SET ";
+                query += "einddatum = to_date('" + date.ToString("MM-dd-yyyy") + "','MM-DD-YYYY') , superbeurt ="+ superbeurt + " WHERE TramID = " + tramID;
                 doQuery(query); //query will be activated
                 return true;
             }

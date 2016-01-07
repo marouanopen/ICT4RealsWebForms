@@ -93,7 +93,7 @@ namespace ICT4RealsWebForms.Service_System
         /// <param name="tramID">id of the tram</param>
         /// <param name="superbeurt">id of the superservice</param>
         /// <returns>bool respresenting succes</returns>
-        public bool addlog(int tramID, int superbeurt)
+        public bool UpdateLog(int tramID, int superbeurt)
         {
             DateTime date = DateTime.Now;
             if (database.updateLog(tramID, date, superbeurt))
