@@ -36,8 +36,8 @@ namespace ICT4RealsWebForms
             password = (string)tbPassword.Text;
             try
             {
-                if(administration.LogIn("beheerder@mail.com", "ict4reals"))
-                //if (administration.LogIn(username, password))
+                //if(administration.LogIn("beheerder@mail.com", "ict4reals"))
+                if (administration.LogIn(username, password))
                 {
                     ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('You have succesfully logged in')", true);
                     if(Administration.LoggedInUser.Allowedpages.Contains("beheer"))
