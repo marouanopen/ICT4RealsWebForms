@@ -1087,6 +1087,7 @@ namespace ICT4RealsWebForms
 
             // Change the text on the button to match the functionality of that button when pressed
             Simulatie.Text = "Simuleer!";
+            simulatielbl.Text = "";
         }
 
         protected void Uitrijden_Click(object sender, EventArgs e)

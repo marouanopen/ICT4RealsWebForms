@@ -31,15 +31,6 @@ namespace ICT4RealsWebForms {
         protected global::System.Web.UI.WebControls.Button Simulatie;
         
         /// <summary>
-        /// simulatielbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label simulatielbl;
-        
-        /// <summary>
         /// Uitrijden control.
         /// </summary>
         /// <remarks>
@@ -56,6 +47,15 @@ namespace ICT4RealsWebForms {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnRefresh;
+        
+        /// <summary>
+        /// simulatielbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label simulatielbl;
         
         /// <summary>
         /// Timer1 control.
