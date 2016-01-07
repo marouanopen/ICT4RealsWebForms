@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/ICT4Reals.Master" AutoEventWireup="true" CodeBehind="InUitRij.aspx.cs" Inherits="ICT4RealsWebForms.InUitRij" %>
+﻿<%@ Page Title="In Uit Rij" Language="C#" MasterPageFile="~/ICT4Reals.Master" AutoEventWireup="true" CodeBehind="InUitRij.aspx.cs" Inherits="ICT4RealsWebForms.InUitRij" %>
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <div class="mainContent">
         <h2><%: Title %></h2>
