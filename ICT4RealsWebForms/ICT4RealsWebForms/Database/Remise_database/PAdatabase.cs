@@ -143,6 +143,8 @@ namespace ICT4RealsWebForms.DataBase
             doQuery(query);
             query = "update spoor set taken = 0";
             doQuery(query);
+            query = "delete from beurt where einddatum is null";
+            doQuery(query);
             return true;
         }
     }
