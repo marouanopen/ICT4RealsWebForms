@@ -303,7 +303,7 @@ input[type=submit] {
     }
 
     .contentbox2 {
-        float: left;
+        
     }
 
     .contentbox3 {
@@ -335,7 +335,6 @@ input[type=submit] {
 
     .contentbox2, #MainContent_ctl00 {
         width: 650px;
-        float: left;
     }
 
     .contentbox3 {
@@ -360,16 +359,14 @@ input[type=submit] {
         height: 100%;
         display: inline-block;
         vertical-align: top;
-        box-sizing: border-box;
     }
 
     .contentbox1 {
         width: 517px;
     }
 
-    .contentbox2, #MainContent_ctl00 {
+    .contentbox2, #MainContent_UpdatePanel1 {
         width: 1039px;
-        float: left;
     }
 
     .contentbox3 {
@@ -385,7 +382,7 @@ input[type=submit] {
     }
 }
 
-#MainContent_ctl00 {
+#MainContent_UpdatePanel1 {
     /*Width from contentbox2*/
     display: inline-block;
 }
