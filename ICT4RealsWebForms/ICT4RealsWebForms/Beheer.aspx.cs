@@ -971,7 +971,7 @@ namespace ICT4RealsWebForms
         {
             updateListsFromDB();
             List<Rail> railList = Administration.GetRailList;
-            
+
                 if (railList != null)
                 {
                     foreach (Rail r in railList)
@@ -987,7 +987,7 @@ namespace ICT4RealsWebForms
                     }
                 }
                 UpdatePanel1.Update();
-        }
+            }
 
         /// <summary>
         /// Colour and fill the label with a string, the label represents the rail 

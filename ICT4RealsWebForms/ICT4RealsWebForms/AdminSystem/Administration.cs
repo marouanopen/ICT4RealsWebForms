@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using ICT4RealsWebForms.DataBase;
@@ -176,19 +175,19 @@ namespace ICT4RealsWebForms.AdminSystem
                     int status = 0;
                     bool onRail = false;
 
-                    if ((string) T["status"] == "Ok")
+                if ((string)T["status"] == "Ok")
                     {
                         status = 1;
                     }
-                    if ((string) T["status"] == "Vies")
+                if ((string)T["status"] == "Vies")
                     {
                         status = 2;
                     }
-                    if ((string) T["status"] == "Defect")
+                if ((string)T["status"] == "Defect")
                     {
                         status = 3;
                     }
-                    if ((string) T["status"] == "ViesEnDefect")
+                if ((string)T["status"] == "ViesEnDefect")
                     {
                         status = 4;
                     }
@@ -208,11 +207,9 @@ namespace ICT4RealsWebForms.AdminSystem
 
                         }
                     }
-
-                    Tram t = new Tram(Convert.ToInt32(T["tramid"]), (string) T["type"], rail, LoggedInUser, status,
-                        onRail);
+                Tram t = new Tram(Convert.ToInt32(T["tramid"]), (string)T["type"], rail, LoggedInUser, status, onRail);
                     GetTramList.Add(t);
                 }
-        }
+            }
     }
 }
