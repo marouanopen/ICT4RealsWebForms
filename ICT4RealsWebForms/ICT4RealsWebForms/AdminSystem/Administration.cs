@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using ICT4RealsWebForms.DataBase;
@@ -168,46 +169,55 @@ namespace ICT4RealsWebForms.AdminSystem
         public void UpdateTramList()
         {
             GetTramList.Clear();
-            foreach (Dictionary<string, object> T in addatabase.GetAllTrams())
+            try
             {
-                Rail rail = null;
-                int status = 0;
-                bool onRail = false;
+                foreach (Dictionary<string, object> T in addatabase.GetAllTrams())
+                {
+                    Rail rail = null;
+                    int status = 0;
+                    bool onRail = false;
 
-                if ((string)T["status"] == "Ok")
-                {
-                    status = 1;
-                }
-                if ((string)T["status"] == "Vies")
-                {
-                    status = 2;
-                }
-                if ((string)T["status"] == "Defect")
-                {
-                    status = 3;
-                }
-                if ((string)T["status"] == "ViesEnDefect")
-                {
-                    status = 4;
-                }
-                if (Convert.ToInt32(T["aanwezigopspoor"]) == 0)
-                {
-                    onRail = false;
-                }
-                else
-                {
-                    onRail = true;
-                }
-                foreach (Rail R in Administration.GetRailList)
-                {
-                    if (R.Id == Convert.ToInt32(T["spoorid"]))
+                    if ((string) T["status"] == "Ok")
                     {
-                        rail = R;
-
+                        status = 1;
                     }
+                    if ((string) T["status"] == "Vies")
+                    {
+                        status = 2;
+                    }
+                    if ((string) T["status"] == "Defect")
+                    {
+                        status = 3;
+                    }
+                    if ((string) T["status"] == "ViesEnDefect")
+                    {
+                        status = 4;
+                    }
+                    if (Convert.ToInt32(T["aanwezigopspoor"]) == 0)
+                    {
+                        onRail = false;
+                    }
+                    else
+                    {
+                        onRail = true;
+                    }
+                    foreach (Rail R in Administration.GetRailList)
+                    {
+                        if (R.Id == Convert.ToInt32(T["spoorid"]))
+                        {
+                            rail = R;
+
+                        }
+                    }
+
+                    Tram t = new Tram(Convert.ToInt32(T["tramid"]), (string) T["type"], rail, LoggedInUser, status,
+                        onRail);
+                    GetTramList.Add(t);
                 }
-                Tram t = new Tram(Convert.ToInt32(T["tramid"]), (string)T["type"], rail, LoggedInUser, status, onRail);
-                GetTramList.Add(t);
+            }
+            catch 
+            {
+                
             }
         }
     }
