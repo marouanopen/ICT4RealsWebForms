@@ -169,8 +169,7 @@ namespace ICT4RealsWebForms.AdminSystem
         public void UpdateTramList()
         {
             GetTramList.Clear();
-            try
-            {
+            
                 foreach (Dictionary<string, object> T in addatabase.GetAllTrams())
                 {
                     Rail rail = null;
@@ -214,11 +213,6 @@ namespace ICT4RealsWebForms.AdminSystem
                         onRail);
                     GetTramList.Add(t);
                 }
-            }
-            catch 
-            {
-                
-            }
         }
     }
 }

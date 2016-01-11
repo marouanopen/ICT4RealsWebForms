@@ -739,12 +739,14 @@ namespace ICT4RealsWebForms
                         return;
                     }
                     //error messages
-                    ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('Kan tram niet verwijderen')",
-                        true);
+                    ClientScript.RegisterStartupScript(Page.GetType(), "alert", "alert('Kan tram niet verwijderen');", true);
+                    //ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('Kan tram niet verwijderen')",true);
                 }
-                ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('Voer een nummer in')", true);
+                ClientScript.RegisterStartupScript(Page.GetType(), "alert", "alert('Voer een nummer in');", true);
+               // ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('Voer een nummer in')", true);
             }
-            ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('Geef tramnummer mee')", true);
+            ClientScript.RegisterStartupScript(Page.GetType(), "alert", "alert('Geef tramnummer mee');", true);
+            //ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('Geef tramnummer mee')", true);
         }
 
         /// <summary>
@@ -786,11 +788,14 @@ namespace ICT4RealsWebForms
                         return;
                     }
                     //error messages
-                    ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('Kan tram niet aanpassen')", true);
+                    ClientScript.RegisterStartupScript(Page.GetType(), "alert", "alert('Kan tram niet aanpassen');", true);
+                    //ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('Kan tram niet aanpassen')", true);
                 }
-                ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('Voer een nummer in')", true);
+                ClientScript.RegisterStartupScript(Page.GetType(), "alert", "alert('Voer een nummer in');", true);
+                //ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('Voer een nummer in')", true);
             }
-            ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('Geef tramnummer mee')", true);
+            ClientScript.RegisterStartupScript(Page.GetType(), "alert", "alert('Geef tramnummer mee');", true);
+            //ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('Geef tramnummer mee')", true);
         }
 
         /// <summary>
@@ -846,13 +851,17 @@ namespace ICT4RealsWebForms
                             return;
                         }
                         //error messages
-                        ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('Kan tram niet toevoegen')", true);
+                        ClientScript.RegisterStartupScript(Page.GetType(), "alert", "alert('Kan tram niet toevoegen');", true);
+                        //ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('Kan tram niet toevoegen')", true);
                     }
-                    ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('Er staat al een tram op dit spoor')", true);
+                    ClientScript.RegisterStartupScript(Page.GetType(), "alert", "alert('Er staat al een tram op dit spoor');", true);
+                    //ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('Er staat al een tram op dit spoor')", true);
                 }
-                ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('Voer een nummer in')", true);
+                ClientScript.RegisterStartupScript(Page.GetType(), "alert", "alert('Voer een nummer in');", true);
+                //ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('Voer een nummer in')", true);
             }
-            ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('Geef tramnummer mee')", true);
+            ClientScript.RegisterStartupScript(Page.GetType(), "alert", "alert('Geef tramnummer mee');", true);
+            //ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('Geef tramnummer mee')", true);
         }
 
         /// <summary>
@@ -876,12 +885,14 @@ namespace ICT4RealsWebForms
 
                     else
                     {
-                        ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('Spoor is al geblokkeerd')", true);
+                        ClientScript.RegisterStartupScript(Page.GetType(), "alert", "alert('Spoor is al geblokkeerd');", true);
+                        //ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('Spoor is al geblokkeerd')", true);
                     }
                 }
                 else
                 {
-                    ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('Spoor is al geblokkeerd')", true);
+                    ClientScript.RegisterStartupScript(Page.GetType(), "alert", "alert('Spoor is al geblokkeerd');", true);
+                    //ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('Spoor is al geblokkeerd')", true);
                 }
             }
             else if (ddlStatusStatus.SelectedItem.Text == "Deblokkeer")
@@ -896,12 +907,14 @@ namespace ICT4RealsWebForms
                     }
                     else
                     {
-                        ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('Spoor is al gedeblokkeerd')", true);
+                        ClientScript.RegisterStartupScript(Page.GetType(), "alert", "alert('Spoor is al gedeblokkeerd');", true);
+                        //ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('Spoor is al gedeblokkeerd')", true);
                     }
                 }
                 else
                 {
-                    ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('Spoor is al gedeblokkeerd')", true);
+                    ClientScript.RegisterStartupScript(Page.GetType(), "alert", "alert('Spoor is al gedeblokkeerd');", true);
+                    //ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('Spoor is al gedeblokkeerd')", true);
                 }
             }
             refreshGUI();
@@ -958,8 +971,7 @@ namespace ICT4RealsWebForms
         {
             updateListsFromDB();
             List<Rail> railList = Administration.GetRailList;
-            try
-            {
+            
                 if (railList != null)
                 {
                     foreach (Rail r in railList)
@@ -975,11 +987,6 @@ namespace ICT4RealsWebForms
                     }
                 }
                 UpdatePanel1.Update();
-            }
-            catch
-            {
-                
-            }
         }
 
         /// <summary>
@@ -1011,9 +1018,11 @@ namespace ICT4RealsWebForms
                     refreshGUI();   //refresh GUI
                     return;
                 }
-                ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('Kan tram niet verplaatsen')", true);
+                ClientScript.RegisterStartupScript(Page.GetType(), "alert", "alert('Kan tram niet verplaatsen');", true);
+                //ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('Kan tram niet verplaatsen')", true);
             }
-            ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('Geen tram geselecteerd')", true);
+            ClientScript.RegisterStartupScript(Page.GetType(), "alert", "alert('Geen tram geselecteerd');", true);
+            //ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('Geen tram geselecteerd')", true);
         }
 
         protected void btnRefresh_Click(object sender, EventArgs e)
