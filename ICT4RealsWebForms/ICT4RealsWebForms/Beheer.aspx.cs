@@ -958,28 +958,22 @@ namespace ICT4RealsWebForms
         {
             updateListsFromDB();
             List<Rail> railList = Administration.GetRailList;
-            try
+
+            if (railList != null)
             {
-                if (railList != null)
+                foreach (Rail r in railList)
                 {
-                    foreach (Rail r in railList)
+                    if (!r.IsRailBlocked(r.Id))
                     {
-                        if (!r.IsRailBlocked(r.Id))
-                        {
-                            fillRailLbl(r.Id, "", Color.Transparent);
-                        }
-                        else
-                        {
-                            fillRailLbl(r.Id, "X", Color.Red);
-                        }
+                        fillRailLbl(r.Id, "", Color.Transparent);
+                    }
+                    else
+                    {
+                        fillRailLbl(r.Id, "X", Color.Red);
                     }
                 }
-                UpdatePanel1.Update();
             }
-            catch
-            {
-                
-            }
+            UpdatePanel1.Update();
         }
 
         /// <summary>
